@@ -4,7 +4,7 @@ All notable changes to this repository will be documented in this file.
 
 This repository follows SemVer for releases, but Git tags use a leading `v`.
 
-## Unreleased
+## v0.8.0-alpha.1
 
 ### Added
 

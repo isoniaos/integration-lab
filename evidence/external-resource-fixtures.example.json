@@ -1,0 +1,63 @@
+{
+  "scenario": "v0.8-sepolia-accountability-smoke",
+  "network": "sepolia",
+  "chainId": 11155111,
+  "governance": {
+    "orgId": null,
+    "proposalId": null,
+    "proposalUrl": null
+  },
+  "transactions": [
+    {
+      "label": "proposal-created",
+      "txHash": null,
+      "blockNumber": null,
+      "explorerUrl": null,
+      "trustBoundary": "block explorer transaction proof only"
+    }
+  ],
+  "controlPlane": {
+    "baseUrl": null,
+    "overviewUrl": null,
+    "proposalUrl": null,
+    "routeUrl": null,
+    "trustBoundary": "indexed explanation of protocol state"
+  },
+  "appCore": {
+    "baseUrl": null,
+    "orgUrl": null,
+    "proposalUrl": null,
+    "trustBoundary": "presentation of protocol and Control Plane state"
+  },
+  "snapshot": {
+    "spaceUrl": null,
+    "proposalUrl": null,
+    "discussionUrl": null,
+    "trustBoundary": "off-chain signaling or discussion context"
+  },
+  "safe": {
+    "safeAddress": null,
+    "safeTransactionUrl": null,
+    "executionTxUrl": null,
+    "trustBoundary": "execution or workflow evidence"
+  },
+  "tally": {
+    "governorUrl": null,
+    "compatibilityNotes": null,
+    "trustBoundary": "Governor compatibility experiment"
+  },
+  "agora": {
+    "url": null,
+    "notes": null,
+    "trustBoundary": "research or linking context"
+  },
+  "github": {
+    "issueUrl": null,
+    "pullRequestUrl": null,
+    "trustBoundary": "implementation or discussion context"
+  },
+  "discourse": {
+    "topicUrl": null,
+    "trustBoundary": "discussion context"
+  }
+}

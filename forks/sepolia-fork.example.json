@@ -1,0 +1,16 @@
+{
+  "network": "sepolia",
+  "chainId": 11155111,
+  "forkedAtBlockNumber": null,
+  "forkedAtBlockHash": null,
+  "sourceRpcLabel": null,
+  "label": "IsoniaOS v0.8 pinned Sepolia fork",
+  "contracts": {
+    "govCore": null,
+    "govProposals": null
+  },
+  "notes": [
+    "Pin a real Sepolia block before replaying read models.",
+    "Fork-only transactions are not visible to external provider APIs or UIs."
+  ]
+}

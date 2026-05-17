@@ -1,0 +1,23 @@
+# Sepolia Safe Proof Checklist
+
+## Practical Prerequisites
+
+- Sepolia Safe address.
+- Signer wallet access for the test operator or relevant signer set.
+- Safe web app or transaction service access for Sepolia.
+- Block explorer base URL for Sepolia transaction proof.
+
+## Proof Workflow
+
+1. Record the Safe address.
+2. Create or select a Safe transaction relevant to the scenario.
+3. Capture the Safe transaction service URL if available.
+4. Capture the Sepolia transaction hash after execution if available.
+5. Link both records from the scenario evidence file.
+
+## Trust Boundary
+
+Safe transaction proof is execution or workflow evidence. It is not
+automatically IsoniaOS governance authority. A Safe may execute an action, but
+IsoniaOS authority must still be explained through protocol state and product
+semantics.

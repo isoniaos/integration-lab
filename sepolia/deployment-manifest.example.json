@@ -1,0 +1,24 @@
+{
+  "network": "sepolia",
+  "chainId": 11155111,
+  "label": "IsoniaOS v0.8 integration lab",
+  "deployedAt": null,
+  "blockNumber": null,
+  "contracts": {
+    "govCore": null,
+    "govProposals": null
+  },
+  "capabilities": {
+    "typedActivationBatch": null,
+    "bootstrapFinalization": null,
+    "publicArchiveReadModels": null,
+    "accountabilityReadModels": null
+  },
+  "externalTools": {
+    "snapshotSpace": null,
+    "safeAddress": null,
+    "tallyGovernorUrl": null,
+    "agoraUrl": null,
+    "blockExplorerBaseUrl": "https://sepolia.etherscan.io"
+  }
+}

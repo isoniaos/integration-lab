@@ -1,0 +1,25 @@
+# Snapshot Testnet Space Checklist
+
+## Practical Prerequisites
+
+- A wallet controlled by the test operator.
+- Snapshot account access.
+- Testnet space setup path confirmed for the current Snapshot workflow.
+- ENS or testnet naming requirements checked if Snapshot requires them for the
+  selected workflow.
+- Voting strategy and proposal settings recorded.
+
+## Smoke Workflow
+
+1. Create or select a Snapshot testnet space.
+2. Record the space URL and owner or controller address.
+3. Create a test proposal, discussion, or signaling record.
+4. Link the Snapshot record from the scenario evidence file.
+5. Label the source as off-chain context unless a scoped integration says
+   otherwise.
+
+## Trust Boundary
+
+Snapshot records are evidence or context for the integration lab. They are not
+automatically IsoniaOS governance authority. The source label should make this
+clear in every scenario that references Snapshot.

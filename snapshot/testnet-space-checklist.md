@@ -23,3 +23,11 @@
 Snapshot records are evidence or context for the integration lab. They are not
 automatically IsoniaOS governance authority. The source label should make this
 clear in every scenario that references Snapshot.
+
+## Managed Execution Smoke Usage
+
+For the managed execution smoke scenario, record Snapshot testnet space,
+proposal, or discussion links only as off-chain signaling or discussion
+context. Snapshot must not be used as proof that the Isonia proposal was
+approved, executed, or authorized unless a future scoped product integration
+explicitly models that authority.

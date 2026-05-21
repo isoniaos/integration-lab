@@ -46,6 +46,34 @@ Agora links, block explorer pages, GitHub issues, and Discourse threads remain
 evidence or context unless IsoniaOS explicitly models them as governance
 authority.
 
+## v0.8 Managed Execution Smoke Kit
+
+The managed execution smoke kit prepares a Sepolia field test for the v0.8
+org-scoped execution path without deploying contracts or calling provider APIs
+from this repository.
+
+Key files:
+
+- `scenarios/v0.8-sepolia-managed-execution-smoke.md` describes the field-test
+  flow and pass criteria.
+- `sepolia/managed-execution-manifest.example.json` captures the run shape,
+  protocol metadata, permission rules, proposal identity, canonical execution
+  receipt, and source disclosure.
+- `sepolia/managed-execution-runbook.md` gives operator steps for a future live
+  Sepolia run.
+- `forks/sepolia-managed-execution-fork.example.json` separates live provider
+  validation from deterministic fork replay.
+- `evidence/managed-execution-external-resources.example.json` templates
+  provider, explorer, discussion, Control Plane, and App Core evidence.
+- `scripts/validate-sepolia-managed-execution-manifest.mjs` validates the
+  manifest shape without npm dependencies.
+
+Validate the example manifest with:
+
+```bash
+node scripts/validate-sepolia-managed-execution-manifest.mjs sepolia/managed-execution-manifest.example.json
+```
+
 ## Repository Layout
 
 ```txt
@@ -57,7 +85,7 @@ safe/       Safe Sepolia proof workflow notes.
 tally/      Governor compatibility experiment notes.
 agora/      Agora research and linking notes.
 evidence/   External evidence fixture templates.
-scripts/    Placeholder for future lab-only helper scripts.
+scripts/    Lab-only helper scripts with no package dependency requirement.
 ```
 
 ## Authority Boundary

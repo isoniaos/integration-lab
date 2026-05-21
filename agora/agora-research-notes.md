@@ -20,3 +20,9 @@
 Agora records are research, context, or links in this lab. They are not
 IsoniaOS governance authority unless a scoped integration defines that authority
 boundary in product documentation and implementation.
+
+## Managed Execution Smoke Usage
+
+For the managed execution smoke scenario, keep Agora in the research lane unless
+an explicit compatible governor or provider path is validated. Agora links can
+be recorded as research context, not as proof of IsoniaOS approval or execution.

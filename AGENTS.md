@@ -56,4 +56,10 @@ For documentation-only changes, run:
 git diff --check
 ```
 
+For managed execution manifest changes, also run:
+
+```bash
+node scripts/validate-sepolia-managed-execution-manifest.mjs sepolia/managed-execution-manifest.example.json
+```
+
 If package tooling is added later, also run the relevant lint, typecheck, or test command documented with that tooling.

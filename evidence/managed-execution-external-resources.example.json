@@ -1,0 +1,93 @@
+{
+  "scenario": "v0.8-sepolia-managed-execution-smoke",
+  "network": "sepolia",
+  "chainId": 11155111,
+  "governance": {
+    "orgId": "0x00000000000000000000000000000000000000000000000000000000000000a1",
+    "proposalId": "example-only-proposal-1",
+    "proposalUrl": null,
+    "trustBoundary": "IsoniaOS protocol state is authoritative for modeled governance state"
+  },
+  "executionProof": {
+    "executionPath": "managed",
+    "executorAddress": "0x0000000000000000000000000000000000000a01",
+    "managedExecutorAddress": "0x0000000000000000000000000000000000000103",
+    "targetAddress": "0x0000000000000000000000000000000000000201",
+    "value": "0",
+    "actionSelector": "0xdeadbeef",
+    "dataHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "txHash": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "blockNumber": 0,
+    "trustBoundary": "Canonical execution receipt emitted by GovProposals and indexed from chain state"
+  },
+  "controlPlane": {
+    "baseUrl": null,
+    "proposalUrl": null,
+    "executionReceiptUrl": null,
+    "trustBoundary": "Indexer, projector, explainer, and read API for protocol state"
+  },
+  "appCore": {
+    "baseUrl": null,
+    "proposalUrl": null,
+    "accountabilityUrl": null,
+    "trustBoundary": "Presentation of protocol and Control Plane state"
+  },
+  "externalResources": [
+    {
+      "type": "snapshot",
+      "label": "Snapshot testnet proposal",
+      "url": null,
+      "authority": false,
+      "trustBoundary": "Off-chain signaling or discussion context"
+    },
+    {
+      "type": "safe",
+      "label": "Safe Sepolia transaction proof",
+      "url": null,
+      "authority": false,
+      "trustBoundary": "Workflow or execution evidence"
+    },
+    {
+      "type": "tally",
+      "label": "Tally Governor compatibility page",
+      "url": null,
+      "authority": false,
+      "trustBoundary": "Governor compatibility research only unless a compatible path is scoped and validated"
+    },
+    {
+      "type": "agora",
+      "label": "Agora research note",
+      "url": null,
+      "authority": false,
+      "trustBoundary": "Research lane or linking context"
+    },
+    {
+      "type": "block-explorer",
+      "label": "Sepolia execution transaction",
+      "url": null,
+      "authority": false,
+      "trustBoundary": "Transaction proof only"
+    },
+    {
+      "type": "github",
+      "label": "Implementation or release context",
+      "url": null,
+      "authority": false,
+      "trustBoundary": "Implementation or discussion context"
+    },
+    {
+      "type": "discourse",
+      "label": "Discussion context",
+      "url": null,
+      "authority": false,
+      "trustBoundary": "Discussion context"
+    }
+  ],
+  "sourceDisclosure": {
+    "externalRecordsAuthority": false,
+    "notes": [
+      "External records are evidence or context unless explicitly modeled as IsoniaOS authority.",
+      "Provider records must not override protocol state, Control Plane projections, or documented product semantics."
+    ]
+  }
+}

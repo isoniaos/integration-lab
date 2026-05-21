@@ -4,6 +4,16 @@ All notable changes to this repository will be documented in this file.
 
 This repository follows SemVer for releases, but Git tags use a leading `v`.
 
+## Unreleased
+
+### Added
+
+- v0.8 Sepolia managed execution smoke scenario, runbook, manifest template,
+  pinned fork template, external evidence fixture, and dependency-free manifest
+  validator.
+- Provider boundary updates for Snapshot, Safe, Tally, Agora, block explorer,
+  GitHub, and Discourse evidence in managed execution field tests.
+
 ## v0.8.0-alpha.1
 
 ### Added

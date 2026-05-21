@@ -21,3 +21,10 @@ Safe transaction proof is execution or workflow evidence. It is not
 automatically IsoniaOS governance authority. A Safe may execute an action, but
 IsoniaOS authority must still be explained through protocol state and product
 semantics.
+
+## Managed Execution Smoke Usage
+
+For the managed execution smoke scenario, record Safe Sepolia transaction links
+as workflow or transaction proof evidence. They can help verify that a related
+transaction occurred, but the Isonia managed execution proof must come from the
+modeled proposal, permission rules, and canonical `ProposalExecuted` receipt.

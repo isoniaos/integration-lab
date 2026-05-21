@@ -1,0 +1,49 @@
+{
+  "network": "sepolia",
+  "chainId": 11155111,
+  "label": "IsoniaOS v0.8 managed execution pinned Sepolia fork",
+  "purpose": "Deterministic replay and read-model validation for the managed execution smoke scenario",
+  "forkedAtBlockNumber": null,
+  "forkedAtBlockHash": null,
+  "sourceRpcLabel": "example-only-upstream-sepolia-rpc",
+  "liveSepoliaUse": [
+    "Provider UX and API validation",
+    "Wallet behavior",
+    "Public block explorer visibility",
+    "Snapshot, Safe, Tally, Agora, GitHub, and Discourse link checks"
+  ],
+  "pinnedForkUse": [
+    "Deterministic replay of modeled protocol events",
+    "Control Plane raw event and projection rebuild validation",
+    "Route and execution receipt explanation checks",
+    "App Core read-model fixture review"
+  ],
+  "contracts": {
+    "govCore": "0x0000000000000000000000000000000000000101",
+    "govProposals": "0x0000000000000000000000000000000000000102",
+    "orgExecutor": "0x0000000000000000000000000000000000000103"
+  },
+  "organization": {
+    "orgId": "0x00000000000000000000000000000000000000000000000000000000000000a1"
+  },
+  "proposalIdentity": {
+    "proposalId": "example-only-proposal-1",
+    "targetAddress": "0x0000000000000000000000000000000000000201",
+    "value": "0",
+    "actionSelector": "0xdeadbeef",
+    "dataHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "metadataUri": "ipfs://example-only/isonia/v0.8/managed-execution-smoke"
+  },
+  "expectedReplayChecks": [
+    "Raw event storage includes blockHash for execution receipt logs.",
+    "Projection rebuild preserves proposal target, value, actionSelector, and dataHash.",
+    "Managed executor address is indexed when present.",
+    "Direct execution remains distinguishable from managed execution.",
+    "Read models do not import provider evidence as authority."
+  ],
+  "notes": [
+    "Pin a real Sepolia block before replaying read models.",
+    "Transactions created on a pinned fork are not visible to public external providers.",
+    "Do not use fork-only transaction hashes as live block explorer or provider evidence."
+  ]
+}

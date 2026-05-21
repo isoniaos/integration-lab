@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "isonia.integration-lab.managed-execution-smoke.v1",
+  "scenario": "v0.8-sepolia-managed-execution-smoke",
+  "network": {
+    "name": "sepolia",
+    "chainId": 11155111,
+    "blockExplorerBaseUrl": "https://sepolia.etherscan.io"
+  },
+  "protocolDeployment": {
+    "label": "IsoniaOS v0.8 Sepolia managed execution smoke deployment",
+    "deploymentId": "example-only-sepolia-managed-execution",
+    "deployedAtBlockNumber": null,
+    "releaseReferences": {
+      "evmContracts": "v0.8.0-alpha.5",
+      "controlPlane": "v0.8.0-alpha.4",
+      "appCore": "v0.8.0-alpha.4"
+    },
+    "notes": [
+      "Release references are evidence labels only. Runtime behavior must come from deployed contracts, explicit capability metadata, and observed chain state.",
+      "All addresses and hashes in this example are placeholders and must be replaced before a live run."
+    ]
+  },
+  "contracts": {
+    "govCore": "0x0000000000000000000000000000000000000101",
+    "govProposals": "0x0000000000000000000000000000000000000102",
+    "orgExecutor": "0x0000000000000000000000000000000000000103"
+  },
+  "organization": {
+    "orgId": "0x00000000000000000000000000000000000000000000000000000000000000a1",
+    "label": "Example-only Sepolia managed execution organization",
+    "expectedOrgExecutorAddress": "0x0000000000000000000000000000000000000103"
+  },
+  "controlPlaneRuntime": {
+    "ISONIA_PROTOCOL_PROFILE": "v0.8-managed-execution-smoke",
+    "ISONIA_DEPLOYMENT_CAPABILITIES_JSON": {
+      "orgScopedManagedExecution": true,
+      "orgExecutorUpdatesIndexed": true,
+      "canonicalProposalExecutedReceipt": true,
+      "directExecutionReceipts": true,
+      "managedExecutionReceipts": true,
+      "publicArchiveReadModels": true,
+      "accountabilityReadModels": true
+    },
+    "trustBoundary": "Control Plane indexes and explains protocol state. It is not governance authority."
+  },
+  "executionRules": {
+    "targets": [
+      {
+        "label": "Ownable-style smoke target",
+        "targetAddress": "0x0000000000000000000000000000000000000201",
+        "enabled": true,
+        "ruleSource": "IsoniaOS policy state",
+        "trustBoundary": "Modeled protocol execution permission"
+      }
+    ],
+    "selectors": [
+      {
+        "label": "Ownable-style managed action selector",
+        "targetAddress": "0x0000000000000000000000000000000000000201",
+        "actionSelector": "0xdeadbeef",
+        "enabled": true,
+        "ruleSource": "IsoniaOS policy state",
+        "trustBoundary": "Modeled protocol selector permission"
+      }
+    ],
+    "valueLimits": {
+      "nativeTokenSymbol": "ETH",
+      "minWei": "0",
+      "maxWei": "10000000000000000",
+      "perProposalMaxWei": "10000000000000000",
+      "ruleSource": "IsoniaOS policy state",
+      "trustBoundary": "Modeled protocol value permission"
+    }
+  },
+  "managedTargetScenarios": {
+    "ownableStyleManagedTarget": {
+      "status": "primary-smoke-target",
+      "targetAddress": "0x0000000000000000000000000000000000000201",
+      "ownerBeforeProposalAddress": "0x0000000000000000000000000000000000000103",
+      "expectedExecutorPath": "orgExecutor-forwards-to-target",
+      "actionSelector": "0xdeadbeef",
+      "dataHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "value": "0",
+      "authorityBoundary": "Target ownership is target-contract state. IsoniaOS authority is the modeled proposal, policy, route, and execution receipt state."
+    },
+    "accessControlStyleRoleHandoff": {
+      "status": "future-optional-evidence",
+      "targetAddress": "0x0000000000000000000000000000000000000202",
+      "roleId": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "roleHolderBeforeProposalAddress": "0x0000000000000000000000000000000000000103",
+      "actionSelector": "0xfeedcafe",
+      "dataHash": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "value": "0",
+      "notes": [
+        "This lane is future or optional evidence until a compatible target, role admin path, and execution route are validated on Sepolia.",
+        "Do not infer broad AccessControl provider or target support from this placeholder."
+      ]
+    }
+  },
+  "proposalIdentity": {
+    "proposalId": "example-only-proposal-1",
+    "targetAddress": "0x0000000000000000000000000000000000000201",
+    "value": "0",
+    "actionSelector": "0xdeadbeef",
+    "dataHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "metadataUri": "ipfs://example-only/isonia/v0.8/managed-execution-smoke"
+  },
+  "canonicalExecutionReceipt": {
+    "proposalId": "example-only-proposal-1",
+    "executorAddress": "0x0000000000000000000000000000000000000a01",
+    "targetAddress": "0x0000000000000000000000000000000000000201",
+    "value": "0",
+    "actionSelector": "0xdeadbeef",
+    "dataHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "managedExecutorAddress": "0x0000000000000000000000000000000000000103",
+    "txHash": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "blockNumber": 0
+  },
+  "externalResources": [
+    {
+      "type": "snapshot",
+      "label": "Snapshot testnet signaling link",
+      "url": "",
+      "authority": false,
+      "trustBoundary": "Off-chain signaling or discussion context"
+    },
+    {
+      "type": "safe",
+      "label": "Safe Sepolia transaction proof link",
+      "url": "",
+      "authority": false,
+      "trustBoundary": "Workflow or transaction proof evidence"
+    },
+    {
+      "type": "tally",
+      "label": "Tally Governor compatibility note",
+      "url": "",
+      "authority": false,
+      "trustBoundary": "Research or compatibility evidence only"
+    },
+    {
+      "type": "agora",
+      "label": "Agora research lane note",
+      "url": "",
+      "authority": false,
+      "trustBoundary": "Research or linking context"
+    },
+    {
+      "type": "block-explorer",
+      "label": "Sepolia execution transaction proof",
+      "url": "",
+      "authority": false,
+      "trustBoundary": "Transaction, block, address, or log visibility proof only"
+    },
+    {
+      "type": "github",
+      "label": "Implementation or release context",
+      "url": "",
+      "authority": false,
+      "trustBoundary": "Implementation or discussion context"
+    },
+    {
+      "type": "discourse",
+      "label": "Governance discussion context",
+      "url": "",
+      "authority": false,
+      "trustBoundary": "Discussion context"
+    }
+  ],
+  "sourceDisclosure": {
+    "externalRecordsAuthority": false,
+    "manualAccountabilityUpdatesAreProtocolTruth": false,
+    "notes": [
+      "External records are evidence or context unless IsoniaOS explicitly models them as authority.",
+      "Block explorer links prove public testnet transaction visibility, not governance authority.",
+      "Manual notes and screenshots are lab observations, not protocol truth."
+    ]
+  }
+}

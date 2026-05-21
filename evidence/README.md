@@ -62,3 +62,14 @@ Boundary:
 - Label each source by trust boundary.
 - Record whether evidence came from live Sepolia or a pinned fork.
 - Do not mix fork-only transaction records with public provider proof.
+
+## Managed Execution Evidence
+
+Use `managed-execution-external-resources.example.json` when capturing the
+v0.8 managed execution smoke run. Required internal evidence includes the
+proposal identity, permission rule evidence, canonical `ProposalExecuted`
+receipt fields, Control Plane read output, and App Core display output.
+
+External resources in that fixture default to `"authority": false`. Change that
+only if a future scoped product change explicitly models the external source as
+authority and updates the product documentation.

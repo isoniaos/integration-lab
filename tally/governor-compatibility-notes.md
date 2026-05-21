@@ -20,3 +20,9 @@
 Tally pages are compatibility evidence in this lab. They do not prove that
 IsoniaOS governance authority has moved into Tally. Treat any successful Tally
 display as an experiment until a production integration is intentionally scoped.
+
+## Managed Execution Smoke Usage
+
+For the managed execution smoke scenario, treat Tally as Governor compatibility
+research. Do not assume Tally support for IsoniaOS managed execution unless a
+compatible Governor path is explicitly validated and separately scoped.

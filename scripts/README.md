@@ -1,11 +1,22 @@
 # Scripts
 
-This directory is reserved for future lab-only helper scripts.
+This directory contains lab-only helper scripts.
 
 No package tooling or runtime dependency pins are included in the baseline. Do
 not add dependencies just to mirror `demo-stack` or core repositories.
 
-If scripts are added later:
+Current scripts:
+
+- `validate-sepolia-managed-execution-manifest.mjs` validates the managed
+  execution smoke manifest shape without npm dependencies.
+
+Usage:
+
+```bash
+node scripts/validate-sepolia-managed-execution-manifest.mjs sepolia/managed-execution-manifest.example.json
+```
+
+When adding scripts:
 
 - keep them lab-only;
 - document required environment variables;

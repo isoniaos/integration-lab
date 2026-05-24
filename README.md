@@ -1,99 +1,54 @@
 # IsoniaOS Integration Lab
 
-This repository is an isolated integration, QA, and presentation lab for
-IsoniaOS real-world scenarios.
+Integration Lab is the isolated QA, field-validation, and presentation-evidence repository for IsoniaOS. It records live Sepolia workflows, pinned Sepolia fork replay inputs, provider research, evidence templates, and scenario notes without polluting core product repositories.
 
-It exists to validate IsoniaOS behavior against public testnet conditions and
-external DAO tooling without polluting core product repositories.
+Integration Lab is not governance authority, an audited contract package, a runtime dependency source, or proof that any external integration is complete. The public developer overview is in [site/developers/integration-lab.md](https://github.com/isoniaos/docs/blob/main/site/developers/integration-lab.md).
 
-## Scope
+## Installation
 
-The lab is for:
+There is no package manager or dependency install step in the current baseline.
 
-- live Sepolia smoke tests;
-- pinned Sepolia fork replay;
-- provider workflow notes;
-- demo evidence capture;
-- presentation and QA checklists.
+Node.js is only required for the current manifest validation script:
 
-The lab is not:
+```bash
+node --version
+```
 
-- the source of product authority;
-- an audited contract package;
-- a replacement for `demo-stack`;
-- a dependency source for core repositories;
-- proof that any external integration is production-complete.
+## Configuration
 
-Core product repositories must not import lab-only contracts, fixtures,
-deployment manifests, provider assumptions, or evidence records from this
-repository.
+Configuration and evidence are stored as repository-local notes and JSON templates:
 
-## Real-World Baseline
+- `sepolia/` for live Sepolia templates and runbooks.
+- `forks/` for pinned Sepolia fork replay notes.
+- `evidence/` for external evidence fixture templates.
+- `scenarios/` for QA and presentation scenarios.
+- `snapshot/`, `safe/`, `tally/`, and `agora/` for provider-specific research notes.
 
-Live Sepolia is used for real-world smoke tests because public chains, wallets,
-explorers, and external DAO tools behave differently from local deterministic
-stacks.
+Do not commit RPC secrets, provider API keys, private keys, mnemonics, customer data, or private production manifests. Lab manifests are evidence and QA inputs only; core repositories must not import them as runtime configuration.
 
-Pinned Sepolia forks are used for deterministic replay and read-model
-validation. A fork can replay chain state at a chosen block, but it does not
-prove that external provider APIs or UIs will detect fork-only transactions.
+## Run / Usage
 
-The old local `demo-stack` path is archived. Do not treat it as current launch,
-self-hosting, or integration authority for this lab.
-
-External records such as Snapshot proposals, Safe transactions, Tally pages,
-Agora links, block explorer pages, GitHub issues, and Discourse threads remain
-evidence or context unless IsoniaOS explicitly models them as governance
-authority.
-
-## v0.8 Managed Execution Smoke Kit
-
-The managed execution smoke kit prepares a Sepolia field test for the v0.8
-org-scoped execution path without deploying contracts or calling provider APIs
-from this repository.
-
-Key files:
-
-- `scenarios/v0.8-sepolia-managed-execution-smoke.md` describes the field-test
-  flow and pass criteria.
-- `sepolia/managed-execution-manifest.example.json` captures the run shape,
-  protocol metadata, permission rules, proposal identity, canonical execution
-  receipt, and source disclosure.
-- `sepolia/managed-execution-runbook.md` gives operator steps for a future live
-  Sepolia run.
-- `forks/sepolia-managed-execution-fork.example.json` separates live provider
-  validation from deterministic fork replay.
-- `evidence/managed-execution-external-resources.example.json` templates
-  provider, explorer, discussion, Control Plane, and App Core evidence.
-- `scripts/validate-sepolia-managed-execution-manifest.mjs` validates the
-  manifest shape without npm dependencies.
-
-Validate the example manifest with:
+Validate the managed execution smoke manifest example:
 
 ```bash
 node scripts/validate-sepolia-managed-execution-manifest.mjs sepolia/managed-execution-manifest.example.json
 ```
 
-## Repository Layout
+Use the directory READMEs for scenario-specific workflow notes.
 
-```txt
-scenarios/  Versioned QA and presentation scenarios.
-sepolia/    Live Sepolia manifest and environment templates.
-forks/      Sepolia fork replay notes and example pinning data.
-snapshot/   Snapshot testnet workflow notes.
-safe/       Safe Sepolia proof workflow notes.
-tally/      Governor compatibility experiment notes.
-agora/      Agora research and linking notes.
-evidence/   External evidence fixture templates.
-scripts/    Lab-only helper scripts with no package dependency requirement.
-```
+## Troubleshooting
 
-## Authority Boundary
+- If manifest validation fails, fix the JSON shape, Sepolia chain ID, address/hash formats, source disclosure, and `authority: false` defaults before using the fixture.
+- Keep live Sepolia evidence separate from pinned-fork replay evidence.
+- Do not use fork-only transactions as public block explorer or provider proof.
+- Do not infer product integration support from Snapshot, Safe, Tally, Agora, GitHub, Discourse, or block explorer notes in this lab.
 
-The EVM protocol remains the source of truth for IsoniaOS governance authority.
-The Control Plane may index, explain, cache, and visualize that state. App Core
-may present it. This lab may capture evidence around it.
+## Contribution
 
-This repository must not redefine governance authority, bypass protocol
-semantics, or introduce provider-specific assumptions into the core product
-surface.
+Read [`AGENTS.md`](AGENTS.md) before editing. Keep provider records clearly labeled as evidence, context, compatibility experiments, or field notes. Do not import lab fixtures, manifests, provider assumptions, helper scripts, or presentation scenarios into core product repositories.
+
+Update the smallest relevant local note and the public docs repository when provider workflow, public setup, operator guidance, or public claims change.
+
+## License
+
+No repository-local license file is currently present.

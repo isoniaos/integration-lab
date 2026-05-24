@@ -1,56 +1,57 @@
-# AGENTS.md - IsoniaOS Integration Lab
-
-These rules apply to Codex and other AI agents working in `integration-lab`.
-
-When this repository is used inside the IsoniaOS workspace, read the workspace-level `../AGENTS.md` first, then return to this file for repository-specific instructions.
-
-## Repository Purpose
-
-`integration-lab` is the isolated real-world validation repository for IsoniaOS.
-
-It records QA, presentation, and field-validation work against live Sepolia, pinned Sepolia forks, and external DAO tooling workflows.
-
-It is not a core product repository, contract package, SDK, app package, or source of governance authority.
+# IsoniaOS Integration Lab Agent Instructions
 
 ## Scope
 
-Use this repository for:
+This repository owns isolated integration, QA, field-validation, and presentation-evidence material for IsoniaOS. It may contain Sepolia manifests, pinned Sepolia fork configs, provider workflow notes, external evidence templates, validation scripts, scenarios, and field notes.
 
-- Sepolia deployment manifests;
-- pinned Sepolia fork configs;
-- Snapshot testnet workflow notes;
-- Safe Sepolia proof workflow;
-- Tally / Governor compatibility experiments;
-- Agora research lane;
-- GitHub, Discourse, and block explorer evidence fixtures;
-- provider checklists and provider gap notes;
-- QA field notes;
-- presentation scenarios.
+It does not own core protocol behavior, audited contracts, Control Plane internals, SDK APIs, App Core product logic, public production configuration, SaaS behavior, or governance authority.
 
-## Boundaries
+## Workspace Instruction Chain
 
-- Do not import lab-only fixtures, manifests, provider assumptions, helper scripts, or presentation scenarios into core product repositories.
-- Do not define core governance authority here.
-- Do not write audited contracts here.
+When working inside the private IsoniaOS workspace, read:
+
+1. `../AGENTS.md`
+2. `../CURRENT_ROADMAP.md`
+3. relevant `../private-docs/` index, governance, roadmap, and migration docs
+4. this repository `AGENTS.md`
+5. this repository local README files and `README.md`
+6. current source/config files before editing
+
+If this repository is cloned standalone, use this file as the local agent entry point and avoid relying on private workspace-only paths.
+
+## Stack and Commands
+
+- Markdown scenario and provider notes
+- JSON evidence and manifest templates
+- Dependency-free Node.js validation script in `scripts/`
+
+Useful commands:
+
+```bash
+node scripts/validate-sepolia-managed-execution-manifest.mjs sepolia/managed-execution-manifest.example.json
+git diff --check
+```
+
+No package manager tooling is currently declared.
+
+## Development Principles
+
+- Keep lab-only fixtures, manifests, provider assumptions, helper scripts, and presentation scenarios out of core product repositories.
+- Keep live Sepolia evidence separate from pinned-fork replay evidence.
+- Label provider records as evidence, context, compatibility experiments, or field notes.
+- Preserve source labels, provenance, stale/error/unknown states, and trust boundaries.
+- Do not treat external provider records or manual accountability notes as protocol truth by default.
 - Do not add production runtime dependencies or package pins unless actual lab scripts require them.
-- Do not create Git tags unless explicitly instructed.
-- Do not claim Snapshot, Safe, Tally, Agora, GitHub, Discourse, block explorer, or any other provider integration is complete or production-ready unless a scoped product integration has been implemented and documented elsewhere.
-
-## Evidence and Trust Rules
-
-- Keep provider records clearly labeled as evidence, context, compatibility experiments, or field notes.
-- Keep live Sepolia and pinned-fork assumptions separate.
-- Keep source labels, provenance, stale/error/unknown states, and trust boundaries visible.
-- Do not treat external provider records as IsoniaOS authority by default.
-- Do not treat manual accountability updates as protocol truth.
+- Do not claim Snapshot, Safe, Tally, Agora, GitHub, Discourse, block explorer, or other provider integration completeness without scoped product implementation and documentation elsewhere.
+- Do not make production, audit, public beta, legal, SaaS, provider-completeness, grant, ISO launch, or token launch readiness claims.
 
 ## Documentation Rules
 
-- Write all documentation and comments in English.
-- Update the relevant checklist or field note when public behavior or provider workflow changes.
-- Do not make production, audit, public beta, SaaS, legal, provider-completeness, or ISO launch-readiness claims.
+Update the relevant scenario, provider README, evidence template, or script README when public behavior, provider workflow, validation rules, or evidence requirements change.
 
-## Validation
+Update the public docs repository only when a public user, developer, operator, or public-claim surface changes. Do not publish private strategy or provider credentials.
+
+## Testing and Validation
 
 For documentation-only changes, run:
 
@@ -64,4 +65,4 @@ For managed execution manifest changes, also run:
 node scripts/validate-sepolia-managed-execution-manifest.mjs sepolia/managed-execution-manifest.example.json
 ```
 
-If package tooling is added later, also run the relevant lint, typecheck, or test command documented with that tooling.
+If package tooling is added later, document and run the relevant lint, typecheck, or test command.

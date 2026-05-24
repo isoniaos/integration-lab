@@ -38,8 +38,8 @@ Pinned Sepolia forks are used for deterministic replay and read-model
 validation. A fork can replay chain state at a chosen block, but it does not
 prove that external provider APIs or UIs will detect fork-only transactions.
 
-The local `demo-stack` remains a quick local launch helper. It is useful for
-developer iteration, but it is not the integration authority for this lab.
+The old local `demo-stack` path is archived. Do not treat it as current launch,
+self-hosting, or integration authority for this lab.
 
 External records such as Snapshot proposals, Safe transactions, Tally pages,
 Agora links, block explorer pages, GitHub issues, and Discourse threads remain

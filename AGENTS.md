@@ -2,6 +2,8 @@
 
 These rules apply to Codex and other AI agents working in `integration-lab`.
 
+When this repository is used inside the IsoniaOS workspace, read the workspace-level `../AGENTS.md` first, then return to this file for repository-specific instructions.
+
 ## Repository Purpose
 
 `integration-lab` is the isolated real-world validation repository for IsoniaOS.

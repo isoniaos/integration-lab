@@ -40,6 +40,9 @@ No package manager tooling is currently declared.
 - Keep live Sepolia evidence separate from pinned-fork replay evidence.
 - Label provider records as evidence, context, compatibility experiments, or field notes.
 - Preserve source labels, provenance, stale/error/unknown states, and trust boundaries.
+- Use active protocol names in current lab content: `IsoCore`, `IsoProposals`, optional `IsoOrgExecutor`, `isoCoreAddress`, `isoProposalsAddress`, `ISONIA_CORE_ADDRESS`, and `ISONIA_PROPOSALS_ADDRESS`.
+- Keep App Core runtime deployment captures array-based and keyed by `chainId`.
+- Label optional local proposal demo targets as local/demo evidence, not protocol core contracts.
 - Do not treat external provider records or manual accountability notes as protocol truth by default.
 - Do not add production runtime dependencies or package pins unless actual lab scripts require them.
 - Do not claim Snapshot, Safe, Tally, Agora, GitHub, Discourse, block explorer, or other provider integration completeness without scoped product implementation and documentation elsewhere.

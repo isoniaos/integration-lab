@@ -25,6 +25,23 @@ governance authority.
 GitHub and Discourse records are discussion, implementation, or decision-making
 context. They do not become protocol authority by being linked from a scenario.
 
+## Provider Maturity Labels
+
+Current lab notes are evidence templates or research notes, not integration
+support claims:
+
+- Snapshot: unverified field-note checklist; needs current testnet run evidence
+  and product-owned mapping before any integration claim.
+- Safe: Sepolia transaction-proof checklist; needs product-owned field mapping
+  and tests before any integration claim.
+- Tally: Governor compatibility research; needs a verified compatible contract
+  or adapter model before any integration claim.
+- Agora: research and linking lane; needs current compatibility evidence and a
+  product-owned model before any integration claim.
+- Block explorers: transaction/log visibility evidence only; explorer UI labels
+  are not protocol authority.
+- GitHub and Discourse: implementation or discussion context only.
+
 ## Block Explorer Checklist
 
 Practical prerequisites:

@@ -23,6 +23,9 @@ Configuration and evidence are stored as repository-local notes and JSON templat
 - `evidence/` for external evidence fixture templates.
 - `scenarios/` for QA and presentation scenarios.
 - `snapshot/`, `safe/`, `tally/`, and `agora/` for provider-specific research notes.
+- `inventory.md` for the current lab inventory and stale-reference disposition.
+
+Active protocol evidence uses `IsoCore`, `IsoProposals`, optional `IsoOrgExecutor`, `isoCoreAddress`, `isoProposalsAddress`, `ISONIA_CORE_ADDRESS`, and `ISONIA_PROPOSALS_ADDRESS`. App Core runtime deployment captures are array-based and keyed by `chainId`. Optional local proposal target fields are local/demo evidence only, not protocol core contract fields.
 
 Do not commit RPC secrets, provider API keys, private keys, mnemonics, customer data, or private production manifests. Lab manifests are evidence and QA inputs only; core repositories must not import them as runtime configuration.
 
@@ -34,7 +37,7 @@ Validate the managed execution smoke manifest example:
 node scripts/validate-sepolia-managed-execution-manifest.mjs sepolia/managed-execution-manifest.example.json
 ```
 
-Use the directory READMEs for scenario-specific workflow notes.
+Use the directory READMEs for scenario-specific workflow notes. Use `scenarios/normalized-local-stack-checklist.md` for lab-local evidence capture when validating the normalized local stack; command ownership remains with the owning repositories.
 
 ## Troubleshooting
 

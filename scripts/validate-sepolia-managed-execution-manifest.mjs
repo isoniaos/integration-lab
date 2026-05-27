@@ -29,6 +29,7 @@ const requiredTopLevelSections = [
   "contracts",
   "organization",
   "controlPlaneRuntime",
+  "appCoreRuntime",
   "executionRules",
   "managedTargetScenarios",
   "proposalIdentity",
@@ -41,6 +42,8 @@ const ADDRESS_RE = /^0x[a-fA-F0-9]{40}$/;
 const BYTES4_RE = /^0x[a-fA-F0-9]{8}$/;
 const BYTES32_RE = /^0x[a-fA-F0-9]{64}$/;
 const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
+const STALE_ACTIVE_TOKEN_RE =
+  /\b(?:GovCore|GovProposals|GovTypes|GovErrors|IGovCore|govCore|govProposals|govCoreAddress|govProposalsAddress|GOV_CORE_ADDRESS|GOV_PROPOSALS_ADDRESS)\b/;
 
 for (const section of requiredTopLevelSections) {
   if (!(section in manifest)) {
@@ -56,9 +59,35 @@ if (manifest?.network?.name !== "sepolia") {
   errors.push('network.name must be "sepolia"');
 }
 
-validateRequiredAddress("contracts.govCore", manifest?.contracts?.govCore);
-validateRequiredAddress("contracts.govProposals", manifest?.contracts?.govProposals);
-validateOptionalAddress("contracts.orgExecutor", manifest?.contracts?.orgExecutor);
+validateRequiredAddress("contracts.isoCore", manifest?.contracts?.isoCore);
+validateRequiredAddress("contracts.isoProposals", manifest?.contracts?.isoProposals);
+validateOptionalAddress("contracts.isoOrgExecutor", manifest?.contracts?.isoOrgExecutor);
+validateRequiredAddress(
+  "controlPlaneRuntime.ISONIA_CORE_ADDRESS",
+  manifest?.controlPlaneRuntime?.ISONIA_CORE_ADDRESS,
+);
+validateRequiredAddress(
+  "controlPlaneRuntime.ISONIA_PROPOSALS_ADDRESS",
+  manifest?.controlPlaneRuntime?.ISONIA_PROPOSALS_ADDRESS,
+);
+
+if (!hasText(manifest?.protocolDeployment?.sourceLabel)) {
+  errors.push("protocolDeployment.sourceLabel must be present");
+}
+
+if (!hasText(manifest?.protocolDeployment?.provenance)) {
+  errors.push("protocolDeployment.provenance must be present");
+}
+
+if (!hasText(manifest?.controlPlaneRuntime?.sourceLabel)) {
+  errors.push("controlPlaneRuntime.sourceLabel must be present");
+}
+
+if (!hasText(manifest?.appCoreRuntime?.sourceLabel)) {
+  errors.push("appCoreRuntime.sourceLabel must be present");
+}
+
+validateAppCoreRuntime(manifest?.appCoreRuntime, manifest?.network?.chainId);
 
 const valueLimits = manifest?.executionRules?.valueLimits;
 if (!isPlainObject(valueLimits)) {
@@ -71,7 +100,16 @@ if (!isPlainObject(valueLimits)) {
       );
     }
   }
+  if (!hasText(valueLimits.ruleSource)) {
+    errors.push("executionRules.valueLimits.ruleSource must be present");
+  }
+  if (!hasText(valueLimits.trustBoundary)) {
+    errors.push("executionRules.valueLimits.trustBoundary must be present");
+  }
 }
+
+validateRuleEvidenceArray("executionRules.targets", manifest?.executionRules?.targets);
+validateRuleEvidenceArray("executionRules.selectors", manifest?.executionRules?.selectors);
 
 if (!isSafeUnsignedValue(manifest?.proposalIdentity?.value)) {
   errors.push("proposalIdentity.value must be a non-negative safe integer or decimal string");
@@ -83,11 +121,31 @@ if (!isSafeUnsignedValue(manifest?.canonicalExecutionReceipt?.value)) {
   );
 }
 
+validateExecutionIdentityMatches();
+
 const leafValues = collectLeaves(manifest);
+const reportedStalePaths = new Set();
 for (const leaf of leafValues) {
   const key = leaf.path[leaf.path.length - 1] ?? "";
   const normalizedKey = normalizeKey(key);
   const displayPath = formatPath(leaf.path);
+
+  for (let index = 0; index < leaf.path.length; index += 1) {
+    const pathPart = leaf.path[index];
+    if (typeof pathPart !== "string") {
+      continue;
+    }
+
+    const stalePath = formatPath(leaf.path.slice(0, index + 1));
+    if (isStaleActiveFieldName(pathPart) && !reportedStalePaths.has(stalePath)) {
+      reportedStalePaths.add(stalePath);
+      errors.push(`${stalePath} uses stale Gov*/GOV_* active vocabulary`);
+    }
+  }
+
+  if (typeof leaf.value === "string" && STALE_ACTIVE_TOKEN_RE.test(leaf.value)) {
+    errors.push(`${displayPath} contains stale Gov*/GOV_* active vocabulary`);
+  }
 
   if (isAddressKey(normalizedKey)) {
     if (isOptionalExecutorKey(normalizedKey)) {
@@ -127,14 +185,32 @@ if (manifest?.sourceDisclosure?.externalRecordsAuthority !== false) {
   errors.push("sourceDisclosure.externalRecordsAuthority must be false");
 }
 
+if (manifest?.sourceDisclosure?.runtimeConfigurationAuthority !== false) {
+  errors.push("sourceDisclosure.runtimeConfigurationAuthority must be false");
+}
+
+if (manifest?.sourceDisclosure?.providerCompletenessClaim !== false) {
+  errors.push("sourceDisclosure.providerCompletenessClaim must be false");
+}
+
+if (manifest?.sourceDisclosure?.manualAccountabilityUpdatesAreProtocolTruth !== false) {
+  errors.push("sourceDisclosure.manualAccountabilityUpdatesAreProtocolTruth must be false");
+}
+
 if (!Array.isArray(manifest?.externalResources)) {
   errors.push("externalResources must be an array");
 } else {
   manifest.externalResources.forEach((resource, index) => {
+    if (!hasText(resource?.type)) {
+      errors.push(`externalResources[${index}].type must be present`);
+    }
+    if (!hasText(resource?.label)) {
+      errors.push(`externalResources[${index}].label must be present`);
+    }
     if (resource?.authority !== false) {
       errors.push(`externalResources[${index}].authority must be false by default`);
     }
-    if (!resource?.trustBoundary) {
+    if (!hasText(resource?.trustBoundary)) {
       errors.push(`externalResources[${index}].trustBoundary must be present`);
     }
   });
@@ -173,6 +249,93 @@ function validateBytes4(path, value) {
 function validateBytes32(path, value) {
   if (typeof value !== "string" || !BYTES32_RE.test(value)) {
     errors.push(`${path} must be a bytes32-shaped string`);
+  }
+}
+
+function validateAppCoreRuntime(appCoreRuntime, expectedChainId) {
+  if (!isPlainObject(appCoreRuntime)) {
+    errors.push("appCoreRuntime must be present");
+    return;
+  }
+
+  if (appCoreRuntime.activeChainId !== expectedChainId) {
+    errors.push("appCoreRuntime.activeChainId must match network.chainId");
+  }
+
+  if (!Array.isArray(appCoreRuntime.deployments) || appCoreRuntime.deployments.length === 0) {
+    errors.push("appCoreRuntime.deployments must be a non-empty array");
+    return;
+  }
+
+  for (const [index, deployment] of appCoreRuntime.deployments.entries()) {
+    if (!isPlainObject(deployment)) {
+      errors.push(`appCoreRuntime.deployments[${index}] must be an object`);
+      continue;
+    }
+
+    if (deployment.chainId !== expectedChainId) {
+      errors.push(`appCoreRuntime.deployments[${index}].chainId must match network.chainId`);
+    }
+
+    validateRequiredAddress(
+      `appCoreRuntime.deployments[${index}].isoCoreAddress`,
+      deployment.isoCoreAddress,
+    );
+    validateRequiredAddress(
+      `appCoreRuntime.deployments[${index}].isoProposalsAddress`,
+      deployment.isoProposalsAddress,
+    );
+
+    if (
+      isAddress(manifest?.contracts?.isoCore) &&
+      isAddress(deployment.isoCoreAddress) &&
+      deployment.isoCoreAddress.toLowerCase() !== manifest.contracts.isoCore.toLowerCase()
+    ) {
+      errors.push(
+        `appCoreRuntime.deployments[${index}].isoCoreAddress must match contracts.isoCore`,
+      );
+    }
+
+    if (
+      isAddress(manifest?.contracts?.isoProposals) &&
+      isAddress(deployment.isoProposalsAddress) &&
+      deployment.isoProposalsAddress.toLowerCase() !== manifest.contracts.isoProposals.toLowerCase()
+    ) {
+      errors.push(
+        `appCoreRuntime.deployments[${index}].isoProposalsAddress must match contracts.isoProposals`,
+      );
+    }
+  }
+}
+
+function validateRuleEvidenceArray(path, rules) {
+  if (!Array.isArray(rules) || rules.length === 0) {
+    errors.push(`${path} must be a non-empty array`);
+    return;
+  }
+
+  rules.forEach((rule, index) => {
+    if (!hasText(rule?.ruleSource)) {
+      errors.push(`${path}[${index}].ruleSource must be present`);
+    }
+    if (!hasText(rule?.trustBoundary)) {
+      errors.push(`${path}[${index}].trustBoundary must be present`);
+    }
+  });
+}
+
+function validateExecutionIdentityMatches() {
+  const proposalIdentity = manifest?.proposalIdentity;
+  const receipt = manifest?.canonicalExecutionReceipt;
+  if (!isPlainObject(proposalIdentity) || !isPlainObject(receipt)) {
+    return;
+  }
+
+  const fields = ["proposalId", "targetAddress", "value", "actionSelector", "dataHash"];
+  for (const field of fields) {
+    if (proposalIdentity[field] !== receipt[field]) {
+      errors.push(`canonicalExecutionReceipt.${field} must match proposalIdentity.${field}`);
+    }
   }
 }
 
@@ -217,15 +380,19 @@ function normalizeKey(key) {
 
 function isAddressKey(normalizedKey) {
   return (
-    normalizedKey === "govcore" ||
-    normalizedKey === "govproposals" ||
-    normalizedKey === "orgexecutor" ||
+    normalizedKey === "isocore" ||
+    normalizedKey === "isoproposals" ||
+    normalizedKey === "isoorgexecutor" ||
     normalizedKey.endsWith("address")
   );
 }
 
 function isOptionalExecutorKey(normalizedKey) {
-  return normalizedKey === "orgexecutor" || normalizedKey === "managedexecutoraddress";
+  return normalizedKey === "isoorgexecutor" || normalizedKey === "managedexecutoraddress";
+}
+
+function isStaleActiveFieldName(key) {
+  return STALE_ACTIVE_TOKEN_RE.test(String(key));
 }
 
 function isSuspiciousSecretKey(normalizedKey) {
@@ -252,4 +419,12 @@ function isSuspiciousSecretKey(normalizedKey) {
 
 function isEmpty(value) {
   return value === null || value === undefined || value === "";
+}
+
+function hasText(value) {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+function isAddress(value) {
+  return typeof value === "string" && ADDRESS_RE.test(value);
 }

@@ -24,6 +24,12 @@ test. The manifest records protocol deployment metadata, Control Plane
 capability metadata, permission rules, proposal identity, canonical execution
 receipt fields, and source disclosure.
 
+Current templates use `IsoCore`, `IsoProposals`, optional `IsoOrgExecutor`,
+`ISONIA_CORE_ADDRESS`, `ISONIA_PROPOSALS_ADDRESS`, `isoCoreAddress`, and
+`isoProposalsAddress`. Any App Core runtime deployment capture is array-based
+and keyed by `chainId`; it remains lab evidence, not product runtime
+configuration.
+
 The manifest is lab evidence and QA input only. Core repositories must not
 import it as runtime configuration.
 

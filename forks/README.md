@@ -10,7 +10,8 @@ external provider APIs or UIs will observe fork-only transactions.
 
 - Pin the Sepolia block number.
 - Record the upstream RPC provider used for the fork.
-- Record the selected deployment addresses.
+- Record the selected `IsoCore`, `IsoProposals`, and optional `IsoOrgExecutor`
+  deployment addresses.
 - Keep fork evidence separate from live Sepolia evidence.
 - Do not treat fork-only transactions as public external-provider proof.
 

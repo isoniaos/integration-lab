@@ -18,7 +18,7 @@
     "dataHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "txHash": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
     "blockNumber": 0,
-    "trustBoundary": "Canonical execution receipt emitted by GovProposals and indexed from chain state"
+    "trustBoundary": "Canonical execution receipt emitted by IsoProposals and indexed from chain state"
   },
   "controlPlane": {
     "baseUrl": null,

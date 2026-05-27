@@ -1,5 +1,8 @@
 # Agora Research Notes
 
+Current maturity: unverified research note. Use it to record questions and
+links, not to claim Agora integration support.
+
 ## Practical Prerequisites
 
 - Public Agora documentation or integration requirements for the current
@@ -26,3 +29,10 @@ boundary in product documentation and implementation.
 For the managed execution smoke scenario, keep Agora in the research lane unless
 an explicit compatible governor or provider path is validated. Agora links can
 be recorded as research context, not as proof of IsoniaOS approval or execution.
+
+## Evidence Needed Before Integration Claim
+
+- Current Agora compatibility requirements for the exact candidate surface.
+- Run-specific Agora links or API observations with source labels.
+- A reviewed product model for any field-level authority mapping.
+- Tests and public documentation in the owning product repository.

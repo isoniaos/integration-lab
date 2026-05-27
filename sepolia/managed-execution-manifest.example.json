@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "isonia.integration-lab.managed-execution-smoke.v1",
+  "schemaVersion": "isonia.integration-lab.managed-execution-smoke.v2",
   "scenario": "v0.8-sepolia-managed-execution-smoke",
   "network": {
     "name": "sepolia",
@@ -9,32 +9,37 @@
   "protocolDeployment": {
     "label": "IsoniaOS v0.8 Sepolia managed execution smoke deployment",
     "deploymentId": "example-only-sepolia-managed-execution",
+    "sourceLabel": "example-only-live-sepolia-selected-deployment-record",
+    "provenance": "operator-captured deployment manifest or reviewed run note for the selected Sepolia run",
     "deployedAtBlockNumber": null,
-    "releaseReferences": {
-      "evmContracts": "v0.8.0-alpha.5",
-      "controlPlane": "v0.8.0-alpha.4",
-      "appCore": "v0.8.0-alpha.4"
+    "sourceReferences": {
+      "evmContracts": "workspace source, immutable commit, or reviewed release for the selected run",
+      "controlPlane": "workspace source, immutable commit, or reviewed release for the selected run",
+      "appCore": "workspace source, immutable commit, or reviewed release for the selected run"
     },
     "notes": [
-      "Release references are evidence labels only. Runtime behavior must come from deployed contracts, explicit capability metadata, and observed chain state.",
+      "Source references are evidence labels only. Runtime behavior must come from deployed contracts, explicit capability metadata, and observed chain state.",
       "All addresses and hashes in this example are placeholders and must be replaced before a live run."
     ]
   },
   "contracts": {
-    "govCore": "0x0000000000000000000000000000000000000101",
-    "govProposals": "0x0000000000000000000000000000000000000102",
-    "orgExecutor": "0x0000000000000000000000000000000000000103"
+    "isoCore": "0x0000000000000000000000000000000000000101",
+    "isoProposals": "0x0000000000000000000000000000000000000102",
+    "isoOrgExecutor": "0x0000000000000000000000000000000000000103"
   },
   "organization": {
     "orgId": "0x00000000000000000000000000000000000000000000000000000000000000a1",
     "label": "Example-only Sepolia managed execution organization",
-    "expectedOrgExecutorAddress": "0x0000000000000000000000000000000000000103"
+    "expectedIsoOrgExecutorAddress": "0x0000000000000000000000000000000000000103"
   },
   "controlPlaneRuntime": {
+    "sourceLabel": "example-only-operator-captured-control-plane-runtime-settings",
+    "ISONIA_CORE_ADDRESS": "0x0000000000000000000000000000000000000101",
+    "ISONIA_PROPOSALS_ADDRESS": "0x0000000000000000000000000000000000000102",
     "ISONIA_PROTOCOL_PROFILE": "v0.8-managed-execution-smoke",
     "ISONIA_DEPLOYMENT_CAPABILITIES_JSON": {
       "orgScopedManagedExecution": true,
-      "orgExecutorUpdatesIndexed": true,
+      "isoOrgExecutorUpdatesIndexed": true,
       "canonicalProposalExecutedReceipt": true,
       "directExecutionReceipts": true,
       "managedExecutionReceipts": true,
@@ -42,6 +47,19 @@
       "accountabilityReadModels": true
     },
     "trustBoundary": "Control Plane indexes and explains protocol state. It is not governance authority."
+  },
+  "appCoreRuntime": {
+    "sourceLabel": "example-only-operator-captured-app-core-runtime-settings",
+    "activeChainId": 11155111,
+    "deployments": [
+      {
+        "chainId": 11155111,
+        "isoCoreAddress": "0x0000000000000000000000000000000000000101",
+        "isoProposalsAddress": "0x0000000000000000000000000000000000000102"
+      }
+    ],
+    "localDemoTargetAddress": "0x0000000000000000000000000000000000000201",
+    "trustBoundary": "Array-based App Core runtime deployment evidence only; core repositories must not import this manifest as runtime configuration. localDemoTargetAddress is local/demo evidence, not a protocol core contract."
   },
   "executionRules": {
     "targets": [
@@ -77,7 +95,7 @@
       "status": "primary-smoke-target",
       "targetAddress": "0x0000000000000000000000000000000000000201",
       "ownerBeforeProposalAddress": "0x0000000000000000000000000000000000000103",
-      "expectedExecutorPath": "orgExecutor-forwards-to-target",
+      "expectedExecutorPath": "IsoOrgExecutor forwards to target",
       "actionSelector": "0xdeadbeef",
       "dataHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       "value": "0",
@@ -169,7 +187,10 @@
   ],
   "sourceDisclosure": {
     "externalRecordsAuthority": false,
+    "runtimeConfigurationAuthority": false,
+    "providerCompletenessClaim": false,
     "manualAccountabilityUpdatesAreProtocolTruth": false,
+    "liveSepoliaEvidenceSeparatedFromPinnedForkEvidence": true,
     "notes": [
       "External records are evidence or context unless IsoniaOS explicitly models them as authority.",
       "Block explorer links prove public testnet transaction visibility, not governance authority.",

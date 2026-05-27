@@ -3,12 +3,16 @@
 This directory contains lab-only helper scripts.
 
 No package tooling or runtime dependency pins are included in the baseline. Do
-not add dependencies just to mirror `demo-stack` or core repositories.
+not add dependencies just to mirror archived demo stack material or core
+repositories.
 
 Current scripts:
 
 - `validate-sepolia-managed-execution-manifest.mjs` validates the managed
-  execution smoke manifest shape without npm dependencies.
+  execution smoke manifest shape without npm dependencies. It rejects stale
+  `Gov*` / `GOV_*` active fields, unsafe authority defaults, invalid addresses
+  or hashes, wrong Sepolia chain identity, and missing source or trust-boundary
+  labels.
 
 Usage:
 

@@ -1,5 +1,8 @@
 # Snapshot Testnet Space Checklist
 
+Current maturity: unverified field-note checklist. It is suitable for planning
+evidence capture, not for claiming Snapshot integration support.
+
 ## Practical Prerequisites
 
 - A wallet controlled by the test operator.
@@ -31,3 +34,11 @@ proposal, or discussion links only as off-chain signaling or discussion
 context. Snapshot must not be used as proof that the Isonia proposal was
 approved, executed, or authorized unless a future scoped product integration
 explicitly models that authority.
+
+## Evidence Needed Before Integration Claim
+
+- A successful current Snapshot testnet run with public URLs.
+- Source labels and trust-boundary text preserved in the run evidence.
+- Product-owned adapter or client behavior that consumes Snapshot records.
+- Documentation stating the exact authority scope, exclusions, and residual
+  risks.

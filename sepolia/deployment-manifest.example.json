@@ -5,8 +5,19 @@
   "deployedAt": null,
   "blockNumber": null,
   "contracts": {
-    "govCore": null,
-    "govProposals": null
+    "isoCore": null,
+    "isoProposals": null
+  },
+  "appCoreRuntime": {
+    "activeChainId": 11155111,
+    "deployments": [
+      {
+        "chainId": 11155111,
+        "isoCoreAddress": null,
+        "isoProposalsAddress": null
+      }
+    ],
+    "trustBoundary": "Lab evidence template only; core repositories must not import this manifest as runtime configuration."
   },
   "capabilities": {
     "typedActivationBatch": null,

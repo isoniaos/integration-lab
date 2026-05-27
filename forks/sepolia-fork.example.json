@@ -6,8 +6,8 @@
   "sourceRpcLabel": null,
   "label": "IsoniaOS v0.8 pinned Sepolia fork",
   "contracts": {
-    "govCore": null,
-    "govProposals": null
+    "isoCore": null,
+    "isoProposals": null
   },
   "notes": [
     "Pin a real Sepolia block before replaying read models.",

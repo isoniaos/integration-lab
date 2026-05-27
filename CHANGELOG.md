@@ -8,11 +8,20 @@ This repository follows SemVer for releases, but Git tags use a leading `v`.
 
 ### Added
 
+- Lab inventory and normalized local-stack validation checklist for evidence
+  capture after the core surface normalization handoff.
 - v0.8 Sepolia managed execution smoke scenario, runbook, manifest template,
   pinned fork template, external evidence fixture, and dependency-free manifest
   validator.
 - Provider boundary updates for Snapshot, Safe, Tally, Agora, block explorer,
   GitHub, and Discourse evidence in managed execution field tests.
+
+### Changed
+
+- Aligned active lab templates, scenarios, runbooks, fork configs, and validator
+  rules with `Iso*`, `iso*`, and `ISONIA_*` protocol vocabulary.
+- Marked provider notes with maturity labels and evidence gates before any
+  product integration claim.
 
 ## v0.8.0-alpha.1
 

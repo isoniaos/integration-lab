@@ -1,5 +1,8 @@
 # Governor Compatibility Notes
 
+Current maturity: compatibility research note. It does not claim Tally support
+for IsoniaOS managed execution.
+
 ## Practical Prerequisites
 
 - A Governor-style contract deployment on Sepolia.
@@ -26,3 +29,11 @@ display as an experiment until a production integration is intentionally scoped.
 For the managed execution smoke scenario, treat Tally as Governor compatibility
 research. Do not assume Tally support for IsoniaOS managed execution unless a
 compatible Governor path is explicitly validated and separately scoped.
+
+## Evidence Needed Before Integration Claim
+
+- Contract verification or ABI availability for the exact Sepolia deployment.
+- Tally-recognized lifecycle events and callable/displayed functions.
+- Explicit gap list for unsupported IsoniaOS surfaces.
+- Product-owned implementation, tests, and public documentation for the scoped
+  integration.

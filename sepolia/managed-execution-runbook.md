@@ -9,9 +9,13 @@ provider API calls, secrets, and core repository imports.
 ## Preflight
 
 - Confirm the target run is on Sepolia chain id `11155111`.
-- Confirm the selected deployment includes `govCore` and `govProposals`.
+- Confirm the selected deployment includes `IsoCore` and `IsoProposals`.
 - Confirm whether the organization uses direct execution or an org-scoped
   executor.
+- Confirm Control Plane address capture uses `ISONIA_CORE_ADDRESS` and
+  `ISONIA_PROPOSALS_ADDRESS`.
+- Confirm App Core runtime deployment capture uses `deployments[]` keyed by
+  `chainId` with `isoCoreAddress` and `isoProposalsAddress`.
 - Confirm Control Plane is configured from explicit protocol profile and
   capability metadata, not package version strings.
 - Confirm App Core reads from the selected Control Plane endpoint.
@@ -25,10 +29,10 @@ provider API calls, secrets, and core repository imports.
 1. Copy `sepolia/managed-execution-manifest.example.json` to a run-specific
    local file.
 2. Replace every example-only address, hash, block number, id, and URL.
-3. Set `contracts.orgExecutor` to the org executor address when managed
+3. Set `contracts.isoOrgExecutor` to the `IsoOrgExecutor` address when managed
    execution is enabled. Use an empty string, `null`, or the zero address only
    when the run is explicitly direct execution.
-4. Record the organization id and expected org executor address.
+4. Record the organization id and expected `IsoOrgExecutor` address.
 5. Record the protocol profile and deployment capability metadata that Control
    Plane will receive.
 6. Record final target, selector, and value permission rules.
@@ -45,7 +49,7 @@ node scripts/validate-sepolia-managed-execution-manifest.mjs sepolia/managed-exe
 ## Live Sepolia Flow
 
 1. Select or deploy the Sepolia IsoniaOS protocol deployment for the run.
-2. Verify `govCore`, `govProposals`, and optional org executor addresses on a
+2. Verify `IsoCore`, `IsoProposals`, and optional `IsoOrgExecutor` addresses on a
    block explorer.
 3. Configure or confirm the org-scoped executor if the run uses managed
    execution.
@@ -54,15 +58,15 @@ node scripts/validate-sepolia-managed-execution-manifest.mjs sepolia/managed-exe
    - action selector enabled;
    - value limit permits the requested value.
 5. Prepare the target contract:
-   - Ownable-style lane: owner is `GovProposals` for direct execution or the
-     org executor for managed execution.
+   - Ownable-style lane: owner is `IsoProposals` for direct execution or the
+     `IsoOrgExecutor` for managed execution.
    - AccessControl-style lane: record only as future or optional evidence until
      the exact role handoff path is validated.
 6. Create or select the proposal with the final action fields:
    `targetAddress`, `value`, `actionSelector`, `dataHash`, and `metadataUri`.
 7. Complete the required approval route.
 8. Execute the proposal directly or through the org-scoped executor.
-9. Capture the canonical `ProposalExecuted` receipt emitted by `GovProposals`.
+9. Capture the canonical `ProposalExecuted` receipt emitted by `IsoProposals`.
 10. Run or resume Control Plane indexing for the selected deployment.
 11. Verify Control Plane surfaces direct or managed execution proof.
 12. Verify App Core renders public archive, accountability, and managed

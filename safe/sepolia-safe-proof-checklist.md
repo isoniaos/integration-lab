@@ -1,5 +1,8 @@
 # Sepolia Safe Proof Checklist
 
+Current maturity: field-note checklist. It supports transaction-proof evidence
+capture only and does not claim Safe integration support.
+
 ## Practical Prerequisites
 
 - Sepolia Safe address.
@@ -28,3 +31,10 @@ For the managed execution smoke scenario, record Safe Sepolia transaction links
 as workflow or transaction proof evidence. They can help verify that a related
 transaction occurred, but the Isonia managed execution proof must come from the
 modeled proposal, permission rules, and canonical `ProposalExecuted` receipt.
+
+## Evidence Needed Before Integration Claim
+
+- A completed Safe Sepolia run with transaction-service and explorer links.
+- Clear source labels separating Safe workflow evidence from protocol authority.
+- A product-owned compatibility model for any Safe field consumed by IsoniaOS.
+- Tests or review notes for the specific execution path being claimed.

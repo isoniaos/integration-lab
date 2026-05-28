@@ -38,7 +38,7 @@ repositories.
    page showing `IsoCore` and `IsoProposals`.
 5. From the private workspace root, run the relevant package build checks for
    `@isonia/types`, `@isonia/sdk`, and `@isonia/theme-default` when this
-   checklist is used as evidence for a handoff.
+   checklist is used as preflight evidence.
 6. Keep live Sepolia evidence and pinned-fork evidence in separate files. Do not
    use fork-only transactions as public block explorer or provider proof.
 

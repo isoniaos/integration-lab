@@ -22,6 +22,8 @@ This repository follows SemVer for releases, but Git tags use a leading `v`.
   rules with `Iso*`, `iso*`, and `ISONIA_*` protocol vocabulary.
 - Marked provider notes with maturity labels and evidence gates before any
   product integration claim.
+- Updated active README, inventory, and normalized local-stack wording so
+  completed normalization evidence is not presented as the next handoff.
 
 ## v0.8.0-alpha.1
 

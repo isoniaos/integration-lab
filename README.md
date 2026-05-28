@@ -2,7 +2,7 @@
 
 Integration Lab is the isolated QA, field-validation, and presentation-evidence repository for IsoniaOS. It records live Sepolia workflows, pinned Sepolia fork replay inputs, provider research, evidence templates, and scenario notes without polluting core product repositories.
 
-Integration Lab is not governance authority, an audited contract package, a runtime dependency source, or proof that any external integration is complete. The public developer overview is in [site/developers/integration-lab.md](https://github.com/isoniaos/docs/blob/main/site/developers/integration-lab.md).
+Integration Lab is not governance authority, an audited contract package, a runtime dependency source, or proof that any external integration is complete. The public developer overview is in [site/developers/index.md](https://github.com/isoniaos/docs/blob/main/site/developers/index.md).
 
 ## Installation
 

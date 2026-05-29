@@ -5,6 +5,11 @@ This directory contains templates for external resource evidence.
 Evidence can support QA, demos, and presentations. It must not silently redefine
 IsoniaOS governance authority.
 
+Use `../provider-registry/` for the machine-readable source/provider planning
+baseline. Evidence fixtures remain run-specific records; the registry records
+source families, boundaries, maturity labels, known limits, and next evidence
+needed before adapter work is scoped.
+
 ## Provider Boundaries
 
 Snapshot records are off-chain signaling or discussion context unless explicitly

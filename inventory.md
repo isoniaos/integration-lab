@@ -1,6 +1,6 @@
 # Integration Lab Inventory
 
-Last reviewed: 2026-05-27
+Last reviewed: 2026-05-30
 
 This inventory classifies current Integration Lab records after the core surface
 normalization sequence. The lab is evidence, QA, scenario, and provider-research
@@ -38,12 +38,15 @@ legal, SaaS, grant, ISO launch, or token launch claims.
 | `evidence/README.md` | current lab guidance | Uses provider maturity labels and evidence gates before any product integration claim. |
 | `evidence/external-resource-fixtures.example.json` | current lab evidence/template | Generic accountability evidence shape; provider records remain context with trust boundaries. |
 | `evidence/managed-execution-external-resources.example.json` | current lab evidence/template | Canonical receipt boundary names `IsoProposals`. |
+| `provider-registry/README.md` | current lab guidance | Explains the external source/provider registry boundary, DTO vocabulary alignment, and local validation command. |
+| `provider-registry/external-source-provider-registry.example.json` | current lab evidence/template | Conservative machine-readable registry for source categories, record types, authority/evidence posture, visibility/access, freshness/failure concerns, maturity labels, known limits, and next evidence needed. |
 | `scenarios/README.md` | current lab guidance | Includes the normalized local-stack checklist as lab evidence capture, not setup authority. |
 | `scenarios/v0.8-sepolia-accountability-smoke.md` | current lab evidence/template | Accountability smoke scenario remains current; provider links are optional evidence/context only. |
 | `scenarios/v0.8-sepolia-managed-execution-smoke.md` | current lab evidence/template | Uses `Iso*` names and preserves no-readiness/no-provider-completeness boundary. |
 | `scenarios/normalized-local-stack-checklist.md` | current lab evidence/template | Added lab-local validation sequence for normalized local stack evidence capture. |
 | `scripts/README.md` | current lab guidance | Validator description covers stale-name rejection and source/trust-boundary requirements. |
 | `scripts/validate-sepolia-managed-execution-manifest.mjs` | current lab validator | Expects `Iso*` / `ISONIA_*`, rejects stale `Gov*` / `GOV_*` active fields, validates App Core deployment arrays, and enforces source/trust-boundary labels. |
+| `scripts/validate-external-source-provider-registry.mjs` | current lab validator | Validates the provider registry shape, DTO vocabulary allowlists, conservative public-claim status, authority boundaries, and disabled write/execute posture. |
 | `snapshot/README.md` | current provider note | Includes maturity label and evidence needed before a Snapshot integration claim. |
 | `snapshot/testnet-space-checklist.md` | current provider note | Includes unverified-field-note status and required evidence gate. |
 | `safe/README.md` | current provider note | Includes maturity label and evidence needed before a Safe integration claim. |

@@ -1,0 +1,1146 @@
+{
+  "schemaVersion": "0.1.0",
+  "status": "lab_registry_baseline",
+  "authorityBoundary": "integration-lab evidence and planning only",
+  "publicClaimStatus": "no_provider_support_claim",
+  "vocabularySource": "@isonia/types external source DTO vocabulary",
+  "entries": [
+    {
+      "entryId": "safe_execution_evidence",
+      "displayName": "Safe execution evidence",
+      "providerFamily": "safe",
+      "sourceCategory": "execution",
+      "primaryRecordTypes": ["transaction", "contract_event"],
+      "defaultAuthorityClaim": {
+        "value": "evidence_only",
+        "scope": "Safe transaction workflow or chain transaction observed from lab evidence",
+        "reason": "Safe records can support bounded transaction or workflow evidence after review.",
+        "sourceBoundary": "Safe service, Safe app, signer set, RPC, and block explorer semantics remain external to this registry."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "transaction_executed",
+          "confidence": "unknown",
+          "subject": "Safe transaction or related execution transaction observed in a lab fixture"
+        }
+      ],
+      "visibility": {
+        "value": "public",
+        "rawVisibility": "public",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Do not include private signer notes, secrets, or customer data.",
+        "retentionPolicy": "Retain public links and normalized lab notes until the evidence is reviewed."
+      },
+      "accessModes": ["public", "manual", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "rate_limited",
+          "auth_required",
+          "source_unavailable",
+          "schema_changed",
+          "partial",
+          "mismatch"
+        ],
+        "notes": [
+          "Safe app or service views and explorer data can diverge or be unavailable.",
+          "Signer set, threshold, and module meaning require source-specific review."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "link",
+          "enabled": true,
+          "recordTypes": ["transaction"],
+          "notes": "Lab evidence may record public links and hashes only."
+        },
+        {
+          "kind": "verify",
+          "enabled": false,
+          "recordTypes": ["transaction", "contract_event"],
+          "notes": "Verification needs a future adapter spec and fixture set."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_lab_planning_no_write_or_execute_capability",
+      "knownLimits": [
+        "No Safe adapter is implemented here.",
+        "Safe workflow state is not converted into protocol authority by this registry.",
+        "Service-indexed state can lag or disagree with chain observations."
+      ],
+      "nextEvidenceNeeded": [
+        "Safe read-only execution evidence adapter spec.",
+        "Fixture set with Safe transaction service response, explorer transaction, and expected normalized record.",
+        "Boundary note for signer, module, guard, and threshold interpretation."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "snapshot_offchain_governance_signal",
+      "displayName": "Snapshot offchain governance signal",
+      "providerFamily": "snapshot",
+      "sourceCategory": "offchain_governance_signal",
+      "primaryRecordTypes": ["proposal", "vote", "discussion_thread"],
+      "defaultAuthorityClaim": {
+        "value": "context_only",
+        "scope": "Snapshot proposal, voting, and discussion records inside the Snapshot source boundary",
+        "reason": "Snapshot records can explain offchain signaling but do not decide modeled protocol state from this registry.",
+        "sourceBoundary": "Snapshot space rules, voting strategies, API responses, and discussion links remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "proposal_existed",
+          "confidence": "unknown",
+          "subject": "Snapshot proposal URL or source identifier observed in lab evidence"
+        },
+        {
+          "kind": "vote_occurred",
+          "confidence": "unknown",
+          "subject": "Snapshot vote record observed if a fixture later provides voter and choice data"
+        }
+      ],
+      "visibility": {
+        "value": "public",
+        "rawVisibility": "public",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Do not copy private comments or wallet notes into the registry.",
+        "retentionPolicy": "Retain public links and normalized lab notes until the evidence is reviewed."
+      },
+      "accessModes": ["public", "manual", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "rate_limited",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial",
+          "mismatch"
+        ],
+        "notes": [
+          "Voting strategies and proposal state can be source-specific.",
+          "Space metadata, vote power, and result views require stale and mismatch handling."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "link",
+          "enabled": true,
+          "recordTypes": ["proposal", "discussion_thread"],
+          "notes": "Lab evidence may record proposal or discussion links only."
+        },
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["proposal", "vote"],
+          "notes": "Import needs a future read-only adapter spec and current fixture evidence."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_lab_planning_no_write_or_execute_capability",
+      "knownLimits": [
+        "No Snapshot adapter is implemented here.",
+        "Offchain signaling is not approval or execution evidence by default.",
+        "Voting power and strategy semantics are not normalized by this registry."
+      ],
+      "nextEvidenceNeeded": [
+        "Snapshot read-only offchain governance-signal adapter spec.",
+        "Current testnet space run evidence with proposal and vote fixtures.",
+        "Source-boundary copy for stale, partial, and strategy-specific fields."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "tally_governor_records",
+      "displayName": "Tally Governor records",
+      "providerFamily": "tally_governor",
+      "sourceCategory": "governance_platform",
+      "primaryRecordTypes": ["proposal", "vote", "delegation", "contract_event"],
+      "defaultAuthorityClaim": {
+        "value": "context_only",
+        "scope": "Tally portal or API records about Governor-style contracts",
+        "reason": "Tally can expose governance context, but the underlying contract and portal data need separate boundary review.",
+        "sourceBoundary": "Tally indexing, Governor contract semantics, RPC data, and portal views remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "proposal_existed",
+          "confidence": "unknown",
+          "subject": "Governor proposal page or API record observed through Tally"
+        },
+        {
+          "kind": "vote_occurred",
+          "confidence": "unknown",
+          "subject": "Governor vote record observed through Tally when a fixture exists"
+        },
+        {
+          "kind": "delegation_observed",
+          "confidence": "unknown",
+          "subject": "Delegate state observed through Tally when a fixture exists"
+        }
+      ],
+      "visibility": {
+        "value": "public",
+        "rawVisibility": "public",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Do not include account notes beyond public governance records.",
+        "retentionPolicy": "Retain public links and normalized lab notes until the evidence is reviewed."
+      },
+      "accessModes": ["public", "manual", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "rate_limited",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial",
+          "mismatch"
+        ],
+        "notes": [
+          "Portal state can lag behind chain state or omit contract-specific fields.",
+          "Governor compatibility depends on contract ABI, events, and chain indexing."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "link",
+          "enabled": true,
+          "recordTypes": ["proposal"],
+          "notes": "Lab evidence may record portal links only."
+        },
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["proposal", "vote", "delegation"],
+          "notes": "Import needs a future read-only governance-platform spec."
+        },
+        {
+          "kind": "verify",
+          "enabled": false,
+          "recordTypes": ["contract_event"],
+          "notes": "Verification needs contract, event, and chain fixture evidence."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_lab_planning_no_write_or_execute_capability",
+      "knownLimits": [
+        "No Tally adapter is implemented here.",
+        "Tally portal views are not treated as modeled protocol state by this registry.",
+        "Governor compatibility is provider and contract specific."
+      ],
+      "nextEvidenceNeeded": [
+        "Tally/Governor read-only governance-platform adapter spec.",
+        "Verified compatible Governor-style deployment or fixture set.",
+        "Mismatch handling plan for portal data versus chain observations."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "agora_governance_platform_records",
+      "displayName": "Agora governance platform records",
+      "providerFamily": "agora",
+      "sourceCategory": "governance_platform",
+      "primaryRecordTypes": ["proposal", "vote", "delegation", "discussion_thread"],
+      "defaultAuthorityClaim": {
+        "value": "context_only",
+        "scope": "Agora portal, API, or client records inside the Agora source boundary",
+        "reason": "Agora records can provide context when a compatible source is identified.",
+        "sourceBoundary": "Agora client behavior, portal indexing, API semantics, and underlying governance contracts remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "proposal_existed",
+          "confidence": "unknown",
+          "subject": "Agora proposal or governance page observed in lab research"
+        },
+        {
+          "kind": "discussion_occurred",
+          "confidence": "unknown",
+          "subject": "Agora-linked discussion observed if a fixture later provides it"
+        }
+      ],
+      "visibility": {
+        "value": "public",
+        "rawVisibility": "public",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Do not include non-public partner notes or credentials.",
+        "retentionPolicy": "Retain public links and normalized lab notes until the evidence is reviewed."
+      },
+      "accessModes": ["public", "manual", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "auth_required",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial",
+          "mismatch"
+        ],
+        "notes": [
+          "Compatibility depends on the exact Agora surface and governance system.",
+          "Portal records need source labels that distinguish platform views from chain or protocol records."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "link",
+          "enabled": true,
+          "recordTypes": ["proposal", "discussion_thread"],
+          "notes": "Lab research may record public links only."
+        },
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["proposal", "vote", "delegation"],
+          "notes": "Import needs a future governance-platform spec and fixtures."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_lab_planning_no_write_or_execute_capability",
+      "knownLimits": [
+        "No Agora adapter is implemented here.",
+        "Local notes are research and link context only.",
+        "Compatibility requirements are not verified by this registry."
+      ],
+      "nextEvidenceNeeded": [
+        "Agora read-only governance-platform spec.",
+        "Current Agora compatibility notes for a concrete candidate surface.",
+        "Fixture plan for portal/API records and source-boundary labels."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "aragon_dao_framework_records",
+      "displayName": "Aragon DAO framework records",
+      "providerFamily": "aragon",
+      "sourceCategory": "dao_framework",
+      "primaryRecordTypes": ["proposal", "vote", "payment", "contract_event"],
+      "defaultAuthorityClaim": {
+        "value": "context_only",
+        "scope": "Aragon DAO framework records inside the Aragon source boundary",
+        "reason": "Framework records can provide context only until a scoped model defines field-level meaning.",
+        "sourceBoundary": "Aragon app, plugins, permissions, chain contracts, and treasury semantics remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "proposal_existed",
+          "confidence": "unknown",
+          "subject": "Aragon proposal or DAO record observed in future research evidence"
+        },
+        {
+          "kind": "payment_sent",
+          "confidence": "unknown",
+          "subject": "Aragon treasury payment record observed if a future fixture includes it"
+        }
+      ],
+      "visibility": {
+        "value": "unknown",
+        "rawVisibility": "unknown",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Treat DAO metadata, member data, and treasury notes as review-required until visibility is known.",
+        "retentionPolicy": "Retain only reviewed public links or normalized notes."
+      },
+      "accessModes": ["public", "credentialed", "manual", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "auth_required",
+          "permission_denied",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial",
+          "mismatch"
+        ],
+        "notes": [
+          "Framework plugins and permission models can vary by DAO.",
+          "Treasury, role, and proposal records need explicit source-boundary review."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "link",
+          "enabled": false,
+          "recordTypes": ["proposal", "contract_event"],
+          "notes": "Linking requires a future research note and approved fixture source."
+        },
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["proposal", "vote", "payment"],
+          "notes": "Import needs a future DAO-framework research spec."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_research_no_write_or_execute_capability",
+      "knownLimits": [
+        "No Aragon adapter or local fixture is present.",
+        "Framework authority and plugin semantics are not modeled by this registry.",
+        "Visibility and consent posture are unknown until a concrete source is reviewed."
+      ],
+      "nextEvidenceNeeded": [
+        "Aragon DAO-framework research spec.",
+        "Candidate DAO record inventory with public/credentialed access notes.",
+        "Authority and permission-boundary model for proposal, treasury, and plugin records."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "daohaus_dao_framework_records",
+      "displayName": "DAOHaus DAO framework records",
+      "providerFamily": "daohaus",
+      "sourceCategory": "dao_framework",
+      "primaryRecordTypes": ["proposal", "vote", "payment", "contract_event"],
+      "defaultAuthorityClaim": {
+        "value": "context_only",
+        "scope": "DAOHaus or Moloch-style framework records inside the DAOHaus source boundary",
+        "reason": "Framework records can provide context only until a scoped model defines field-level meaning.",
+        "sourceBoundary": "DAOHaus app views, Moloch-style contracts, subgraphs, treasury semantics, and member records remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "proposal_existed",
+          "confidence": "unknown",
+          "subject": "DAOHaus proposal record observed in future research evidence"
+        },
+        {
+          "kind": "payment_sent",
+          "confidence": "unknown",
+          "subject": "DAOHaus treasury or payment record observed if a future fixture includes it"
+        }
+      ],
+      "visibility": {
+        "value": "unknown",
+        "rawVisibility": "unknown",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Treat member and treasury data as review-required until visibility is known.",
+        "retentionPolicy": "Retain only reviewed public links or normalized notes."
+      },
+      "accessModes": ["public", "credentialed", "manual", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "auth_required",
+          "permission_denied",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial",
+          "mismatch"
+        ],
+        "notes": [
+          "DAOHaus views may depend on subgraph freshness and framework version.",
+          "Member, proposal, tribute, ragequit, and treasury semantics need explicit review."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "link",
+          "enabled": false,
+          "recordTypes": ["proposal", "contract_event"],
+          "notes": "Linking requires a future research note and approved fixture source."
+        },
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["proposal", "vote", "payment"],
+          "notes": "Import needs a future DAO-framework research spec."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_research_no_write_or_execute_capability",
+      "knownLimits": [
+        "No DAOHaus adapter or local fixture is present.",
+        "Framework-specific authority and treasury semantics are not modeled by this registry.",
+        "Visibility and consent posture are unknown until a concrete source is reviewed."
+      ],
+      "nextEvidenceNeeded": [
+        "DAOHaus DAO-framework research spec.",
+        "Candidate DAO record inventory with public/credentialed access notes.",
+        "Authority and freshness model for proposal, treasury, and member records."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "colony_like_organization_runtime_records",
+      "displayName": "Colony-like organization runtime records",
+      "providerFamily": "colony_like",
+      "sourceCategory": "organization_runtime",
+      "primaryRecordTypes": ["work_artifact", "payment", "manual_note"],
+      "defaultAuthorityClaim": {
+        "value": "context_only",
+        "scope": "Organization runtime records for teams, domains, tasks, payments, and reputation-like state",
+        "reason": "Operational runtime records can explain work and payment context only until a scoped model defines meaning.",
+        "sourceBoundary": "External runtime app, reputation model, payment rails, task records, and role semantics remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "work_artifact_delivered",
+          "confidence": "unknown",
+          "subject": "Task or work artifact observed in future organization-runtime evidence"
+        },
+        {
+          "kind": "payment_sent",
+          "confidence": "unknown",
+          "subject": "Payment record observed if a future fixture includes it"
+        }
+      ],
+      "visibility": {
+        "value": "unknown",
+        "rawVisibility": "unknown",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Treat contributor, payment, and reputation-like details as restricted until policy is reviewed.",
+        "retentionPolicy": "Retain only reviewed public links or normalized notes."
+      },
+      "accessModes": ["credentialed", "delegated", "manual", "export", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "auth_required",
+          "permission_denied",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial",
+          "mismatch"
+        ],
+        "notes": [
+          "Runtime state can include private contributor and payment data.",
+          "Reputation-like and role-like fields require abuse and consent review."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "link",
+          "enabled": false,
+          "recordTypes": ["work_artifact", "payment"],
+          "notes": "Linking requires a future organization-runtime research note."
+        },
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["work_artifact", "payment", "manual_note"],
+          "notes": "Import needs a future source model, visibility policy, and fixture plan."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_research_no_write_or_execute_capability",
+      "knownLimits": [
+        "No Colony-like adapter or local fixture is present.",
+        "Reputation-like state is not used for automated decisions by this registry.",
+        "Payment and contributor data may require stronger access and retention controls."
+      ],
+      "nextEvidenceNeeded": [
+        "Colony-like organization-runtime research spec.",
+        "Privacy, consent, and retention model for contributor and payment records.",
+        "Fixture plan for task, payment, and role-context records."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "xdao_like_organization_runtime_records",
+      "displayName": "XDAO-like organization runtime records",
+      "providerFamily": "xdao_like",
+      "sourceCategory": "organization_runtime",
+      "primaryRecordTypes": ["proposal", "payment", "work_artifact"],
+      "defaultAuthorityClaim": {
+        "value": "context_only",
+        "scope": "Organization runtime records for proposals, treasury actions, teams, and operational artifacts",
+        "reason": "Operational runtime records can explain context only until a scoped model defines meaning.",
+        "sourceBoundary": "External runtime app, treasury views, chain contracts, team records, and payment semantics remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "proposal_existed",
+          "confidence": "unknown",
+          "subject": "Proposal or organization action observed in future runtime evidence"
+        },
+        {
+          "kind": "payment_sent",
+          "confidence": "unknown",
+          "subject": "Treasury or payment record observed if a future fixture includes it"
+        }
+      ],
+      "visibility": {
+        "value": "unknown",
+        "rawVisibility": "unknown",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Treat treasury, member, and team data as restricted until policy is reviewed.",
+        "retentionPolicy": "Retain only reviewed public links or normalized notes."
+      },
+      "accessModes": ["public", "credentialed", "delegated", "manual", "export", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "auth_required",
+          "permission_denied",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial",
+          "mismatch"
+        ],
+        "notes": [
+          "Multi-chain treasury and runtime records can be partial or source-specific.",
+          "Team and permission fields need explicit source-boundary review."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "link",
+          "enabled": false,
+          "recordTypes": ["proposal", "payment", "work_artifact"],
+          "notes": "Linking requires a future organization-runtime research note."
+        },
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["proposal", "payment", "work_artifact"],
+          "notes": "Import needs a future source model, visibility policy, and fixture plan."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_research_no_write_or_execute_capability",
+      "knownLimits": [
+        "No XDAO-like adapter or local fixture is present.",
+        "Treasury, team, and permission records are not normalized by this registry.",
+        "Multi-chain freshness and mismatch handling are unresolved."
+      ],
+      "nextEvidenceNeeded": [
+        "XDAO-like organization-runtime research spec.",
+        "Multi-chain treasury/source freshness model.",
+        "Fixture plan for proposal, team, work, and payment records."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "forums_discourse_discussion_sources",
+      "displayName": "Forums and Discourse-style discussion sources",
+      "providerFamily": "forums_discourse",
+      "sourceCategory": "discussion",
+      "primaryRecordTypes": ["discussion_thread", "message"],
+      "defaultAuthorityClaim": {
+        "value": "context_only",
+        "scope": "Public or organization-restricted forum discussion records",
+        "reason": "Forum discussions can explain deliberation and context but are not approvals or votes by default.",
+        "sourceBoundary": "Forum identity, moderation, edits, deletion policy, and access controls remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "discussion_occurred",
+          "confidence": "unknown",
+          "subject": "Forum thread or message observed in future discussion evidence"
+        }
+      ],
+      "visibility": {
+        "value": "unknown",
+        "rawVisibility": "unknown",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Separate raw post visibility from summaries; preserve redaction reason when content is removed.",
+        "retentionPolicy": "Retain public links by default; retain raw content only after visibility and consent review."
+      },
+      "accessModes": ["public", "credentialed", "manual", "export", "webhook", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "auth_required",
+          "permission_denied",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial"
+        ],
+        "notes": [
+          "Threads and messages can be edited, deleted, moderated, or access-restricted.",
+          "Summary visibility can differ from raw visibility."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "link",
+          "enabled": true,
+          "recordTypes": ["discussion_thread"],
+          "notes": "Lab evidence may record public thread links only."
+        },
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["discussion_thread", "message"],
+          "notes": "Import needs a privacy, consent, retention, and deletion policy."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_lab_planning_no_write_or_execute_capability",
+      "knownLimits": [
+        "No forum or Discourse adapter is implemented here.",
+        "Discussion does not equal approval, vote, or completed work.",
+        "Raw content retention and summaries require policy review."
+      ],
+      "nextEvidenceNeeded": [
+        "Discussion ingestion privacy and consent spec.",
+        "Forum source model for thread/message identity, edits, deletion, and visibility.",
+        "Fixture plan for public thread links and redacted summaries."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "discord_discussion_sources",
+      "displayName": "Discord discussion sources",
+      "providerFamily": "discord",
+      "sourceCategory": "discussion",
+      "primaryRecordTypes": ["discussion_thread", "message"],
+      "defaultAuthorityClaim": {
+        "value": "context_only",
+        "scope": "Discord channel, thread, or message records when access and retention are reviewed",
+        "reason": "Chat records can explain context only under strict consent and visibility rules.",
+        "sourceBoundary": "Discord workspace roles, channel access, bot/export permissions, edits, deletions, and moderation remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "discussion_occurred",
+          "confidence": "unknown",
+          "subject": "Discord thread or message observed in future consent-reviewed evidence"
+        }
+      ],
+      "visibility": {
+        "value": "private",
+        "rawVisibility": "private",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Do not retain private messages by default; redact user data unless policy and consent allow retention.",
+        "retentionPolicy": "Retain only reviewed metadata or redacted summaries until a deletion policy exists."
+      },
+      "accessModes": ["credentialed", "delegated", "export", "webhook", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "auth_required",
+          "permission_denied",
+          "rate_limited",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial"
+        ],
+        "notes": [
+          "Channel membership, role access, and consent can change after ingestion.",
+          "Raw messages and summaries need separate visibility and deletion behavior."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["discussion_thread", "message"],
+          "notes": "Import requires consent, access, retention, deletion, and redaction policy."
+        },
+        {
+          "kind": "ai_extract",
+          "enabled": false,
+          "recordTypes": ["message", "ai_extraction"],
+          "notes": "Summaries require a reviewed AI extraction workflow and visibility policy."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_research_no_write_or_execute_capability",
+      "knownLimits": [
+        "No Discord adapter or fixture is present.",
+        "Private or semi-private chat content is high-risk evidence.",
+        "Consent, retention, deletion, and redaction controls are unresolved."
+      ],
+      "nextEvidenceNeeded": [
+        "Discussion ingestion privacy and consent spec.",
+        "Discord source model for channels, threads, messages, roles, edits, and deletions.",
+        "AI extraction review workflow before any summary fixture is retained."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "telegram_discussion_sources",
+      "displayName": "Telegram discussion sources",
+      "providerFamily": "telegram",
+      "sourceCategory": "discussion",
+      "primaryRecordTypes": ["discussion_thread", "message"],
+      "defaultAuthorityClaim": {
+        "value": "context_only",
+        "scope": "Telegram group, channel, thread, or message records when access and retention are reviewed",
+        "reason": "Chat records can explain context only under strict consent and visibility rules.",
+        "sourceBoundary": "Telegram group/channel access, exports, account identity, edits, deletions, and moderation remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "discussion_occurred",
+          "confidence": "unknown",
+          "subject": "Telegram thread or message observed in future consent-reviewed evidence"
+        }
+      ],
+      "visibility": {
+        "value": "private",
+        "rawVisibility": "private",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Do not retain private messages by default; redact user data unless policy and consent allow retention.",
+        "retentionPolicy": "Retain only reviewed metadata or redacted summaries until a deletion policy exists."
+      },
+      "accessModes": ["credentialed", "delegated", "manual", "export", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "auth_required",
+          "permission_denied",
+          "rate_limited",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial"
+        ],
+        "notes": [
+          "Group visibility, account identity, and export completeness can vary.",
+          "Raw messages and summaries need separate visibility and deletion behavior."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["discussion_thread", "message"],
+          "notes": "Import requires consent, access, retention, deletion, and redaction policy."
+        },
+        {
+          "kind": "ai_extract",
+          "enabled": false,
+          "recordTypes": ["message", "ai_extraction"],
+          "notes": "Summaries require a reviewed AI extraction workflow and visibility policy."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_research_no_write_or_execute_capability",
+      "knownLimits": [
+        "No Telegram adapter or fixture is present.",
+        "Private or semi-private chat content is high-risk evidence.",
+        "Consent, retention, deletion, and redaction controls are unresolved."
+      ],
+      "nextEvidenceNeeded": [
+        "Discussion ingestion privacy and consent spec.",
+        "Telegram source model for groups, channels, messages, identity, edits, and deletions.",
+        "AI extraction review workflow before any summary fixture is retained."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "slack_discussion_sources",
+      "displayName": "Slack discussion sources",
+      "providerFamily": "slack",
+      "sourceCategory": "discussion",
+      "primaryRecordTypes": ["discussion_thread", "message"],
+      "defaultAuthorityClaim": {
+        "value": "context_only",
+        "scope": "Slack workspace, channel, thread, or message records when access and retention are reviewed",
+        "reason": "Chat records can explain context only under strict consent and visibility rules.",
+        "sourceBoundary": "Slack workspace roles, channel access, export rules, bot scopes, edits, deletions, and retention policy remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "discussion_occurred",
+          "confidence": "unknown",
+          "subject": "Slack thread or message observed in future consent-reviewed evidence"
+        }
+      ],
+      "visibility": {
+        "value": "private",
+        "rawVisibility": "private",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Do not retain private messages by default; redact user data unless policy and consent allow retention.",
+        "retentionPolicy": "Retain only reviewed metadata or redacted summaries until a deletion policy exists."
+      },
+      "accessModes": ["credentialed", "delegated", "export", "webhook", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "auth_required",
+          "permission_denied",
+          "rate_limited",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial"
+        ],
+        "notes": [
+          "Workspace retention policy and export access can limit records.",
+          "Raw messages and summaries need separate visibility and deletion behavior."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["discussion_thread", "message"],
+          "notes": "Import requires consent, access, retention, deletion, and redaction policy."
+        },
+        {
+          "kind": "ai_extract",
+          "enabled": false,
+          "recordTypes": ["message", "ai_extraction"],
+          "notes": "Summaries require a reviewed AI extraction workflow and visibility policy."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_research_no_write_or_execute_capability",
+      "knownLimits": [
+        "No Slack adapter or fixture is present.",
+        "Workspace export scope and retention rules can make records partial.",
+        "Consent, retention, deletion, and redaction controls are unresolved."
+      ],
+      "nextEvidenceNeeded": [
+        "Discussion ingestion privacy and consent spec.",
+        "Slack source model for workspaces, channels, threads, messages, bot scopes, edits, and deletions.",
+        "AI extraction review workflow before any summary fixture is retained."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "github_work_artifacts",
+      "displayName": "GitHub work artifacts",
+      "providerFamily": "github",
+      "sourceCategory": "work_artifact",
+      "primaryRecordTypes": ["work_artifact", "discussion_thread", "message", "manual_note"],
+      "defaultAuthorityClaim": {
+        "value": "evidence_only",
+        "scope": "GitHub issue, pull request, commit, release, discussion, or project artifact observed from lab evidence",
+        "reason": "GitHub records can support bounded work-artifact and discussion evidence after review.",
+        "sourceBoundary": "GitHub repository permissions, branch protections, review rules, identity mapping, and API/indexing semantics remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "work_artifact_delivered",
+          "confidence": "unknown",
+          "subject": "Pull request, commit, release, issue, or artifact link observed in lab evidence"
+        },
+        {
+          "kind": "discussion_occurred",
+          "confidence": "unknown",
+          "subject": "Issue, review, or discussion thread observed when relevant"
+        }
+      ],
+      "visibility": {
+        "value": "unknown",
+        "rawVisibility": "unknown",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Do not include private repository content unless visibility and permission are reviewed.",
+        "retentionPolicy": "Retain public links and normalized lab notes; treat private repository records as restricted."
+      },
+      "accessModes": ["public", "credentialed", "manual", "webhook", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "auth_required",
+          "permission_denied",
+          "rate_limited",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial",
+          "mismatch"
+        ],
+        "notes": [
+          "Repository visibility, permissions, and branch protection can change.",
+          "Work artifact evidence does not prove governance intent unless separately reviewed."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "link",
+          "enabled": true,
+          "recordTypes": ["work_artifact", "discussion_thread"],
+          "notes": "Lab evidence may record public issue, PR, commit, release, or discussion links."
+        },
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["work_artifact", "discussion_thread", "message"],
+          "notes": "Import needs source model, auth scope, and private repository visibility policy."
+        },
+        {
+          "kind": "verify",
+          "enabled": false,
+          "recordTypes": ["work_artifact"],
+          "notes": "Verification needs fixture-backed rules for artifact identity and completion evidence."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_lab_planning_no_write_or_execute_capability",
+      "knownLimits": [
+        "No GitHub adapter is implemented here.",
+        "Work artifacts are evidence/context, not proof that governance intent was satisfied.",
+        "Private repository records require access, consent, retention, and redaction review."
+      ],
+      "nextEvidenceNeeded": [
+        "GitHub work-artifact source model for issues, PRs, commits, releases, and discussions.",
+        "Privacy and retention policy for private repository records.",
+        "Fixture plan for artifact identity, linked governance context, and stale/error states."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "block_explorer_transaction_evidence",
+      "displayName": "Block explorer transaction evidence",
+      "providerFamily": "block_explorer",
+      "sourceCategory": "execution",
+      "primaryRecordTypes": ["transaction", "contract_event", "payment"],
+      "defaultAuthorityClaim": {
+        "value": "evidence_only",
+        "scope": "Transaction, address, contract, or log visibility through a block explorer",
+        "reason": "Explorer records can support bounded transaction/log evidence after chain and source review.",
+        "sourceBoundary": "Explorer indexing, decoded labels, RPC data, chain reorg behavior, and contract verification views remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "transaction_executed",
+          "confidence": "unknown",
+          "subject": "Transaction hash observed through explorer or chain evidence"
+        },
+        {
+          "kind": "payment_sent",
+          "confidence": "unknown",
+          "subject": "Value transfer or token movement observed if a future fixture includes it"
+        }
+      ],
+      "visibility": {
+        "value": "public",
+        "rawVisibility": "public",
+        "summaryVisibility": "public",
+        "redactionPolicy": "Do not add private annotations to public explorer records.",
+        "retentionPolicy": "Retain public transaction references and normalized lab notes."
+      },
+      "accessModes": ["public", "manual", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "rate_limited",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial",
+          "mismatch"
+        ],
+        "notes": [
+          "Explorer decoded labels can be incomplete, stale, or wrong.",
+          "Chain reorgs, RPC disagreement, and indexer lag require freshness handling."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "link",
+          "enabled": true,
+          "recordTypes": ["transaction", "contract_event"],
+          "notes": "Lab evidence may record transaction, address, contract, or log links."
+        },
+        {
+          "kind": "verify",
+          "enabled": false,
+          "recordTypes": ["transaction", "contract_event", "payment"],
+          "notes": "Verification needs a future chain/explorer source model and fixture set."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_lab_planning_no_write_or_execute_capability",
+      "knownLimits": [
+        "No block explorer adapter is implemented here.",
+        "Explorer UI labels and decoded views are not treated as governance truth by this registry.",
+        "Public visibility does not prove intent, authorization, or completeness."
+      ],
+      "nextEvidenceNeeded": [
+        "Block explorer transaction/log evidence source model.",
+        "Fixture set with transaction hash, receipt/log evidence, explorer URL, and mismatch cases.",
+        "Freshness and reorg notes for chain and explorer observations."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    },
+    {
+      "entryId": "ai_extraction_and_summaries",
+      "displayName": "AI extraction and summaries",
+      "providerFamily": "ai_extraction",
+      "sourceCategory": "ai_extraction",
+      "primaryRecordTypes": ["ai_extraction", "manual_note"],
+      "defaultAuthorityClaim": {
+        "value": "context_only",
+        "scope": "AI-assisted summary, classification, memory note, or evidence-gap observation over source records",
+        "reason": "AI output can provide advisory context only after review of the input records and visibility policy.",
+        "sourceBoundary": "Model behavior, prompt/input selection, review status, output storage, and visibility policy remain external source semantics."
+      },
+      "defaultEvidenceClaims": [
+        {
+          "kind": "ai_summary_generated",
+          "confidence": "unknown",
+          "subject": "AI-assisted output generated from explicitly listed input records"
+        }
+      ],
+      "visibility": {
+        "value": "unknown",
+        "rawVisibility": "redacted",
+        "summaryVisibility": "organization_restricted",
+        "redactionPolicy": "Keep input visibility separate from output visibility; redact private source content unless policy allows retention.",
+        "retentionPolicy": "Retain only reviewed outputs with input references, model metadata where appropriate, and review status."
+      },
+      "accessModes": ["manual", "credentialed", "read_only"],
+      "freshnessAndFailureNotes": {
+        "defaultState": "not_checked",
+        "failureStates": [
+          "unknown",
+          "auth_required",
+          "permission_denied",
+          "source_unavailable",
+          "schema_changed",
+          "parse_failed",
+          "partial",
+          "mismatch"
+        ],
+        "notes": [
+          "AI output can omit context or misclassify source records.",
+          "Review status, input records, visibility, and retention policy must stay explicit."
+        ]
+      },
+      "adapterMaturity": "research",
+      "capabilities": [
+        {
+          "kind": "ai_extract",
+          "enabled": false,
+          "recordTypes": ["ai_extraction"],
+          "notes": "Extraction requires a future reviewed workflow and fixture plan."
+        },
+        {
+          "kind": "link",
+          "enabled": false,
+          "recordTypes": ["ai_extraction", "manual_note"],
+          "notes": "Linking AI output requires review status and input-record references."
+        }
+      ],
+      "readOnlyWritePosture": "read_only_research_no_write_or_execute_capability",
+      "knownLimits": [
+        "No AI extraction workflow is implemented here.",
+        "AI output cannot approve, veto, punish, assign legal responsibility, or trigger execution.",
+        "Raw input records and summaries require separate visibility and retention policy."
+      ],
+      "nextEvidenceNeeded": [
+        "AI extraction review workflow.",
+        "Fixture plan that records input record IDs, task, generation metadata, visibility, review status, and output hash.",
+        "Public UI copy for advisory source-boundary warnings."
+      ],
+      "publicClaimStatus": "no_provider_support_claim"
+    }
+  ]
+}

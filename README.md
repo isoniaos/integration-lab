@@ -21,6 +21,7 @@ Configuration and evidence are stored as repository-local notes and JSON templat
 - `sepolia/` for live Sepolia templates and runbooks.
 - `forks/` for pinned Sepolia fork replay notes.
 - `evidence/` for external evidence fixture templates.
+- `provider-registry/` for the external source/provider registry baseline.
 - `scenarios/` for QA and presentation scenarios.
 - `snapshot/`, `safe/`, `tally/`, and `agora/` for provider-specific research notes.
 - `inventory.md` for the current lab inventory and stale-reference disposition.
@@ -37,6 +38,12 @@ Validate the managed execution smoke manifest example:
 node scripts/validate-sepolia-managed-execution-manifest.mjs sepolia/managed-execution-manifest.example.json
 ```
 
+Validate the external source provider registry example:
+
+```bash
+node scripts/validate-external-source-provider-registry.mjs provider-registry/external-source-provider-registry.example.json
+```
+
 Use the directory READMEs for scenario-specific workflow notes. Use `scenarios/normalized-local-stack-checklist.md` for lab-local evidence capture when validating the normalized local stack; command ownership remains with the owning repositories.
 
 ## Troubleshooting
@@ -45,6 +52,8 @@ Use the directory READMEs for scenario-specific workflow notes. Use `scenarios/n
 - Keep live Sepolia evidence separate from pinned-fork replay evidence.
 - Do not use fork-only transactions as public block explorer or provider proof.
 - Do not infer product integration support from Snapshot, Safe, Tally, Agora, GitHub, Discourse, or block explorer notes in this lab.
+- Treat `provider-registry/` entries as evidence planning records, not adapter
+  implementations or product availability claims.
 
 ## Contribution
 

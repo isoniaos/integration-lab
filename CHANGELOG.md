@@ -10,6 +10,8 @@ This repository follows SemVer for releases, but Git tags use a leading `v`.
 
 - Lab inventory and normalized local-stack validation checklist for evidence
   capture after the core surface normalization handoff.
+- External source provider registry baseline with a dependency-free validator
+  for conservative provider/source planning evidence.
 - v0.8 Sepolia managed execution smoke scenario, runbook, manifest template,
   pinned fork template, external evidence fixture, and dependency-free manifest
   validator.

@@ -13,11 +13,20 @@ Current scripts:
   `Gov*` / `GOV_*` active fields, unsafe authority defaults, invalid addresses
   or hashes, wrong Sepolia chain identity, and missing source or trust-boundary
   labels.
+- `validate-external-source-provider-registry.mjs` validates the external
+  source provider registry shape without npm dependencies. It checks DTO
+  vocabulary allowlists, required registry fields, conservative public-claim
+  status, scoped authority posture, visibility/access values, disabled
+  write/execute capabilities, and suspicious claim wording.
 
 Usage:
 
 ```bash
 node scripts/validate-sepolia-managed-execution-manifest.mjs sepolia/managed-execution-manifest.example.json
+```
+
+```bash
+node scripts/validate-external-source-provider-registry.mjs provider-registry/external-source-provider-registry.example.json
 ```
 
 When adding scripts:

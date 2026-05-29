@@ -8,6 +8,9 @@ This repository follows SemVer for releases, but Git tags use a leading `v`.
 
 ### Added
 
+- Safe read-only execution evidence fixture plan aligned with the private
+  adapter spec, without adding a Safe adapter, API client, write path, or
+  execution path.
 - Lab inventory and normalized local-stack validation checklist for evidence
   capture after the core surface normalization handoff.
 - External source provider registry baseline with a dependency-free validator
@@ -20,6 +23,9 @@ This repository follows SemVer for releases, but Git tags use a leading `v`.
 
 ### Changed
 
+- Updated the Safe provider-registry entry to `adapter-spec` maturity based on
+  the private spec and fixture plan while keeping write and execute
+  capabilities disabled.
 - Aligned active lab templates, scenarios, runbooks, fork configs, and validator
   rules with `Iso*`, `iso*`, and `ISONIA_*` protocol vocabulary.
 - Marked provider notes with maturity labels and evidence gates before any

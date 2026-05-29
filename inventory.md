@@ -39,7 +39,7 @@ legal, SaaS, grant, ISO launch, or token launch claims.
 | `evidence/external-resource-fixtures.example.json` | current lab evidence/template | Generic accountability evidence shape; provider records remain context with trust boundaries. |
 | `evidence/managed-execution-external-resources.example.json` | current lab evidence/template | Canonical receipt boundary names `IsoProposals`. |
 | `provider-registry/README.md` | current lab guidance | Explains the external source/provider registry boundary, DTO vocabulary alignment, and local validation command. |
-| `provider-registry/external-source-provider-registry.example.json` | current lab evidence/template | Conservative machine-readable registry for source categories, record types, authority/evidence posture, visibility/access, freshness/failure concerns, maturity labels, known limits, and next evidence needed. |
+| `provider-registry/external-source-provider-registry.example.json` | current lab evidence/template | Conservative machine-readable registry for source categories, record types, authority/evidence posture, visibility/access, freshness/failure concerns, maturity labels, known limits, and next evidence needed. Safe is now `adapter-spec` maturity based on the private spec and lab fixture plan; no Safe adapter, write, or execution path is present. |
 | `scenarios/README.md` | current lab guidance | Includes the normalized local-stack checklist as lab evidence capture, not setup authority. |
 | `scenarios/v0.8-sepolia-accountability-smoke.md` | current lab evidence/template | Accountability smoke scenario remains current; provider links are optional evidence/context only. |
 | `scenarios/v0.8-sepolia-managed-execution-smoke.md` | current lab evidence/template | Uses `Iso*` names and preserves no-readiness/no-provider-completeness boundary. |
@@ -49,7 +49,8 @@ legal, SaaS, grant, ISO launch, or token launch claims.
 | `scripts/validate-external-source-provider-registry.mjs` | current lab validator | Validates the provider registry shape, DTO vocabulary allowlists, conservative public-claim status, authority boundaries, and disabled write/execute posture. |
 | `snapshot/README.md` | current provider note | Includes maturity label and evidence needed before a Snapshot integration claim. |
 | `snapshot/testnet-space-checklist.md` | current provider note | Includes unverified-field-note status and required evidence gate. |
-| `safe/README.md` | current provider note | Includes maturity label and evidence needed before a Safe integration claim. |
+| `safe/README.md` | current provider note | Includes maturity label, fixture-plan pointer, and evidence needed before a Safe integration claim. |
+| `safe/read-only-execution-evidence-fixture-plan.md` | current provider note | Lab-facing Safe fixture plan for transaction-service, explorer/RPC, normalized source/record, evidence-claim, mismatch, stale/unavailable, and manual link-only fixtures; no product adapter or write path. |
 | `safe/sepolia-safe-proof-checklist.md` | current provider note | Includes field-note status and required evidence gate. |
 | `tally/README.md` | current provider note | Includes compatibility-research status and evidence needed before a Tally integration claim. |
 | `tally/governor-compatibility-notes.md` | current provider note | Includes compatibility-research status and evidence gate; Governor terminology remains provider-specific, not stale `Gov*` protocol naming. |

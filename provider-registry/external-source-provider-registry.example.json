@@ -10,18 +10,23 @@
       "displayName": "Safe execution evidence",
       "providerFamily": "safe",
       "sourceCategory": "execution",
-      "primaryRecordTypes": ["transaction", "contract_event"],
+      "primaryRecordTypes": ["transaction", "contract_event", "payment", "manual_note"],
       "defaultAuthorityClaim": {
         "value": "evidence_only",
-        "scope": "Safe transaction workflow or chain transaction observed from lab evidence",
-        "reason": "Safe records can support bounded transaction or workflow evidence after review.",
-        "sourceBoundary": "Safe service, Safe app, signer set, RPC, and block explorer semantics remain external to this registry."
+        "scope": "Safe transaction workflow, chain transaction, or bounded asset-movement evidence observed from lab material",
+        "reason": "Safe records can provide bounded transaction, workflow, or payment evidence after review.",
+        "sourceBoundary": "Safe service, Safe app, signer set, Safe account, RPC, and block explorer semantics remain external to this registry."
       },
       "defaultEvidenceClaims": [
         {
           "kind": "transaction_executed",
           "confidence": "unknown",
           "subject": "Safe transaction or related execution transaction observed in a lab fixture"
+        },
+        {
+          "kind": "payment_sent",
+          "confidence": "unknown",
+          "subject": "Bounded asset movement observed only when a Safe, chain, or explorer record supports that interpretation"
         }
       ],
       "visibility": {
@@ -36,43 +41,75 @@
         "defaultState": "not_checked",
         "failureStates": [
           "unknown",
+          "stale",
           "rate_limited",
           "auth_required",
+          "permission_denied",
           "source_unavailable",
           "schema_changed",
+          "parse_failed",
           "partial",
           "mismatch"
         ],
         "notes": [
-          "Safe app or service views and explorer data can diverge or be unavailable.",
-          "Signer set, threshold, and module meaning require source-specific review."
+          "Safe app, Safe service, RPC, and explorer data can diverge or be unavailable.",
+          "Signer set, threshold, owner list, module, and guard meaning require source-specific review.",
+          "Safe transaction execution evidence does not prove governance intent or policy compliance unless mapped and reviewed."
         ]
       },
-      "adapterMaturity": "research",
+      "adapterMaturity": "adapter-spec",
       "capabilities": [
         {
           "kind": "link",
           "enabled": true,
-          "recordTypes": ["transaction"],
-          "notes": "Lab evidence may record public links and hashes only."
+          "recordTypes": ["transaction", "payment", "manual_note"],
+          "notes": "Lab evidence may record URL/hash-only references with source boundary labels."
+        },
+        {
+          "kind": "import",
+          "enabled": false,
+          "recordTypes": ["transaction", "contract_event", "payment"],
+          "notes": "Future read-only metadata import needs captured fixtures and a validator."
+        },
+        {
+          "kind": "sync",
+          "enabled": false,
+          "recordTypes": ["transaction", "contract_event", "payment"],
+          "notes": "Future read-only sync must expose stale, error, unknown, partial, and mismatch states."
         },
         {
           "kind": "verify",
           "enabled": false,
           "recordTypes": ["transaction", "contract_event"],
-          "notes": "Verification needs a future adapter spec and fixture set."
+          "notes": "Future read-only verification must compare Safe, service, chain, and expected normalized fields."
+        },
+        {
+          "kind": "write",
+          "enabled": false,
+          "recordTypes": ["transaction"],
+          "notes": "Not allowed in this registry baseline; any future scope requires separate gated review."
+        },
+        {
+          "kind": "execute",
+          "enabled": false,
+          "recordTypes": ["transaction"],
+          "notes": "Not allowed in this registry baseline; any future scope requires separate gated review."
         }
       ],
       "readOnlyWritePosture": "read_only_lab_planning_no_write_or_execute_capability",
       "knownLimits": [
         "No Safe adapter is implemented here.",
+        "A private Safe read-only execution/evidence spec and lab fixture plan now exist.",
         "Safe workflow state is not converted into protocol authority by this registry.",
-        "Service-indexed state can lag or disagree with chain observations."
+        "Service-indexed state can lag or disagree with chain observations.",
+        "No Safe JSON fixtures, fixture validator, or read-only implementation is present."
       ],
       "nextEvidenceNeeded": [
-        "Safe read-only execution evidence adapter spec.",
-        "Fixture set with Safe transaction service response, explorer transaction, and expected normalized record.",
-        "Boundary note for signer, module, guard, and threshold interpretation."
+        "Safe transaction service response fixture and matching block explorer or RPC transaction fixture.",
+        "Expected normalized ExternalSourceDto, SourceRecordDto, and EvidenceClaimDto fixtures.",
+        "Mismatch fixtures for Safe service versus chain disagreement, hash mapping, chain ID, Safe address, target, value, action selector, and data hash.",
+        "Stale or unavailable source fixture and manual link-only fixture.",
+        "Dependency-free Safe fixture validator after concrete JSON fixtures exist."
       ],
       "publicClaimStatus": "no_provider_support_claim"
     },

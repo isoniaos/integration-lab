@@ -8,6 +8,9 @@ This repository follows SemVer for releases, but Git tags use a leading `v`.
 
 ### Added
 
+- Snapshot read-only offchain governance-signal fixture plan aligned with the
+  private adapter spec, without adding a Snapshot adapter, API client, vote
+  submission, signing, write path, or execution path.
 - Synthetic Safe read-only execution/evidence fixture pack and dependency-free
   validator covering executed transaction evidence, bounded payment evidence,
   mismatch handling, source-unavailable state, manual link-only evidence,
@@ -28,6 +31,11 @@ This repository follows SemVer for releases, but Git tags use a leading `v`.
 
 ### Changed
 
+- Updated the Snapshot provider-registry entry to `adapter-spec` maturity based
+  on the private spec and fixture plan while keeping write, execute, vote
+  submission, signing, proposal creation, and space administration disabled.
+- Updated Snapshot provider notes and inventory to point to the fixture plan and
+  future safe-to-commit fixture capture work.
 - Updated Safe fixture, script, inventory, and provider-registry documentation
   to record the synthetic fixture baseline while keeping live capture and
   adapter implementation as future work.

@@ -118,7 +118,7 @@
       "displayName": "Snapshot offchain governance signal",
       "providerFamily": "snapshot",
       "sourceCategory": "offchain_governance_signal",
-      "primaryRecordTypes": ["proposal", "vote", "discussion_thread"],
+      "primaryRecordTypes": ["proposal", "vote", "discussion_thread", "message", "manual_note"],
       "defaultAuthorityClaim": {
         "value": "context_only",
         "scope": "Snapshot proposal, voting, and discussion records inside the Snapshot source boundary",
@@ -149,7 +149,10 @@
         "defaultState": "not_checked",
         "failureStates": [
           "unknown",
+          "stale",
           "rate_limited",
+          "auth_required",
+          "permission_denied",
           "source_unavailable",
           "schema_changed",
           "parse_failed",
@@ -157,35 +160,64 @@
           "mismatch"
         ],
         "notes": [
-          "Voting strategies and proposal state can be source-specific.",
-          "Space metadata, vote power, and result views require stale and mismatch handling."
+          "Voting strategies, voting power, and proposal state can be source-specific.",
+          "Space metadata, result views, proposal pages, API responses, and linked discussions require stale and mismatch handling.",
+          "Snapshot signaling is context by default and does not decide protocol approval, execution authorization, legal authority, or policy compliance."
         ]
       },
-      "adapterMaturity": "research",
+      "adapterMaturity": "adapter-spec",
       "capabilities": [
         {
           "kind": "link",
           "enabled": true,
-          "recordTypes": ["proposal", "discussion_thread"],
-          "notes": "Lab evidence may record proposal or discussion links only."
+          "recordTypes": ["proposal", "discussion_thread", "manual_note"],
+          "notes": "Lab evidence may record Snapshot space, proposal, or discussion links only."
         },
         {
           "kind": "import",
           "enabled": false,
           "recordTypes": ["proposal", "vote"],
-          "notes": "Import needs a future read-only adapter spec and current fixture evidence."
+          "notes": "Future read-only metadata import needs safe-to-commit proposal, vote, and space strategy fixtures plus adapter implementation outside this registry."
+        },
+        {
+          "kind": "sync",
+          "enabled": false,
+          "recordTypes": ["proposal", "vote", "discussion_thread"],
+          "notes": "Future read-only sync must expose stale, error, unknown, partial, and mismatch states."
+        },
+        {
+          "kind": "verify",
+          "enabled": false,
+          "recordTypes": ["proposal", "vote"],
+          "notes": "Future read-only verification must compare proposal, vote, source, strategy, and content-boundary fields against expected normalized records."
+        },
+        {
+          "kind": "write",
+          "enabled": false,
+          "recordTypes": ["proposal", "vote"],
+          "notes": "Not allowed in this registry baseline; any future scope requires separate gated review."
+        },
+        {
+          "kind": "execute",
+          "enabled": false,
+          "recordTypes": ["proposal"],
+          "notes": "Not applicable to Snapshot signaling and not allowed in this registry baseline."
         }
       ],
       "readOnlyWritePosture": "read_only_lab_planning_no_write_or_execute_capability",
       "knownLimits": [
         "No Snapshot adapter is implemented here.",
+        "A private Snapshot read-only offchain governance-signal spec and Integration Lab fixture plan now exist.",
+        "No live Snapshot fixtures, fixture validator, product integration, or Snapshot availability claim is present.",
         "Offchain signaling is not approval or execution evidence by default.",
-        "Voting power and strategy semantics are not normalized by this registry."
+        "Voting power and strategy semantics are source-boundary context and are not normalized by this registry.",
+        "Snapshot records are not converted into IsoniaOS protocol authority by this registry."
       ],
       "nextEvidenceNeeded": [
-        "Snapshot read-only offchain governance-signal adapter spec.",
-        "Current testnet space run evidence with proposal and vote fixtures.",
-        "Source-boundary copy for stale, partial, and strategy-specific fields."
+        "Safe-to-commit Snapshot proposal/page, vote, and space/settings strategy fixture capture when later allowed.",
+        "Dependency-free fixture validator after concrete Snapshot JSON fixtures exist.",
+        "Mismatch fixtures for proposal URL/id, space id/slug, strategy, choice label, result, page/API/cache state, discussion URL, snapshot block/timestamp, voting power, identity mapping, and content hash disagreements.",
+        "Source-boundary copy for stale, partial, unavailable, and strategy-specific fields."
       ],
       "publicClaimStatus": "no_provider_support_claim"
     },

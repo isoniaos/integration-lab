@@ -3,6 +3,10 @@
 Current maturity: unverified field-note checklist. It is suitable for planning
 evidence capture, not for claiming Snapshot integration support.
 
+For the fixture inventory and future validation expectations, use
+`read-only-offchain-governance-signal-fixture-plan.md`. This checklist remains
+for field-note capture planning only.
+
 ## Practical Prerequisites
 
 - A wallet controlled by the test operator.
@@ -37,7 +41,8 @@ explicitly models that authority.
 
 ## Evidence Needed Before Integration Claim
 
-- A successful current Snapshot testnet run with public URLs.
+- Safe-to-commit Snapshot proposal/page, vote, and space/settings strategy
+  fixtures from a current testnet run when later allowed.
 - Source labels and trust-boundary text preserved in the run evidence.
 - Product-owned adapter or client behavior that consumes Snapshot records.
 - Documentation stating the exact authority scope, exclusions, and residual

@@ -8,6 +8,11 @@ This repository follows SemVer for releases, but Git tags use a leading `v`.
 
 ### Added
 
+- Recorded the 2026-05-30 local integrated proposal-to-proof preflight run
+  attempt in the normalized local-stack checklist, including package checks,
+  local deploy/seed evidence, Control Plane projection results, SDK read-path
+  observations, App Core HTTP reachability, and remaining visual-verification
+  blockers.
 - Snapshot read-only offchain governance-signal fixture plan aligned with the
   private adapter spec, without adding a Snapshot adapter, API client, vote
   submission, signing, write path, or execution path.

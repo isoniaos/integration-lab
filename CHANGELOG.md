@@ -8,6 +8,11 @@ This repository follows SemVer for releases, but Git tags use a leading `v`.
 
 ### Added
 
+- Synthetic Safe read-only execution/evidence fixture pack and dependency-free
+  validator covering executed transaction evidence, bounded payment evidence,
+  mismatch handling, source-unavailable state, manual link-only evidence,
+  authority/evidence posture, shape checks, no-secret hygiene, and disabled
+  write/execute guardrails.
 - Safe read-only execution evidence fixture plan aligned with the private
   adapter spec, without adding a Safe adapter, API client, write path, or
   execution path.
@@ -23,6 +28,9 @@ This repository follows SemVer for releases, but Git tags use a leading `v`.
 
 ### Changed
 
+- Updated Safe fixture, script, inventory, and provider-registry documentation
+  to record the synthetic fixture baseline while keeping live capture and
+  adapter implementation as future work.
 - Updated the Safe provider-registry entry to `adapter-spec` maturity based on
   the private spec and fixture plan while keeping write and execute
   capabilities disabled.

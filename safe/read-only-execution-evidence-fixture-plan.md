@@ -17,22 +17,24 @@ mismatch, and adoption gates.
 
 ## Fixture Inventory
 
-Future Safe fixture coverage should include:
+Safe fixture coverage now has a synthetic JSON baseline for shape validation.
+Live/testnet Safe transaction-service and matching chain/explorer captures are
+still future evidence work and must be safe-to-commit before they are added.
 
 | Fixture | Purpose | Current status |
 | --- | --- | --- |
-| Safe transaction service response | Capture Safe workflow metadata such as Safe tx hash, nonce, confirmations, status, target, value, operation, and execution link when available. | planned, not captured |
-| Block explorer or RPC transaction | Capture chain transaction, receipt/log, block, sender/executor, target, value, calldata hash, and event evidence. | planned, not captured |
-| Expected normalized `ExternalSourceDto` | Define Safe execution source identity, access, visibility, trust boundary, and freshness state. | planned, not captured |
-| Expected normalized `SourceRecordDto` | Define normalized transaction, contract event, payment, or manual note record. | planned, not captured |
-| Expected `EvidenceClaimDto` | Define bounded evidence such as `transaction_executed` or `payment_sent`. | planned, not captured |
-| Mismatch case | Preserve disagreement between Safe service, Safe app, explorer/RPC, and expected normalized fields. | planned, not captured |
-| Stale/source-unavailable case | Exercise stale, unavailable, rate-limited, auth, permission, schema, parse, partial, and unknown states. | planned, not captured |
-| Manual link-only case | Represent URL/hash-only lab evidence without API import or verification. | planned, not captured |
+| Safe transaction service response | Capture Safe workflow metadata such as Safe tx hash, nonce, confirmations, status, target, value, operation, and execution link when available. | synthetic baseline added; live/testnet capture not present |
+| Block explorer or RPC transaction | Capture chain transaction, receipt/log, block, sender/executor, target, value, calldata hash, and event evidence. | synthetic baseline added; live/testnet capture not present |
+| Expected normalized `ExternalSourceDto` | Define Safe execution source identity, access, visibility, trust boundary, and freshness state. | synthetic baseline added |
+| Expected normalized `SourceRecordDto` | Define normalized transaction, contract event, payment, or manual note record. | synthetic baseline added |
+| Expected `EvidenceClaimDto` | Define bounded evidence such as `transaction_executed` or `payment_sent`. | synthetic baseline added |
+| Mismatch case | Preserve disagreement between Safe service, Safe app, explorer/RPC, and expected normalized fields. | synthetic baseline added |
+| Stale/source-unavailable case | Exercise stale, unavailable, rate-limited, auth, permission, schema, parse, partial, and unknown states. | synthetic source-unavailable baseline added |
+| Manual link-only case | Represent URL/hash-only lab evidence without API import or verification. | synthetic baseline added |
 
-No JSON fixture is added in this task, so no new validator is added. Future
-JSON fixture work should stay dependency-free unless a scoped task justifies
-tooling.
+The JSON fixture pack lives at
+`safe/fixtures/read-only-execution-evidence.example.json`. The dependency-free
+validator lives at `scripts/validate-safe-read-only-execution-fixtures.mjs`.
 
 ## Placeholder Fixture Field List
 
@@ -148,23 +150,23 @@ choosing one as truth.
 - Private Safe read-only execution/evidence adapter spec exists in
   `private-docs/strategy/`.
 - This Integration Lab fixture plan exists.
-- The provider registry can classify the Safe entry as `adapter-spec` evidence
-  once the registry is updated and validated.
+- A synthetic fixture pack and dependency-free validator exist under
+  `safe/fixtures/` and `scripts/`.
+- The provider registry classifies the Safe entry as `adapter-spec` evidence
+  while keeping write and execute capabilities disabled.
 - No Safe adapter, API client, UI, Control Plane ingestion, SDK API, App Core
   runtime behavior, write path, execution path, signing path, module
   installation, or guard installation exists.
 
 ## Next Evidence Needed
 
-- Capture a safe-to-commit Safe transaction service response fixture.
-- Capture a block explorer or RPC transaction/receipt fixture for the same
-  transaction.
-- Add expected normalized `ExternalSourceDto`, `SourceRecordDto`, and
-  `EvidenceClaimDto` fixtures.
-- Add mismatch fixtures for Safe service versus chain disagreement.
-- Add stale/source-unavailable and manual link-only fixtures.
-- Add a small dependency-free validator only after concrete JSON fixtures
-  exist.
+- Capture a safe-to-commit real/testnet Safe transaction-service fixture when
+  later allowed.
+- Capture a matching block explorer or RPC transaction/receipt fixture for the
+  same transaction when later allowed.
+- Expand mismatch fixtures for Safe module, guard, threshold, owner, and
+  confirmation interpretation.
+- Align future read-only adapter tests with the fixture pack.
 - Review Safe module, guard, threshold, owner, and confirmation semantics before
   any verification wording is stronger than evidence/context.
 

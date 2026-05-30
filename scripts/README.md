@@ -18,6 +18,11 @@ Current scripts:
   vocabulary allowlists, required registry fields, conservative public-claim
   status, scoped authority posture, visibility/access values, disabled
   write/execute capabilities, and suspicious claim wording.
+- `validate-safe-read-only-execution-fixtures.mjs` validates the synthetic Safe
+  read-only execution/evidence fixture pack without npm dependencies. It checks
+  shape, authority/evidence posture, freshness and mismatch declarations,
+  address/hash/block-number shapes, no-secret hygiene, no enabled write or
+  execution capabilities, and conservative public-claim wording.
 
 Usage:
 
@@ -27,6 +32,10 @@ node scripts/validate-sepolia-managed-execution-manifest.mjs sepolia/managed-exe
 
 ```bash
 node scripts/validate-external-source-provider-registry.mjs provider-registry/external-source-provider-registry.example.json
+```
+
+```bash
+node scripts/validate-safe-read-only-execution-fixtures.mjs safe/fixtures/read-only-execution-evidence.example.json
 ```
 
 When adding scripts:

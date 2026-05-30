@@ -69,7 +69,7 @@
           "kind": "import",
           "enabled": false,
           "recordTypes": ["transaction", "contract_event", "payment"],
-          "notes": "Future read-only metadata import needs captured fixtures and a validator."
+          "notes": "Future read-only metadata import needs safe-to-commit live/testnet fixtures and adapter implementation outside this registry."
         },
         {
           "kind": "sync",
@@ -99,17 +99,17 @@
       "readOnlyWritePosture": "read_only_lab_planning_no_write_or_execute_capability",
       "knownLimits": [
         "No Safe adapter is implemented here.",
-        "A private Safe read-only execution/evidence spec and lab fixture plan now exist.",
+        "A private Safe read-only execution/evidence spec, lab fixture plan, synthetic fixture pack, and dependency-free validator now exist.",
         "Safe workflow state is not converted into protocol authority by this registry.",
         "Service-indexed state can lag or disagree with chain observations.",
-        "No Safe JSON fixtures, fixture validator, or read-only implementation is present."
+        "No live Safe JSON fixtures, read-only adapter implementation, write path, or execution path is present."
       ],
       "nextEvidenceNeeded": [
-        "Safe transaction service response fixture and matching block explorer or RPC transaction fixture.",
-        "Expected normalized ExternalSourceDto, SourceRecordDto, and EvidenceClaimDto fixtures.",
-        "Mismatch fixtures for Safe service versus chain disagreement, hash mapping, chain ID, Safe address, target, value, action selector, and data hash.",
-        "Stale or unavailable source fixture and manual link-only fixture.",
-        "Dependency-free Safe fixture validator after concrete JSON fixtures exist."
+        "Safe-to-commit live/testnet Safe transaction-service fixture when later allowed.",
+        "Matching block explorer or RPC transaction/receipt fixture for the same transaction when later allowed.",
+        "Expanded mismatch fixtures for Safe service versus chain disagreement, hash mapping, chain ID, Safe address, target, value, action selector, data hash, module, guard, threshold, owner, and confirmation interpretation.",
+        "Read-only adapter tests aligned with the synthetic fixture pack before any downstream implementation.",
+        "Source-boundary warning copy for future read-only product surfaces."
       ],
       "publicClaimStatus": "no_provider_support_claim"
     },

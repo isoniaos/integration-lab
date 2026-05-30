@@ -1,0 +1,754 @@
+{
+  "schemaVersion": "0.1.0",
+  "status": "synthetic_lab_fixture_baseline",
+  "providerFamily": "safe",
+  "sourceCategory": "execution",
+  "fixtureBoundary": "synthetic examples only; not live Safe evidence",
+  "publicClaimStatus": "no_provider_support_claim",
+  "cases": [
+    {
+      "caseId": "safe_executed_transaction_evidence",
+      "title": "Executed transaction evidence",
+      "purpose": "Represent matching synthetic Safe service and chain observations for a bounded transaction evidence record.",
+      "caseKind": "executed_transaction",
+      "sourceCategory": "execution",
+      "fixtureStatus": "synthetic_example",
+      "providerFamily": "safe",
+      "readOnlyWritePosture": "read_only_fixture_no_write_or_execute_capability",
+      "publicClaimStatus": "no_provider_support_claim",
+      "safeServiceRecord": {
+        "sourceLabel": "synthetic_safe_fixture",
+        "chainId": 11155111,
+        "safeAddress": "0x1111111111111111111111111111111111111111",
+        "safeTxHash": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "txHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "nonce": 7,
+        "operation": "CALL",
+        "to": "0x2222222222222222222222222222222222222222",
+        "value": "0",
+        "dataHash": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "actionSelector": "0x12345678",
+        "executor": "0x3333333333333333333333333333333333333333",
+        "status": "executed",
+        "blockNumber": 1234567,
+        "observedAt": "2026-05-29T12:00:00Z",
+        "fetchedAt": "2026-05-29T12:01:00Z",
+        "canonicalUrl": "https://example.invalid/safe/tx/safe_executed_transaction_evidence"
+      },
+      "chainObservation": {
+        "sourceLabel": "synthetic_chain_fixture",
+        "chainId": 11155111,
+        "txHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "from": "0x3333333333333333333333333333333333333333",
+        "to": "0x2222222222222222222222222222222222222222",
+        "value": "0",
+        "dataHash": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "actionSelector": "0x12345678",
+        "status": "mined",
+        "blockNumber": 1234567,
+        "observedAt": "2026-05-29T12:00:30Z",
+        "fetchedAt": "2026-05-29T12:01:00Z",
+        "canonicalUrl": "https://example.invalid/tx/0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      },
+      "expectedExternalSource": {
+        "sourceId": "safe-sepolia-synthetic",
+        "category": "execution",
+        "provider": "safe",
+        "displayName": "Synthetic Safe Sepolia evidence source",
+        "baseUrl": "https://example.invalid/safe",
+        "chainId": 11155111,
+        "contractAddress": "0x1111111111111111111111111111111111111111",
+        "references": [
+          {
+            "url": "https://example.invalid/safe/tx/safe_executed_transaction_evidence",
+            "domain": "example.invalid",
+            "externalId": "safe_executed_transaction_evidence",
+            "chainId": 11155111,
+            "txHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "blockNumber": "1234567",
+            "contractAddress": "0x1111111111111111111111111111111111111111",
+            "retrievedAt": "2026-05-29T12:01:00Z"
+          }
+        ],
+        "trustBoundary": {
+          "boundaryId": "safe-sepolia-synthetic-boundary",
+          "sourceId": "safe-sepolia-synthetic",
+          "authorityScope": "Safe and chain evidence only inside external source boundaries.",
+          "credentialScope": "none for this synthetic public fixture",
+          "failureModes": ["source_unavailable", "schema_changed", "parse_failed", "mismatch"],
+          "reviewRequired": true
+        },
+        "accessMode": "read_only",
+        "visibility": {
+          "value": "public",
+          "rawVisibility": "public",
+          "summaryVisibility": "organization_restricted",
+          "redactionPolicy": "Synthetic fixture contains no customer labels.",
+          "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+        },
+        "freshness": {
+          "state": "fresh",
+          "lastCheckedAt": "2026-05-29T12:01:00Z",
+          "lastSuccessfulSyncAt": "2026-05-29T12:01:00Z",
+          "sourceBlockNumber": "1234567"
+        },
+        "createdAt": "2026-05-29T12:01:00Z",
+        "updatedAt": "2026-05-29T12:01:00Z"
+      },
+      "expectedSourceRecords": [
+        {
+          "sourceId": "safe-sepolia-synthetic",
+          "recordId": "safe-sepolia-synthetic:tx:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "type": "transaction",
+          "externalId": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "chainId": 11155111,
+          "safeAddress": "0x1111111111111111111111111111111111111111",
+          "safeTxHash": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "txHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "to": "0x2222222222222222222222222222222222222222",
+          "value": "0",
+          "dataHash": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "actionSelector": "0x12345678",
+          "executor": "0x3333333333333333333333333333333333333333",
+          "status": "executed",
+          "blockNumber": 1234567,
+          "observedAt": "2026-05-29T12:00:30Z",
+          "fetchedAt": "2026-05-29T12:01:00Z",
+          "payloadHash": "0xdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+          "canonicalUrl": "https://example.invalid/tx/0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rawRef": {
+            "url": "https://example.invalid/safe/tx/safe_executed_transaction_evidence",
+            "domain": "example.invalid",
+            "externalId": "safe_executed_transaction_evidence",
+            "chainId": 11155111,
+            "txHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "blockNumber": "1234567",
+            "contractAddress": "0x1111111111111111111111111111111111111111",
+            "retrievedAt": "2026-05-29T12:01:00Z"
+          },
+          "authorityClaim": {
+            "value": "evidence_only",
+            "scope": "Bounded transaction execution evidence from matching synthetic Safe and chain observations.",
+            "reason": "The fixture records that matching synthetic observations exist; it does not decide intent or policy compliance.",
+            "sourceBoundary": "Safe service and chain observation remain external evidence boundaries."
+          },
+          "evidenceClaims": [
+            {
+              "claimId": "safe-executed-transaction-evidence-claim",
+              "kind": "transaction_executed",
+              "sourceRecordId": "safe-sepolia-synthetic:tx:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "subject": "Synthetic Safe transaction execution evidence",
+              "confidence": "medium",
+              "verifiedAt": "2026-05-29T12:01:00Z"
+            }
+          ],
+          "freshness": {
+            "state": "fresh",
+            "lastCheckedAt": "2026-05-29T12:01:00Z",
+            "lastSuccessfulSyncAt": "2026-05-29T12:01:00Z",
+            "sourceBlockNumber": "1234567"
+          },
+          "visibility": {
+            "value": "public",
+            "rawVisibility": "public",
+            "summaryVisibility": "organization_restricted",
+            "redactionPolicy": "Synthetic fixture contains no customer labels.",
+            "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+          }
+        }
+      ],
+      "expectedEvidenceClaims": [
+        {
+          "claimId": "safe-executed-transaction-evidence-claim",
+          "kind": "transaction_executed",
+          "sourceRecordId": "safe-sepolia-synthetic:tx:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "subject": "Synthetic Safe transaction execution evidence",
+          "confidence": "medium",
+          "verifiedAt": "2026-05-29T12:01:00Z"
+        }
+      ],
+      "expectedValidation": {
+        "status": "valid_positive_fixture",
+        "checks": ["matching_safe_and_chain_observation", "transaction_executed_claim_present"],
+        "doesNotClaimCurrentProviderState": true
+      },
+      "knownLimits": [
+        "Synthetic values are shaped examples only.",
+        "Decoded labels are not used for authority fields.",
+        "Transaction evidence does not decide governance intent, policy compliance, or IsoniaOS authorization."
+      ]
+    },
+    {
+      "caseId": "safe_bounded_payment_evidence",
+      "title": "Bounded payment evidence",
+      "purpose": "Represent bounded payment_sent evidence only where synthetic source records show asset movement.",
+      "caseKind": "bounded_payment",
+      "sourceCategory": "execution",
+      "fixtureStatus": "synthetic_example",
+      "providerFamily": "safe",
+      "readOnlyWritePosture": "read_only_fixture_no_write_or_execute_capability",
+      "publicClaimStatus": "no_provider_support_claim",
+      "safeServiceRecord": {
+        "sourceLabel": "synthetic_safe_fixture",
+        "chainId": 11155111,
+        "safeAddress": "0x4444444444444444444444444444444444444444",
+        "safeTxHash": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "txHash": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "nonce": 8,
+        "operation": "CALL",
+        "to": "0x5555555555555555555555555555555555555555",
+        "value": "100000000000000000",
+        "dataHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "actionSelector": "0x00000000",
+        "executor": "0x6666666666666666666666666666666666666666",
+        "status": "executed",
+        "assetMovement": {
+          "assetKind": "native",
+          "amountWei": "100000000000000000",
+          "from": "0x4444444444444444444444444444444444444444",
+          "to": "0x5555555555555555555555555555555555555555"
+        },
+        "blockNumber": 1234570,
+        "observedAt": "2026-05-29T12:05:00Z",
+        "fetchedAt": "2026-05-29T12:06:00Z",
+        "canonicalUrl": "https://example.invalid/safe/tx/safe_bounded_payment_evidence"
+      },
+      "chainObservation": {
+        "sourceLabel": "synthetic_chain_fixture",
+        "chainId": 11155111,
+        "txHash": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "from": "0x6666666666666666666666666666666666666666",
+        "to": "0x5555555555555555555555555555555555555555",
+        "value": "100000000000000000",
+        "dataHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "actionSelector": "0x00000000",
+        "status": "mined",
+        "blockNumber": 1234570,
+        "observedAt": "2026-05-29T12:05:30Z",
+        "fetchedAt": "2026-05-29T12:06:00Z",
+        "canonicalUrl": "https://example.invalid/tx/0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+      },
+      "expectedExternalSource": {
+        "sourceId": "safe-sepolia-synthetic-payment",
+        "category": "execution",
+        "provider": "safe",
+        "displayName": "Synthetic Safe Sepolia payment evidence source",
+        "baseUrl": "https://example.invalid/safe",
+        "chainId": 11155111,
+        "contractAddress": "0x4444444444444444444444444444444444444444",
+        "references": [
+          {
+            "url": "https://example.invalid/safe/tx/safe_bounded_payment_evidence",
+            "domain": "example.invalid",
+            "externalId": "safe_bounded_payment_evidence",
+            "chainId": 11155111,
+            "txHash": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "blockNumber": "1234570",
+            "contractAddress": "0x4444444444444444444444444444444444444444",
+            "retrievedAt": "2026-05-29T12:06:00Z"
+          }
+        ],
+        "trustBoundary": {
+          "boundaryId": "safe-sepolia-synthetic-payment-boundary",
+          "sourceId": "safe-sepolia-synthetic-payment",
+          "authorityScope": "Bounded asset-movement evidence inside external source boundaries.",
+          "credentialScope": "none for this synthetic public fixture",
+          "failureModes": ["source_unavailable", "schema_changed", "parse_failed", "mismatch"],
+          "reviewRequired": true
+        },
+        "accessMode": "read_only",
+        "visibility": {
+          "value": "public",
+          "rawVisibility": "public",
+          "summaryVisibility": "organization_restricted",
+          "redactionPolicy": "Synthetic fixture contains no customer labels.",
+          "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+        },
+        "freshness": {
+          "state": "fresh",
+          "lastCheckedAt": "2026-05-29T12:06:00Z",
+          "lastSuccessfulSyncAt": "2026-05-29T12:06:00Z",
+          "sourceBlockNumber": "1234570"
+        },
+        "createdAt": "2026-05-29T12:06:00Z",
+        "updatedAt": "2026-05-29T12:06:00Z"
+      },
+      "expectedSourceRecords": [
+        {
+          "sourceId": "safe-sepolia-synthetic-payment",
+          "recordId": "safe-sepolia-synthetic-payment:payment:0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "type": "payment",
+          "externalId": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "chainId": 11155111,
+          "safeAddress": "0x4444444444444444444444444444444444444444",
+          "safeTxHash": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+          "txHash": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "to": "0x5555555555555555555555555555555555555555",
+          "value": "100000000000000000",
+          "dataHash": "0x1111111111111111111111111111111111111111111111111111111111111111",
+          "actionSelector": "0x00000000",
+          "executor": "0x6666666666666666666666666666666666666666",
+          "status": "payment_observed",
+          "blockNumber": 1234570,
+          "observedAt": "2026-05-29T12:05:30Z",
+          "fetchedAt": "2026-05-29T12:06:00Z",
+          "payloadHash": "0x2222222222222222222222222222222222222222222222222222222222222222",
+          "canonicalUrl": "https://example.invalid/tx/0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "rawRef": {
+            "url": "https://example.invalid/safe/tx/safe_bounded_payment_evidence",
+            "domain": "example.invalid",
+            "externalId": "safe_bounded_payment_evidence",
+            "chainId": 11155111,
+            "txHash": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "blockNumber": "1234570",
+            "contractAddress": "0x4444444444444444444444444444444444444444",
+            "retrievedAt": "2026-05-29T12:06:00Z"
+          },
+          "authorityClaim": {
+            "value": "evidence_only",
+            "scope": "Bounded payment evidence from synthetic Safe and chain observations.",
+            "reason": "The fixture records asset movement only; it does not decide intent, policy compliance, or IsoniaOS authorization.",
+            "sourceBoundary": "Safe service and chain observation remain external evidence boundaries."
+          },
+          "evidenceClaims": [
+            {
+              "claimId": "safe-bounded-payment-evidence-claim",
+              "kind": "payment_sent",
+              "sourceRecordId": "safe-sepolia-synthetic-payment:payment:0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "subject": "Synthetic bounded native-value payment evidence",
+              "confidence": "medium",
+              "verifiedAt": "2026-05-29T12:06:00Z"
+            }
+          ],
+          "freshness": {
+            "state": "fresh",
+            "lastCheckedAt": "2026-05-29T12:06:00Z",
+            "lastSuccessfulSyncAt": "2026-05-29T12:06:00Z",
+            "sourceBlockNumber": "1234570"
+          },
+          "visibility": {
+            "value": "public",
+            "rawVisibility": "public",
+            "summaryVisibility": "organization_restricted",
+            "redactionPolicy": "Synthetic fixture contains no customer labels.",
+            "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+          }
+        }
+      ],
+      "expectedEvidenceClaims": [
+        {
+          "claimId": "safe-bounded-payment-evidence-claim",
+          "kind": "payment_sent",
+          "sourceRecordId": "safe-sepolia-synthetic-payment:payment:0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "subject": "Synthetic bounded native-value payment evidence",
+          "confidence": "medium",
+          "verifiedAt": "2026-05-29T12:06:00Z"
+        }
+      ],
+      "expectedValidation": {
+        "status": "valid_positive_fixture",
+        "checks": ["asset_movement_present", "payment_sent_claim_present", "no_intent_or_policy_claim"],
+        "doesNotClaimCurrentProviderState": true
+      },
+      "knownLimits": [
+        "Payment evidence is bounded to observed asset movement.",
+        "The fixture does not decide governance intent, policy compliance, or IsoniaOS authorization.",
+        "Synthetic values are shaped examples only."
+      ]
+    },
+    {
+      "caseId": "safe_service_chain_mismatch",
+      "title": "Safe service versus chain mismatch",
+      "purpose": "Preserve a disagreement where the synthetic Safe service reports execution but the matching chain transaction is missing.",
+      "caseKind": "mismatch",
+      "sourceCategory": "execution",
+      "fixtureStatus": "synthetic_negative_example",
+      "providerFamily": "safe",
+      "readOnlyWritePosture": "read_only_fixture_no_write_or_execute_capability",
+      "publicClaimStatus": "no_provider_support_claim",
+      "safeServiceRecord": {
+        "sourceLabel": "synthetic_safe_fixture",
+        "chainId": 11155111,
+        "safeAddress": "0x7777777777777777777777777777777777777777",
+        "safeTxHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "txHash": "0x4444444444444444444444444444444444444444444444444444444444444444",
+        "nonce": 9,
+        "operation": "CALL",
+        "to": "0x8888888888888888888888888888888888888888",
+        "value": "0",
+        "dataHash": "0x5555555555555555555555555555555555555555555555555555555555555555",
+        "actionSelector": "0x87654321",
+        "executor": "0x9999999999999999999999999999999999999999",
+        "status": "executed",
+        "blockNumber": 1234580,
+        "observedAt": "2026-05-29T12:10:00Z",
+        "fetchedAt": "2026-05-29T12:11:00Z",
+        "canonicalUrl": "https://example.invalid/safe/tx/safe_service_chain_mismatch"
+      },
+      "chainObservation": {
+        "sourceLabel": "synthetic_chain_fixture",
+        "chainId": 11155111,
+        "txHash": null,
+        "status": "missing",
+        "observedAt": "2026-05-29T12:11:00Z",
+        "fetchedAt": "2026-05-29T12:11:00Z",
+        "mismatchReason": "Safe service reports executed for the synthetic transaction, but the synthetic chain observation has no matching transaction hash.",
+        "canonicalUrl": "https://example.invalid/tx/missing-safe-service-chain-mismatch"
+      },
+      "expectedExternalSource": {
+        "sourceId": "safe-sepolia-synthetic-mismatch",
+        "category": "execution",
+        "provider": "safe",
+        "displayName": "Synthetic Safe Sepolia mismatch source",
+        "baseUrl": "https://example.invalid/safe",
+        "chainId": 11155111,
+        "contractAddress": "0x7777777777777777777777777777777777777777",
+        "references": [
+          {
+            "url": "https://example.invalid/safe/tx/safe_service_chain_mismatch",
+            "domain": "example.invalid",
+            "externalId": "safe_service_chain_mismatch",
+            "chainId": 11155111,
+            "txHash": "0x4444444444444444444444444444444444444444444444444444444444444444",
+            "blockNumber": "1234580",
+            "contractAddress": "0x7777777777777777777777777777777777777777",
+            "retrievedAt": "2026-05-29T12:11:00Z"
+          }
+        ],
+        "trustBoundary": {
+          "boundaryId": "safe-sepolia-synthetic-mismatch-boundary",
+          "sourceId": "safe-sepolia-synthetic-mismatch",
+          "authorityScope": "Mismatch evidence only; no source is chosen as truth by the fixture.",
+          "credentialScope": "none for this synthetic public fixture",
+          "failureModes": ["mismatch", "source_unavailable", "schema_changed"],
+          "reviewRequired": true
+        },
+        "accessMode": "read_only",
+        "visibility": {
+          "value": "public",
+          "rawVisibility": "public",
+          "summaryVisibility": "organization_restricted",
+          "redactionPolicy": "Synthetic fixture contains no customer labels.",
+          "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+        },
+        "freshness": {
+          "state": "mismatch",
+          "lastCheckedAt": "2026-05-29T12:11:00Z",
+          "sourceBlockNumber": "1234580",
+          "reason": "Safe service and chain observation disagree in the synthetic fixture."
+        },
+        "createdAt": "2026-05-29T12:11:00Z",
+        "updatedAt": "2026-05-29T12:11:00Z"
+      },
+      "expectedSourceRecords": [
+        {
+          "sourceId": "safe-sepolia-synthetic-mismatch",
+          "recordId": "safe-sepolia-synthetic-mismatch:tx:service-reported-chain-missing",
+          "type": "transaction",
+          "externalId": "0x3333333333333333333333333333333333333333333333333333333333333333",
+          "chainId": 11155111,
+          "safeAddress": "0x7777777777777777777777777777777777777777",
+          "safeTxHash": "0x3333333333333333333333333333333333333333333333333333333333333333",
+          "txHash": "0x4444444444444444444444444444444444444444444444444444444444444444",
+          "to": "0x8888888888888888888888888888888888888888",
+          "value": "0",
+          "dataHash": "0x5555555555555555555555555555555555555555555555555555555555555555",
+          "actionSelector": "0x87654321",
+          "executor": "0x9999999999999999999999999999999999999999",
+          "status": "mismatch",
+          "blockNumber": 1234580,
+          "observedAt": "2026-05-29T12:11:00Z",
+          "fetchedAt": "2026-05-29T12:11:00Z",
+          "payloadHash": "0x6666666666666666666666666666666666666666666666666666666666666666",
+          "canonicalUrl": "https://example.invalid/safe/tx/safe_service_chain_mismatch",
+          "mismatchReason": "Safe service reports executed for the synthetic transaction, but the synthetic chain observation has no matching transaction hash.",
+          "rawRef": {
+            "url": "https://example.invalid/safe/tx/safe_service_chain_mismatch",
+            "domain": "example.invalid",
+            "externalId": "safe_service_chain_mismatch",
+            "chainId": 11155111,
+            "txHash": "0x4444444444444444444444444444444444444444444444444444444444444444",
+            "blockNumber": "1234580",
+            "contractAddress": "0x7777777777777777777777777777777777777777",
+            "retrievedAt": "2026-05-29T12:11:00Z"
+          },
+          "authorityClaim": {
+            "value": "evidence_only",
+            "scope": "Evidence that two synthetic external observations disagree.",
+            "reason": "The mismatch is preserved for review instead of choosing a source as truth.",
+            "sourceBoundary": "Safe service and chain observation remain external evidence boundaries."
+          },
+          "evidenceClaims": [],
+          "freshness": {
+            "state": "mismatch",
+            "lastCheckedAt": "2026-05-29T12:11:00Z",
+            "sourceBlockNumber": "1234580",
+            "reason": "Safe service and chain observation disagree in the synthetic fixture."
+          },
+          "visibility": {
+            "value": "public",
+            "rawVisibility": "public",
+            "summaryVisibility": "organization_restricted",
+            "redactionPolicy": "Synthetic fixture contains no customer labels.",
+            "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+          }
+        }
+      ],
+      "expectedEvidenceClaims": [],
+      "expectedValidation": {
+        "status": "valid_negative_mismatch_fixture",
+        "checks": ["freshness_mismatch_declared", "mismatch_reason_present", "no_source_selected_as_truth"],
+        "doesNotClaimCurrentProviderState": true
+      },
+      "knownLimits": [
+        "The fixture is valid because the mismatch is explicit.",
+        "No transaction execution evidence claim is accepted until the mismatch is reviewed.",
+        "Synthetic values are shaped examples only."
+      ]
+    },
+    {
+      "caseId": "safe_source_unavailable_state",
+      "title": "Source unavailable state",
+      "purpose": "Represent a source-unavailable external state without making a current-state claim.",
+      "caseKind": "stale_or_unavailable",
+      "sourceCategory": "execution",
+      "fixtureStatus": "synthetic_negative_example",
+      "providerFamily": "safe",
+      "readOnlyWritePosture": "read_only_fixture_no_write_or_execute_capability",
+      "publicClaimStatus": "no_provider_support_claim",
+      "safeServiceRecord": {
+        "sourceLabel": "synthetic_safe_fixture",
+        "chainId": 11155111,
+        "safeAddress": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "safeTxHash": "0x7777777777777777777777777777777777777777777777777777777777777777",
+        "recordStatus": "source_unavailable",
+        "observedAt": "2026-05-29T12:15:00Z",
+        "fetchedAt": "2026-05-29T12:15:00Z",
+        "reason": "Synthetic source endpoint unavailable at fixture time.",
+        "canonicalUrl": "https://example.invalid/safe/unavailable/safe_source_unavailable_state"
+      },
+      "chainObservation": {
+        "sourceLabel": "synthetic_chain_fixture",
+        "chainId": 11155111,
+        "status": "not_checked",
+        "observedAt": "2026-05-29T12:15:00Z",
+        "reason": "No chain check is represented because the source fixture is unavailable."
+      },
+      "expectedExternalSource": {
+        "sourceId": "safe-sepolia-synthetic-unavailable",
+        "category": "execution",
+        "provider": "safe",
+        "displayName": "Synthetic Safe unavailable source",
+        "baseUrl": "https://example.invalid/safe",
+        "chainId": 11155111,
+        "contractAddress": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "references": [
+          {
+            "url": "https://example.invalid/safe/unavailable/safe_source_unavailable_state",
+            "domain": "example.invalid",
+            "externalId": "safe_source_unavailable_state",
+            "chainId": 11155111,
+            "contractAddress": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "retrievedAt": "2026-05-29T12:15:00Z"
+          }
+        ],
+        "trustBoundary": {
+          "boundaryId": "safe-sepolia-synthetic-unavailable-boundary",
+          "sourceId": "safe-sepolia-synthetic-unavailable",
+          "authorityScope": "Unavailable-source state only; no current execution truth is represented.",
+          "credentialScope": "none for this synthetic public fixture",
+          "failureModes": ["source_unavailable", "unknown", "partial"],
+          "reviewRequired": true
+        },
+        "accessMode": "read_only",
+        "visibility": {
+          "value": "public",
+          "rawVisibility": "public",
+          "summaryVisibility": "organization_restricted",
+          "redactionPolicy": "Synthetic fixture contains no customer labels.",
+          "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+        },
+        "freshness": {
+          "state": "source_unavailable",
+          "lastCheckedAt": "2026-05-29T12:15:00Z",
+          "reason": "Synthetic source endpoint unavailable at fixture time."
+        },
+        "createdAt": "2026-05-29T12:15:00Z",
+        "updatedAt": "2026-05-29T12:15:00Z"
+      },
+      "expectedSourceRecords": [
+        {
+          "sourceId": "safe-sepolia-synthetic-unavailable",
+          "recordId": "safe-sepolia-synthetic-unavailable:tx:source-unavailable",
+          "type": "transaction",
+          "externalId": "0x7777777777777777777777777777777777777777777777777777777777777777",
+          "chainId": 11155111,
+          "safeAddress": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "safeTxHash": "0x7777777777777777777777777777777777777777777777777777777777777777",
+          "status": "source_unavailable",
+          "observedAt": "2026-05-29T12:15:00Z",
+          "fetchedAt": "2026-05-29T12:15:00Z",
+          "payloadHash": "0x8888888888888888888888888888888888888888888888888888888888888888",
+          "canonicalUrl": "https://example.invalid/safe/unavailable/safe_source_unavailable_state",
+          "rawRef": {
+            "url": "https://example.invalid/safe/unavailable/safe_source_unavailable_state",
+            "domain": "example.invalid",
+            "externalId": "safe_source_unavailable_state",
+            "chainId": 11155111,
+            "contractAddress": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "retrievedAt": "2026-05-29T12:15:00Z"
+          },
+          "authorityClaim": {
+            "value": "none",
+            "scope": "No current execution evidence is available from the synthetic source.",
+            "reason": "The source-unavailable state blocks any current-state claim.",
+            "sourceBoundary": "Safe source availability remains external."
+          },
+          "evidenceClaims": [],
+          "freshness": {
+            "state": "source_unavailable",
+            "lastCheckedAt": "2026-05-29T12:15:00Z",
+            "reason": "Synthetic source endpoint unavailable at fixture time."
+          },
+          "visibility": {
+            "value": "public",
+            "rawVisibility": "public",
+            "summaryVisibility": "organization_restricted",
+            "redactionPolicy": "Synthetic fixture contains no customer labels.",
+            "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+          }
+        }
+      ],
+      "expectedEvidenceClaims": [],
+      "expectedValidation": {
+        "status": "valid_stale_fixture",
+        "checks": ["non_current_freshness_state_declared", "freshness_reason_present", "no_current_state_claim"],
+        "doesNotClaimCurrentProviderState": true
+      },
+      "knownLimits": [
+        "Unavailable source records are historical or pending context only.",
+        "No current transaction state is represented.",
+        "Synthetic values are shaped examples only."
+      ]
+    },
+    {
+      "caseId": "safe_manual_link_only_evidence",
+      "title": "Manual link-only evidence",
+      "purpose": "Represent Level 0 URL/hash-only evidence with no import, sync, or verification.",
+      "caseKind": "manual_link_only",
+      "sourceCategory": "execution",
+      "fixtureStatus": "synthetic_example",
+      "providerFamily": "safe",
+      "readOnlyWritePosture": "read_only_fixture_no_write_or_execute_capability",
+      "publicClaimStatus": "no_provider_support_claim",
+      "safeServiceRecord": {
+        "sourceLabel": "synthetic_safe_fixture",
+        "chainId": 11155111,
+        "safeAddress": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "safeTxHash": "0x9999999999999999999999999999999999999999999999999999999999999999",
+        "recordStatus": "manual_link_only",
+        "imported": false,
+        "synced": false,
+        "verified": false,
+        "observedAt": "2026-05-29T12:20:00Z",
+        "canonicalUrl": "https://example.invalid/safe/manual-link-only"
+      },
+      "chainObservation": null,
+      "expectedExternalSource": {
+        "sourceId": "safe-sepolia-synthetic-manual-link",
+        "category": "execution",
+        "provider": "safe",
+        "displayName": "Synthetic Safe manual link source",
+        "baseUrl": "https://example.invalid/safe",
+        "chainId": 11155111,
+        "contractAddress": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "references": [
+          {
+            "url": "https://example.invalid/safe/manual-link-only",
+            "domain": "example.invalid",
+            "externalId": "safe_manual_link_only_evidence",
+            "chainId": 11155111,
+            "contractAddress": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "retrievedAt": "2026-05-29T12:20:00Z"
+          }
+        ],
+        "trustBoundary": {
+          "boundaryId": "safe-sepolia-synthetic-manual-link-boundary",
+          "sourceId": "safe-sepolia-synthetic-manual-link",
+          "authorityScope": "Manual URL and hash context only.",
+          "credentialScope": "none for this synthetic public fixture",
+          "failureModes": ["not_checked", "unknown", "source_unavailable"],
+          "reviewRequired": true
+        },
+        "accessMode": "manual",
+        "visibility": {
+          "value": "public",
+          "rawVisibility": "public",
+          "summaryVisibility": "organization_restricted",
+          "redactionPolicy": "Synthetic fixture contains no customer labels.",
+          "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+        },
+        "freshness": {
+          "state": "not_checked",
+          "lastCheckedAt": "2026-05-29T12:20:00Z",
+          "reason": "Manual link was recorded but no import, sync, or verification occurred."
+        },
+        "createdAt": "2026-05-29T12:20:00Z",
+        "updatedAt": "2026-05-29T12:20:00Z"
+      },
+      "expectedSourceRecords": [
+        {
+          "sourceId": "safe-sepolia-synthetic-manual-link",
+          "recordId": "safe-sepolia-synthetic-manual-link:manual:0x9999999999999999999999999999999999999999999999999999999999999999",
+          "type": "manual_note",
+          "externalId": "0x9999999999999999999999999999999999999999999999999999999999999999",
+          "chainId": 11155111,
+          "safeAddress": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "safeTxHash": "0x9999999999999999999999999999999999999999999999999999999999999999",
+          "status": "manual_link_only",
+          "observedAt": "2026-05-29T12:20:00Z",
+          "payloadHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalUrl": "https://example.invalid/safe/manual-link-only",
+          "rawRef": {
+            "url": "https://example.invalid/safe/manual-link-only",
+            "domain": "example.invalid",
+            "externalId": "safe_manual_link_only_evidence",
+            "chainId": 11155111,
+            "contractAddress": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "retrievedAt": "2026-05-29T12:20:00Z"
+          },
+          "authorityClaim": {
+            "value": "none",
+            "scope": "Manual link-only context.",
+            "reason": "The fixture records only a URL and synthetic hash reference.",
+            "sourceBoundary": "Safe source was not imported, synced, or verified."
+          },
+          "evidenceClaims": [],
+          "freshness": {
+            "state": "not_checked",
+            "lastCheckedAt": "2026-05-29T12:20:00Z",
+            "reason": "Manual link was recorded but no import, sync, or verification occurred."
+          },
+          "visibility": {
+            "value": "public",
+            "rawVisibility": "public",
+            "summaryVisibility": "organization_restricted",
+            "redactionPolicy": "Synthetic fixture contains no customer labels.",
+            "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+          }
+        }
+      ],
+      "expectedEvidenceClaims": [],
+      "expectedValidation": {
+        "status": "valid_manual_link_fixture",
+        "checks": ["manual_access_mode", "link_only", "no_import_sync_or_verify"],
+        "doesNotClaimCurrentProviderState": true
+      },
+      "knownLimits": [
+        "Manual links are not imported, synced, or verified.",
+        "The fixture does not establish execution evidence by itself.",
+        "Synthetic values are shaped examples only."
+      ]
+    }
+  ]
+}

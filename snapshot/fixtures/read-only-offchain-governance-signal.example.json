@@ -1,0 +1,929 @@
+{
+  "schemaVersion": "0.1.0",
+  "status": "synthetic_lab_fixture_baseline",
+  "providerFamily": "snapshot",
+  "sourceCategory": "offchain_governance_signal",
+  "fixtureBoundary": "synthetic examples only; not live Snapshot evidence",
+  "publicClaimStatus": "no_provider_support_claim",
+  "cases": [
+    {
+      "caseId": "snapshot_proposal_existence_evidence",
+      "title": "Proposal existence evidence",
+      "purpose": "Represent a synthetic Snapshot proposal/page-shaped record and the expected normalized proposal evidence.",
+      "caseKind": "proposal_existence",
+      "sourceCategory": "offchain_governance_signal",
+      "fixtureStatus": "synthetic_example",
+      "providerFamily": "snapshot",
+      "readOnlyWritePosture": "read_only_fixture_no_write_vote_signing_or_execute_capability",
+      "publicClaimStatus": "no_provider_support_claim",
+      "snapshotProposalRecord": {
+        "sourceLabel": "synthetic_snapshot_fixture",
+        "spaceId": "synthetic-space.eth",
+        "spaceUrl": "https://example.invalid/snapshot/synthetic-space.eth",
+        "proposalId": "0x1111111111111111111111111111111111111111111111111111111111111111",
+        "proposalUrl": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x1111111111111111111111111111111111111111111111111111111111111111",
+        "stateAsReported": "closed",
+        "resultAsReported": "choice_1_passed_as_reported_by_source",
+        "startAt": "2026-05-29T10:00:00Z",
+        "endAt": "2026-05-29T11:00:00Z",
+        "snapshotBlock": 1234501,
+        "snapshotTimestamp": "2026-05-29T09:55:00Z",
+        "author": "0x1111111111111111111111111111111111111111",
+        "contentHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "observedAt": "2026-05-29T11:05:00Z",
+        "fetchedAt": "2026-05-29T11:06:00Z"
+      },
+      "spaceRecord": {
+        "sourceLabel": "synthetic_snapshot_fixture",
+        "spaceId": "synthetic-space.eth",
+        "spaceUrl": "https://example.invalid/snapshot/synthetic-space.eth",
+        "networkContext": "synthetic-sepolia-like",
+        "votingStrategyRefs": ["synthetic-basic-vote"],
+        "observedAt": "2026-05-29T11:06:00Z"
+      },
+      "expectedExternalSource": {
+        "sourceId": "snapshot-synthetic-proposal",
+        "category": "offchain_governance_signal",
+        "provider": "snapshot",
+        "displayName": "Synthetic Snapshot proposal source",
+        "baseUrl": "https://example.invalid/snapshot",
+        "references": [
+          {
+            "url": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x1111111111111111111111111111111111111111111111111111111111111111",
+            "domain": "example.invalid",
+            "externalId": "0x1111111111111111111111111111111111111111111111111111111111111111",
+            "contentHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "retrievedAt": "2026-05-29T11:06:00Z"
+          }
+        ],
+        "trustBoundary": {
+          "boundaryId": "snapshot-synthetic-proposal-boundary",
+          "sourceId": "snapshot-synthetic-proposal",
+          "authorityScope": "Snapshot proposal/page context only inside the synthetic source boundary.",
+          "credentialScope": "none for this synthetic public fixture",
+          "failureModes": ["stale", "source_unavailable", "schema_changed", "parse_failed", "partial", "mismatch"],
+          "reviewRequired": true
+        },
+        "accessMode": "read_only",
+        "visibility": {
+          "value": "public",
+          "rawVisibility": "public",
+          "summaryVisibility": "organization_restricted",
+          "redactionPolicy": "Synthetic fixture contains no customer labels or private notes.",
+          "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+        },
+        "freshness": {
+          "state": "fresh",
+          "lastCheckedAt": "2026-05-29T11:06:00Z",
+          "lastSuccessfulSyncAt": "2026-05-29T11:06:00Z",
+          "sourceBlockNumber": "1234501"
+        },
+        "createdAt": "2026-05-29T11:06:00Z",
+        "updatedAt": "2026-05-29T11:06:00Z"
+      },
+      "expectedSourceRecords": [
+        {
+          "sourceId": "snapshot-synthetic-proposal",
+          "recordId": "snapshot-synthetic-proposal:proposal:0x1111111111111111111111111111111111111111111111111111111111111111",
+          "type": "proposal",
+          "externalId": "0x1111111111111111111111111111111111111111111111111111111111111111",
+          "spaceId": "synthetic-space.eth",
+          "spaceUrl": "https://example.invalid/snapshot/synthetic-space.eth",
+          "proposalId": "0x1111111111111111111111111111111111111111111111111111111111111111",
+          "proposalUrl": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x1111111111111111111111111111111111111111111111111111111111111111",
+          "stateAsReported": "closed",
+          "resultAsReported": "choice_1_passed_as_reported_by_source",
+          "startAt": "2026-05-29T10:00:00Z",
+          "endAt": "2026-05-29T11:00:00Z",
+          "snapshotBlock": 1234501,
+          "snapshotTimestamp": "2026-05-29T09:55:00Z",
+          "author": "0x1111111111111111111111111111111111111111",
+          "contentHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "observedAt": "2026-05-29T11:05:00Z",
+          "fetchedAt": "2026-05-29T11:06:00Z",
+          "payloadHash": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "canonicalUrl": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x1111111111111111111111111111111111111111111111111111111111111111",
+          "rawRef": {
+            "url": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x1111111111111111111111111111111111111111111111111111111111111111",
+            "domain": "example.invalid",
+            "externalId": "0x1111111111111111111111111111111111111111111111111111111111111111",
+            "contentHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "retrievedAt": "2026-05-29T11:06:00Z"
+          },
+          "authorityClaim": {
+            "value": "context_only",
+            "scope": "Snapshot proposal existence context inside the synthetic source boundary.",
+            "reason": "The fixture records a shaped proposal source record only.",
+            "sourceBoundary": "Snapshot page and source-reported state remain external semantics."
+          },
+          "evidenceClaims": [
+            {
+              "claimId": "snapshot-proposal-existed-claim",
+              "kind": "proposal_existed",
+              "sourceRecordId": "snapshot-synthetic-proposal:proposal:0x1111111111111111111111111111111111111111111111111111111111111111",
+              "subject": "Synthetic Snapshot proposal existence evidence",
+              "confidence": "medium",
+              "verifiedAt": "2026-05-29T11:06:00Z"
+            }
+          ],
+          "freshness": {
+            "state": "fresh",
+            "lastCheckedAt": "2026-05-29T11:06:00Z",
+            "lastSuccessfulSyncAt": "2026-05-29T11:06:00Z",
+            "sourceBlockNumber": "1234501"
+          },
+          "visibility": {
+            "value": "public",
+            "rawVisibility": "public",
+            "summaryVisibility": "organization_restricted",
+            "redactionPolicy": "Synthetic fixture contains no customer labels or private notes.",
+            "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+          }
+        }
+      ],
+      "expectedEvidenceClaims": [
+        {
+          "claimId": "snapshot-proposal-existed-claim",
+          "kind": "proposal_existed",
+          "sourceRecordId": "snapshot-synthetic-proposal:proposal:0x1111111111111111111111111111111111111111111111111111111111111111",
+          "subject": "Synthetic Snapshot proposal existence evidence",
+          "confidence": "medium",
+          "verifiedAt": "2026-05-29T11:06:00Z"
+        }
+      ],
+      "expectedValidation": {
+        "status": "valid_positive_fixture",
+        "checks": ["proposal_existed_claim_present", "context_only_authority", "synthetic_source_boundary"],
+        "doesNotClaimCurrentProviderState": true
+      },
+      "knownLimits": [
+        "Synthetic values are shaped examples only.",
+        "Source-reported proposal state and result are context only.",
+        "The fixture does not establish any product availability."
+      ]
+    },
+    {
+      "caseId": "snapshot_vote_occurrence_evidence",
+      "title": "Vote occurrence evidence",
+      "purpose": "Represent a synthetic Snapshot vote/source record as bounded vote occurrence evidence.",
+      "caseKind": "vote_occurrence",
+      "sourceCategory": "offchain_governance_signal",
+      "fixtureStatus": "synthetic_example",
+      "providerFamily": "snapshot",
+      "readOnlyWritePosture": "read_only_fixture_no_write_vote_signing_or_execute_capability",
+      "publicClaimStatus": "no_provider_support_claim",
+      "snapshotVoteRecord": {
+        "sourceLabel": "synthetic_snapshot_fixture",
+        "spaceId": "synthetic-space.eth",
+        "proposalId": "0x2222222222222222222222222222222222222222222222222222222222222222",
+        "voteId": "0x3333333333333333333333333333333333333333333333333333333333333333",
+        "voter": "0x2222222222222222222222222222222222222222",
+        "choice": 1,
+        "choiceLabel": "For synthetic choice",
+        "choicePayload": {
+          "singleChoice": 1
+        },
+        "votingPower": "42.5",
+        "votingStrategyRefs": ["synthetic-basic-vote"],
+        "signatureRef": "synthetic_signature_reference_0x3333333333333333333333333333333333333333333333333333333333333333",
+        "observedAt": "2026-05-29T12:00:00Z",
+        "fetchedAt": "2026-05-29T12:01:00Z"
+      },
+      "spaceRecord": {
+        "sourceLabel": "synthetic_snapshot_fixture",
+        "spaceId": "synthetic-space.eth",
+        "spaceUrl": "https://example.invalid/snapshot/synthetic-space.eth",
+        "votingStrategyRefs": ["synthetic-basic-vote"]
+      },
+      "expectedExternalSource": {
+        "sourceId": "snapshot-synthetic-vote",
+        "category": "offchain_governance_signal",
+        "provider": "snapshot",
+        "displayName": "Synthetic Snapshot vote source",
+        "baseUrl": "https://example.invalid/snapshot",
+        "references": [
+          {
+            "url": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x2222222222222222222222222222222222222222222222222222222222222222/votes/0x3333333333333333333333333333333333333333333333333333333333333333",
+            "domain": "example.invalid",
+            "externalId": "0x3333333333333333333333333333333333333333333333333333333333333333",
+            "retrievedAt": "2026-05-29T12:01:00Z"
+          }
+        ],
+        "trustBoundary": {
+          "boundaryId": "snapshot-synthetic-vote-boundary",
+          "sourceId": "snapshot-synthetic-vote",
+          "authorityScope": "Snapshot vote occurrence context inside the synthetic source boundary.",
+          "credentialScope": "none for this synthetic public fixture",
+          "failureModes": ["stale", "source_unavailable", "schema_changed", "parse_failed", "partial", "mismatch"],
+          "reviewRequired": true
+        },
+        "accessMode": "read_only",
+        "visibility": {
+          "value": "public",
+          "rawVisibility": "public",
+          "summaryVisibility": "organization_restricted",
+          "redactionPolicy": "Synthetic fixture contains no real voter names or private labels.",
+          "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+        },
+        "freshness": {
+          "state": "fresh",
+          "lastCheckedAt": "2026-05-29T12:01:00Z",
+          "lastSuccessfulSyncAt": "2026-05-29T12:01:00Z"
+        },
+        "createdAt": "2026-05-29T12:01:00Z",
+        "updatedAt": "2026-05-29T12:01:00Z"
+      },
+      "expectedSourceRecords": [
+        {
+          "sourceId": "snapshot-synthetic-vote",
+          "recordId": "snapshot-synthetic-vote:vote:0x3333333333333333333333333333333333333333333333333333333333333333",
+          "type": "vote",
+          "externalId": "0x3333333333333333333333333333333333333333333333333333333333333333",
+          "spaceId": "synthetic-space.eth",
+          "spaceUrl": "https://example.invalid/snapshot/synthetic-space.eth",
+          "proposalId": "0x2222222222222222222222222222222222222222222222222222222222222222",
+          "proposalUrl": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x2222222222222222222222222222222222222222222222222222222222222222",
+          "voteId": "0x3333333333333333333333333333333333333333333333333333333333333333",
+          "voter": "0x2222222222222222222222222222222222222222",
+          "choice": 1,
+          "choiceLabel": "For synthetic choice",
+          "choicePayload": {
+            "singleChoice": 1
+          },
+          "votingPower": "42.5",
+          "votingStrategyRefs": ["synthetic-basic-vote"],
+          "signatureRef": "synthetic_signature_reference_0x3333333333333333333333333333333333333333333333333333333333333333",
+          "observedAt": "2026-05-29T12:00:00Z",
+          "fetchedAt": "2026-05-29T12:01:00Z",
+          "payloadHash": "0x4444444444444444444444444444444444444444444444444444444444444444",
+          "canonicalUrl": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x2222222222222222222222222222222222222222222222222222222222222222/votes/0x3333333333333333333333333333333333333333333333333333333333333333",
+          "rawRef": {
+            "url": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x2222222222222222222222222222222222222222222222222222222222222222/votes/0x3333333333333333333333333333333333333333333333333333333333333333",
+            "domain": "example.invalid",
+            "externalId": "0x3333333333333333333333333333333333333333333333333333333333333333",
+            "retrievedAt": "2026-05-29T12:01:00Z"
+          },
+          "authorityClaim": {
+            "value": "evidence_only",
+            "scope": "Bounded vote occurrence evidence inside the synthetic Snapshot source boundary.",
+            "reason": "The fixture records that a shaped vote source record exists; it does not decide approval, execution authorization, governance intent, or policy compliance.",
+            "sourceBoundary": "Snapshot vote, signature reference, and voting power remain external source context."
+          },
+          "evidenceClaims": [
+            {
+              "claimId": "snapshot-vote-occurred-claim",
+              "kind": "vote_occurred",
+              "sourceRecordId": "snapshot-synthetic-vote:vote:0x3333333333333333333333333333333333333333333333333333333333333333",
+              "subject": "Synthetic Snapshot vote occurrence evidence",
+              "confidence": "medium",
+              "verifiedAt": "2026-05-29T12:01:00Z"
+            }
+          ],
+          "freshness": {
+            "state": "fresh",
+            "lastCheckedAt": "2026-05-29T12:01:00Z",
+            "lastSuccessfulSyncAt": "2026-05-29T12:01:00Z"
+          },
+          "visibility": {
+            "value": "public",
+            "rawVisibility": "public",
+            "summaryVisibility": "organization_restricted",
+            "redactionPolicy": "Synthetic fixture contains no real voter names or private labels.",
+            "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+          }
+        }
+      ],
+      "expectedEvidenceClaims": [
+        {
+          "claimId": "snapshot-vote-occurred-claim",
+          "kind": "vote_occurred",
+          "sourceRecordId": "snapshot-synthetic-vote:vote:0x3333333333333333333333333333333333333333333333333333333333333333",
+          "subject": "Synthetic Snapshot vote occurrence evidence",
+          "confidence": "medium",
+          "verifiedAt": "2026-05-29T12:01:00Z"
+        }
+      ],
+      "expectedValidation": {
+        "status": "valid_positive_fixture",
+        "checks": ["vote_occurred_claim_present", "no_approval_or_execution_claim", "voting_power_source_context"],
+        "doesNotClaimCurrentProviderState": true
+      },
+      "knownLimits": [
+        "Voting power is source-reported context only.",
+        "The fixture does not decide approval, execution authorization, governance intent, or policy compliance.",
+        "Synthetic values are shaped examples only."
+      ]
+    },
+    {
+      "caseId": "snapshot_discussion_context_evidence",
+      "title": "Discussion context evidence",
+      "purpose": "Represent a Snapshot-linked discussion URL as separate source context.",
+      "caseKind": "discussion_context",
+      "sourceCategory": "offchain_governance_signal",
+      "fixtureStatus": "synthetic_example",
+      "providerFamily": "snapshot",
+      "readOnlyWritePosture": "read_only_fixture_no_write_vote_signing_or_execute_capability",
+      "publicClaimStatus": "no_provider_support_claim",
+      "snapshotDiscussionRecord": {
+        "sourceLabel": "synthetic_snapshot_fixture",
+        "spaceId": "synthetic-space.eth",
+        "proposalId": "0x5555555555555555555555555555555555555555555555555555555555555555",
+        "discussionUrl": "https://example.invalid/forum/synthetic-thread-1",
+        "discussionSourceLabel": "synthetic_discussion_fixture",
+        "threadId": "synthetic-thread-1",
+        "observedAt": "2026-05-29T12:10:00Z",
+        "fetchedAt": "2026-05-29T12:11:00Z"
+      },
+      "expectedExternalSource": {
+        "sourceId": "snapshot-synthetic-discussion",
+        "category": "offchain_governance_signal",
+        "provider": "snapshot",
+        "displayName": "Synthetic Snapshot discussion source",
+        "baseUrl": "https://example.invalid/snapshot",
+        "references": [
+          {
+            "url": "https://example.invalid/forum/synthetic-thread-1",
+            "domain": "example.invalid",
+            "externalId": "synthetic-thread-1",
+            "retrievedAt": "2026-05-29T12:11:00Z"
+          }
+        ],
+        "trustBoundary": {
+          "boundaryId": "snapshot-synthetic-discussion-boundary",
+          "sourceId": "snapshot-synthetic-discussion",
+          "authorityScope": "Linked discussion context only.",
+          "credentialScope": "none for this synthetic public fixture",
+          "failureModes": ["stale", "source_unavailable", "permission_denied", "partial", "mismatch"],
+          "reviewRequired": true
+        },
+        "accessMode": "read_only",
+        "visibility": {
+          "value": "public",
+          "rawVisibility": "public",
+          "summaryVisibility": "organization_restricted",
+          "redactionPolicy": "Synthetic discussion content is placeholder-only.",
+          "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+        },
+        "freshness": {
+          "state": "fresh",
+          "lastCheckedAt": "2026-05-29T12:11:00Z",
+          "lastSuccessfulSyncAt": "2026-05-29T12:11:00Z"
+        },
+        "createdAt": "2026-05-29T12:11:00Z",
+        "updatedAt": "2026-05-29T12:11:00Z"
+      },
+      "expectedSourceRecords": [
+        {
+          "sourceId": "snapshot-synthetic-discussion",
+          "recordId": "snapshot-synthetic-discussion:thread:synthetic-thread-1",
+          "type": "discussion_thread",
+          "externalId": "synthetic-thread-1",
+          "spaceId": "synthetic-space.eth",
+          "proposalId": "0x5555555555555555555555555555555555555555555555555555555555555555",
+          "proposalUrl": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x5555555555555555555555555555555555555555555555555555555555555555",
+          "discussionUrl": "https://example.invalid/forum/synthetic-thread-1",
+          "observedAt": "2026-05-29T12:10:00Z",
+          "fetchedAt": "2026-05-29T12:11:00Z",
+          "payloadHash": "0x6666666666666666666666666666666666666666666666666666666666666666",
+          "canonicalUrl": "https://example.invalid/forum/synthetic-thread-1",
+          "rawRef": {
+            "url": "https://example.invalid/forum/synthetic-thread-1",
+            "domain": "example.invalid",
+            "externalId": "synthetic-thread-1",
+            "retrievedAt": "2026-05-29T12:11:00Z"
+          },
+          "authorityClaim": {
+            "value": "context_only",
+            "scope": "Linked discussion context only.",
+            "reason": "The fixture records that a synthetic discussion URL exists; discussion is not approval, vote, execution, or authority.",
+            "sourceBoundary": "Discussion platform visibility and retention remain external source semantics."
+          },
+          "evidenceClaims": [
+            {
+              "claimId": "snapshot-discussion-occurred-claim",
+              "kind": "discussion_occurred",
+              "sourceRecordId": "snapshot-synthetic-discussion:thread:synthetic-thread-1",
+              "subject": "Synthetic Snapshot-linked discussion occurrence evidence",
+              "confidence": "medium",
+              "verifiedAt": "2026-05-29T12:11:00Z"
+            }
+          ],
+          "freshness": {
+            "state": "fresh",
+            "lastCheckedAt": "2026-05-29T12:11:00Z",
+            "lastSuccessfulSyncAt": "2026-05-29T12:11:00Z"
+          },
+          "visibility": {
+            "value": "public",
+            "rawVisibility": "public",
+            "summaryVisibility": "organization_restricted",
+            "redactionPolicy": "Synthetic discussion content is placeholder-only.",
+            "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+          }
+        }
+      ],
+      "expectedEvidenceClaims": [
+        {
+          "claimId": "snapshot-discussion-occurred-claim",
+          "kind": "discussion_occurred",
+          "sourceRecordId": "snapshot-synthetic-discussion:thread:synthetic-thread-1",
+          "subject": "Synthetic Snapshot-linked discussion occurrence evidence",
+          "confidence": "medium",
+          "verifiedAt": "2026-05-29T12:11:00Z"
+        }
+      ],
+      "expectedValidation": {
+        "status": "valid_positive_fixture",
+        "checks": ["discussion_occurred_claim_present", "context_only_authority", "no_approval_or_execution_claim"],
+        "doesNotClaimCurrentProviderState": true
+      },
+      "knownLimits": [
+        "Discussion context does not equal approval, vote, execution, or authority.",
+        "Synthetic values are shaped examples only.",
+        "Linked discussion visibility remains a separate source boundary."
+      ]
+    },
+    {
+      "caseId": "snapshot_page_api_cache_mismatch",
+      "title": "Snapshot page/API/cache mismatch",
+      "purpose": "Preserve a disagreement where synthetic page, API, and cache observations report different proposal state.",
+      "caseKind": "page_api_cache_mismatch",
+      "sourceCategory": "offchain_governance_signal",
+      "fixtureStatus": "synthetic_negative_example",
+      "providerFamily": "snapshot",
+      "readOnlyWritePosture": "read_only_fixture_no_write_vote_signing_or_execute_capability",
+      "publicClaimStatus": "no_provider_support_claim",
+      "snapshotProposalRecord": {
+        "sourceLabel": "synthetic_snapshot_fixture",
+        "spaceId": "synthetic-space.eth",
+        "proposalId": "0x7777777777777777777777777777777777777777777777777777777777777777",
+        "proposalUrl": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x7777777777777777777777777777777777777777777777777777777777777777",
+        "pageStateAsReported": "closed",
+        "apiStateAsReported": "active",
+        "cacheStateAsReported": "closed",
+        "mismatchReason": "Synthetic Snapshot page and cache report closed while the synthetic API record reports active.",
+        "observedAt": "2026-05-29T12:20:00Z",
+        "fetchedAt": "2026-05-29T12:21:00Z"
+      },
+      "spaceRecord": {
+        "sourceLabel": "synthetic_snapshot_fixture",
+        "spaceId": "synthetic-space.eth",
+        "spaceUrl": "https://example.invalid/snapshot/synthetic-space.eth"
+      },
+      "expectedExternalSource": {
+        "sourceId": "snapshot-synthetic-mismatch",
+        "category": "offchain_governance_signal",
+        "provider": "snapshot",
+        "displayName": "Synthetic Snapshot mismatch source",
+        "baseUrl": "https://example.invalid/snapshot",
+        "references": [
+          {
+            "url": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x7777777777777777777777777777777777777777777777777777777777777777",
+            "domain": "example.invalid",
+            "externalId": "0x7777777777777777777777777777777777777777777777777777777777777777",
+            "retrievedAt": "2026-05-29T12:21:00Z"
+          }
+        ],
+        "trustBoundary": {
+          "boundaryId": "snapshot-synthetic-mismatch-boundary",
+          "sourceId": "snapshot-synthetic-mismatch",
+          "authorityScope": "Mismatch context only; no source surface is selected as truth by the fixture.",
+          "credentialScope": "none for this synthetic public fixture",
+          "failureModes": ["mismatch", "stale", "partial"],
+          "reviewRequired": true
+        },
+        "accessMode": "read_only",
+        "visibility": {
+          "value": "public",
+          "rawVisibility": "public",
+          "summaryVisibility": "organization_restricted",
+          "redactionPolicy": "Synthetic fixture contains no customer labels or private notes.",
+          "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+        },
+        "freshness": {
+          "state": "mismatch",
+          "lastCheckedAt": "2026-05-29T12:21:00Z",
+          "reason": "Synthetic page/API/cache proposal state differs."
+        },
+        "createdAt": "2026-05-29T12:21:00Z",
+        "updatedAt": "2026-05-29T12:21:00Z"
+      },
+      "expectedSourceRecords": [
+        {
+          "sourceId": "snapshot-synthetic-mismatch",
+          "recordId": "snapshot-synthetic-mismatch:proposal:state-disagreement",
+          "type": "proposal",
+          "externalId": "0x7777777777777777777777777777777777777777777777777777777777777777",
+          "spaceId": "synthetic-space.eth",
+          "spaceUrl": "https://example.invalid/snapshot/synthetic-space.eth",
+          "proposalId": "0x7777777777777777777777777777777777777777777777777777777777777777",
+          "proposalUrl": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x7777777777777777777777777777777777777777777777777777777777777777",
+          "stateAsReported": "mismatch",
+          "pageStateAsReported": "closed",
+          "apiStateAsReported": "active",
+          "cacheStateAsReported": "closed",
+          "mismatchReason": "Synthetic Snapshot page and cache report closed while the synthetic API record reports active.",
+          "observedAt": "2026-05-29T12:20:00Z",
+          "fetchedAt": "2026-05-29T12:21:00Z",
+          "payloadHash": "0x8888888888888888888888888888888888888888888888888888888888888888",
+          "canonicalUrl": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x7777777777777777777777777777777777777777777777777777777777777777",
+          "rawRef": {
+            "url": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x7777777777777777777777777777777777777777777777777777777777777777",
+            "domain": "example.invalid",
+            "externalId": "0x7777777777777777777777777777777777777777777777777777777777777777",
+            "retrievedAt": "2026-05-29T12:21:00Z"
+          },
+          "authorityClaim": {
+            "value": "context_only",
+            "scope": "Synthetic mismatch context only.",
+            "reason": "The mismatch is preserved for review instead of choosing one source surface.",
+            "sourceBoundary": "Snapshot page, API, and cache remain separate external source surfaces."
+          },
+          "evidenceClaims": [],
+          "freshness": {
+            "state": "mismatch",
+            "lastCheckedAt": "2026-05-29T12:21:00Z",
+            "reason": "Synthetic page/API/cache proposal state differs."
+          },
+          "visibility": {
+            "value": "public",
+            "rawVisibility": "public",
+            "summaryVisibility": "organization_restricted",
+            "redactionPolicy": "Synthetic fixture contains no customer labels or private notes.",
+            "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+          }
+        }
+      ],
+      "expectedEvidenceClaims": [],
+      "expectedValidation": {
+        "status": "valid_negative_mismatch_fixture",
+        "checks": ["freshness_mismatch_declared", "mismatch_reason_present", "no_source_selected_as_truth"],
+        "doesNotClaimCurrentProviderState": true
+      },
+      "knownLimits": [
+        "The fixture is valid because the mismatch is explicit.",
+        "No proposal state is accepted as current truth by this fixture.",
+        "Synthetic values are shaped examples only."
+      ]
+    },
+    {
+      "caseId": "snapshot_strategy_voting_power_mismatch",
+      "title": "Strategy and voting-power mismatch",
+      "purpose": "Represent unreproducible source-reported voting power and preserve strategy context as partial.",
+      "caseKind": "strategy_voting_power_mismatch",
+      "sourceCategory": "offchain_governance_signal",
+      "fixtureStatus": "synthetic_partial_example",
+      "providerFamily": "snapshot",
+      "readOnlyWritePosture": "read_only_fixture_no_write_vote_signing_or_execute_capability",
+      "publicClaimStatus": "no_provider_support_claim",
+      "snapshotVoteRecord": {
+        "sourceLabel": "synthetic_snapshot_fixture",
+        "spaceId": "synthetic-space.eth",
+        "proposalId": "0x9999999999999999999999999999999999999999999999999999999999999999",
+        "voteId": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "voter": "0x3333333333333333333333333333333333333333",
+        "choice": 2,
+        "choiceLabel": "Against synthetic choice",
+        "votingPowerAsReported": "125.7500",
+        "observedAt": "2026-05-29T12:30:00Z",
+        "fetchedAt": "2026-05-29T12:31:00Z"
+      },
+      "strategyContext": {
+        "votingStrategyRefs": ["synthetic-erc20-balance", "synthetic-delegation-adjustment"],
+        "votingPowerAsReported": "125.7500",
+        "strategyContextHash": "0x9999999999999999999999999999999999999999999999999999999999999999",
+        "reproducibilityStatus": "unreproducible_from_fixture",
+        "reason": "Synthetic strategy inputs are intentionally incomplete, so voting power is source-reported context only."
+      },
+      "expectedExternalSource": {
+        "sourceId": "snapshot-synthetic-strategy-partial",
+        "category": "offchain_governance_signal",
+        "provider": "snapshot",
+        "displayName": "Synthetic Snapshot strategy partial source",
+        "baseUrl": "https://example.invalid/snapshot",
+        "references": [
+          {
+            "url": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x9999999999999999999999999999999999999999999999999999999999999999/votes/0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "domain": "example.invalid",
+            "externalId": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "contentHash": "0x9999999999999999999999999999999999999999999999999999999999999999",
+            "retrievedAt": "2026-05-29T12:31:00Z"
+          }
+        ],
+        "trustBoundary": {
+          "boundaryId": "snapshot-synthetic-strategy-partial-boundary",
+          "sourceId": "snapshot-synthetic-strategy-partial",
+          "authorityScope": "Strategy and voting-power context only.",
+          "credentialScope": "none for this synthetic public fixture",
+          "failureModes": ["partial", "mismatch", "unknown"],
+          "reviewRequired": true
+        },
+        "accessMode": "read_only",
+        "visibility": {
+          "value": "public",
+          "rawVisibility": "public",
+          "summaryVisibility": "organization_restricted",
+          "redactionPolicy": "Synthetic fixture contains no real voter names or private labels.",
+          "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+        },
+        "freshness": {
+          "state": "partial",
+          "lastCheckedAt": "2026-05-29T12:31:00Z",
+          "reason": "Synthetic strategy context is incomplete and voting power cannot be reproduced from the fixture."
+        },
+        "createdAt": "2026-05-29T12:31:00Z",
+        "updatedAt": "2026-05-29T12:31:00Z"
+      },
+      "expectedSourceRecords": [
+        {
+          "sourceId": "snapshot-synthetic-strategy-partial",
+          "recordId": "snapshot-synthetic-strategy-partial:vote:0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "type": "vote",
+          "externalId": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "spaceId": "synthetic-space.eth",
+          "proposalId": "0x9999999999999999999999999999999999999999999999999999999999999999",
+          "voteId": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "voter": "0x3333333333333333333333333333333333333333",
+          "choice": 2,
+          "choiceLabel": "Against synthetic choice",
+          "votingPower": "125.7500",
+          "votingPowerAsReported": "125.7500",
+          "votingStrategyRefs": ["synthetic-erc20-balance", "synthetic-delegation-adjustment"],
+          "strategyContextHash": "0x9999999999999999999999999999999999999999999999999999999999999999",
+          "reproducibilityStatus": "unreproducible_from_fixture",
+          "reason": "Synthetic strategy inputs are intentionally incomplete, so voting power is source-reported context only.",
+          "observedAt": "2026-05-29T12:30:00Z",
+          "fetchedAt": "2026-05-29T12:31:00Z",
+          "payloadHash": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "canonicalUrl": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x9999999999999999999999999999999999999999999999999999999999999999/votes/0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "rawRef": {
+            "url": "https://example.invalid/snapshot/synthetic-space.eth/proposal/0x9999999999999999999999999999999999999999999999999999999999999999/votes/0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "domain": "example.invalid",
+            "externalId": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "contentHash": "0x9999999999999999999999999999999999999999999999999999999999999999",
+            "retrievedAt": "2026-05-29T12:31:00Z"
+          },
+          "authorityClaim": {
+            "value": "context_only",
+            "scope": "Strategy and voting-power context only.",
+            "reason": "Voting power cannot be reproduced from this synthetic fixture and is not elevated to protocol authority.",
+            "sourceBoundary": "Snapshot strategy and score semantics remain external source context."
+          },
+          "evidenceClaims": [],
+          "freshness": {
+            "state": "partial",
+            "lastCheckedAt": "2026-05-29T12:31:00Z",
+            "reason": "Synthetic strategy context is incomplete and voting power cannot be reproduced from the fixture."
+          },
+          "visibility": {
+            "value": "public",
+            "rawVisibility": "public",
+            "summaryVisibility": "organization_restricted",
+            "redactionPolicy": "Synthetic fixture contains no real voter names or private labels.",
+            "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+          }
+        }
+      ],
+      "expectedEvidenceClaims": [],
+      "expectedValidation": {
+        "status": "valid_partial_strategy_fixture",
+        "checks": ["strategy_context_present", "partial_freshness_declared", "voting_power_not_authority"],
+        "doesNotClaimCurrentProviderState": true
+      },
+      "knownLimits": [
+        "Voting power is source-reported context only.",
+        "The synthetic strategy context is intentionally incomplete.",
+        "Future live/testnet fixtures need reviewed strategy inputs before reproducibility claims."
+      ]
+    },
+    {
+      "caseId": "snapshot_source_unavailable_state",
+      "title": "Source unavailable state",
+      "purpose": "Represent a Snapshot source-unavailable state without making a current-state claim.",
+      "caseKind": "stale_or_unavailable",
+      "sourceCategory": "offchain_governance_signal",
+      "fixtureStatus": "synthetic_negative_example",
+      "providerFamily": "snapshot",
+      "readOnlyWritePosture": "read_only_fixture_no_write_vote_signing_or_execute_capability",
+      "publicClaimStatus": "no_provider_support_claim",
+      "snapshotProposalRecord": {
+        "sourceLabel": "synthetic_snapshot_fixture",
+        "spaceId": "synthetic-space.eth",
+        "proposalId": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "proposalUrl": "https://example.invalid/snapshot/unavailable/0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "recordStatus": "source_unavailable",
+        "observedAt": "2026-05-29T12:40:00Z",
+        "fetchedAt": "2026-05-29T12:40:00Z",
+        "reason": "Synthetic Snapshot source unavailable at fixture time."
+      },
+      "expectedExternalSource": {
+        "sourceId": "snapshot-synthetic-unavailable",
+        "category": "offchain_governance_signal",
+        "provider": "snapshot",
+        "displayName": "Synthetic Snapshot unavailable source",
+        "baseUrl": "https://example.invalid/snapshot",
+        "references": [
+          {
+            "url": "https://example.invalid/snapshot/unavailable/0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "domain": "example.invalid",
+            "externalId": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "retrievedAt": "2026-05-29T12:40:00Z"
+          }
+        ],
+        "trustBoundary": {
+          "boundaryId": "snapshot-synthetic-unavailable-boundary",
+          "sourceId": "snapshot-synthetic-unavailable",
+          "authorityScope": "Unavailable-source state only; no current governance truth is represented.",
+          "credentialScope": "none for this synthetic public fixture",
+          "failureModes": ["source_unavailable", "unknown", "partial"],
+          "reviewRequired": true
+        },
+        "accessMode": "read_only",
+        "visibility": {
+          "value": "public",
+          "rawVisibility": "public",
+          "summaryVisibility": "organization_restricted",
+          "redactionPolicy": "Synthetic fixture contains no customer labels or private notes.",
+          "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+        },
+        "freshness": {
+          "state": "source_unavailable",
+          "lastCheckedAt": "2026-05-29T12:40:00Z",
+          "reason": "Synthetic Snapshot source unavailable at fixture time."
+        },
+        "createdAt": "2026-05-29T12:40:00Z",
+        "updatedAt": "2026-05-29T12:40:00Z"
+      },
+      "expectedSourceRecords": [
+        {
+          "sourceId": "snapshot-synthetic-unavailable",
+          "recordId": "snapshot-synthetic-unavailable:proposal:source-unavailable",
+          "type": "proposal",
+          "externalId": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "spaceId": "synthetic-space.eth",
+          "proposalId": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "proposalUrl": "https://example.invalid/snapshot/unavailable/0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "status": "source_unavailable",
+          "observedAt": "2026-05-29T12:40:00Z",
+          "fetchedAt": "2026-05-29T12:40:00Z",
+          "payloadHash": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "canonicalUrl": "https://example.invalid/snapshot/unavailable/0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "rawRef": {
+            "url": "https://example.invalid/snapshot/unavailable/0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "domain": "example.invalid",
+            "externalId": "0xbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "retrievedAt": "2026-05-29T12:40:00Z"
+          },
+          "authorityClaim": {
+            "value": "none",
+            "scope": "No current Snapshot evidence is available from the synthetic source.",
+            "reason": "The source-unavailable state blocks any current-state claim.",
+            "sourceBoundary": "Snapshot source availability remains external."
+          },
+          "evidenceClaims": [],
+          "freshness": {
+            "state": "source_unavailable",
+            "lastCheckedAt": "2026-05-29T12:40:00Z",
+            "reason": "Synthetic Snapshot source unavailable at fixture time."
+          },
+          "visibility": {
+            "value": "public",
+            "rawVisibility": "public",
+            "summaryVisibility": "organization_restricted",
+            "redactionPolicy": "Synthetic fixture contains no customer labels or private notes.",
+            "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+          }
+        }
+      ],
+      "expectedEvidenceClaims": [],
+      "expectedValidation": {
+        "status": "valid_stale_fixture",
+        "checks": ["non_current_freshness_state_declared", "freshness_reason_present", "no_current_state_claim"],
+        "doesNotClaimCurrentProviderState": true
+      },
+      "knownLimits": [
+        "Unavailable source records are historical or pending context only.",
+        "No current Snapshot state is represented.",
+        "Synthetic values are shaped examples only."
+      ]
+    },
+    {
+      "caseId": "snapshot_manual_link_only_evidence",
+      "title": "Manual link-only evidence",
+      "purpose": "Represent Level 0 URL-only Snapshot evidence with no import, sync, verification, vote submission, signing, or authority claim.",
+      "caseKind": "manual_link_only",
+      "sourceCategory": "offchain_governance_signal",
+      "fixtureStatus": "synthetic_example",
+      "providerFamily": "snapshot",
+      "readOnlyWritePosture": "read_only_fixture_no_write_vote_signing_or_execute_capability",
+      "publicClaimStatus": "no_provider_support_claim",
+      "snapshotProposalRecord": {
+        "sourceLabel": "synthetic_snapshot_fixture",
+        "spaceId": "synthetic-space.eth",
+        "proposalId": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "proposalUrl": "https://example.invalid/snapshot/manual-link-only/0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+        "recordStatus": "manual_link_only",
+        "imported": false,
+        "synced": false,
+        "verified": false,
+        "voteSubmitted": false,
+        "signed": false,
+        "observedAt": "2026-05-29T12:50:00Z"
+      },
+      "expectedExternalSource": {
+        "sourceId": "snapshot-synthetic-manual-link",
+        "category": "offchain_governance_signal",
+        "provider": "snapshot",
+        "displayName": "Synthetic Snapshot manual link source",
+        "baseUrl": "https://example.invalid/snapshot",
+        "references": [
+          {
+            "url": "https://example.invalid/snapshot/manual-link-only/0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "domain": "example.invalid",
+            "externalId": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "retrievedAt": "2026-05-29T12:50:00Z"
+          }
+        ],
+        "trustBoundary": {
+          "boundaryId": "snapshot-synthetic-manual-link-boundary",
+          "sourceId": "snapshot-synthetic-manual-link",
+          "authorityScope": "Manual URL context only.",
+          "credentialScope": "none for this synthetic public fixture",
+          "failureModes": ["not_checked", "unknown", "source_unavailable"],
+          "reviewRequired": true
+        },
+        "accessMode": "manual",
+        "visibility": {
+          "value": "public",
+          "rawVisibility": "public",
+          "summaryVisibility": "organization_restricted",
+          "redactionPolicy": "Synthetic fixture contains no customer labels or private notes.",
+          "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+        },
+        "freshness": {
+          "state": "not_checked",
+          "lastCheckedAt": "2026-05-29T12:50:00Z",
+          "reason": "Manual link was recorded but no import, sync, or verification occurred."
+        },
+        "createdAt": "2026-05-29T12:50:00Z",
+        "updatedAt": "2026-05-29T12:50:00Z"
+      },
+      "expectedSourceRecords": [
+        {
+          "sourceId": "snapshot-synthetic-manual-link",
+          "recordId": "snapshot-synthetic-manual-link:manual:0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "type": "manual_note",
+          "externalId": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "spaceId": "synthetic-space.eth",
+          "proposalId": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "proposalUrl": "https://example.invalid/snapshot/manual-link-only/0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "status": "manual_link_only",
+          "imported": false,
+          "synced": false,
+          "verified": false,
+          "voteSubmitted": false,
+          "signed": false,
+          "observedAt": "2026-05-29T12:50:00Z",
+          "payloadHash": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "canonicalUrl": "https://example.invalid/snapshot/manual-link-only/0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+          "rawRef": {
+            "url": "https://example.invalid/snapshot/manual-link-only/0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "domain": "example.invalid",
+            "externalId": "0xcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "retrievedAt": "2026-05-29T12:50:00Z"
+          },
+          "authorityClaim": {
+            "value": "none",
+            "scope": "Manual link-only context.",
+            "reason": "The fixture records only a URL reference.",
+            "sourceBoundary": "Snapshot source was not imported, synced, or verified."
+          },
+          "evidenceClaims": [],
+          "freshness": {
+            "state": "not_checked",
+            "lastCheckedAt": "2026-05-29T12:50:00Z",
+            "reason": "Manual link was recorded but no import, sync, or verification occurred."
+          },
+          "visibility": {
+            "value": "public",
+            "rawVisibility": "public",
+            "summaryVisibility": "organization_restricted",
+            "redactionPolicy": "Synthetic fixture contains no customer labels or private notes.",
+            "retentionPolicy": "Retain as example lab material until replaced by reviewed evidence."
+          }
+        }
+      ],
+      "expectedEvidenceClaims": [],
+      "expectedValidation": {
+        "status": "valid_manual_link_fixture",
+        "checks": ["manual_access_mode", "link_only", "no_import_sync_verify_vote_submit_or_sign"],
+        "doesNotClaimCurrentProviderState": true
+      },
+      "knownLimits": [
+        "Manual links are not imported, synced, or verified.",
+        "The fixture does not establish vote or proposal evidence by itself.",
+        "Synthetic values are shaped examples only."
+      ]
+    }
+  ]
+}

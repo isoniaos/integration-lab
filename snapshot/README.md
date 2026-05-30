@@ -11,13 +11,16 @@ Adapter-spec evidence in Integration Lab. Current Snapshot workflow details and
 live fixtures are not verified in this repository, and this directory does not
 claim Snapshot product integration support.
 
-## Fixture Plan
+## Fixtures
 
 Use `read-only-offchain-governance-signal-fixture-plan.md` for the lab-facing
-plan for future Snapshot proposal/page, vote, space/settings strategy,
-discussion-link, normalized source/record, evidence-claim, mismatch, stale,
-unavailable, and manual link-only fixtures. The plan is not a product adapter
-and does not add a Snapshot API client.
+fixture plan. Synthetic fixture examples live under `fixtures/`, and the local
+validator command is documented in `../scripts/README.md`.
+
+The synthetic fixture pack covers proposal existence evidence, vote occurrence
+evidence, discussion context, page/API/cache mismatch, strategy/voting-power
+partial context, source-unavailable state, and manual link-only evidence. It is
+not a product adapter and does not add a Snapshot API client.
 
 ## Boundary
 
@@ -30,9 +33,8 @@ and does not add a Snapshot API client.
 ## Evidence Needed Before Integration Claim
 
 - Safe-to-commit Snapshot proposal/page, vote, and space/settings strategy
-  fixtures.
-- Captured Snapshot proposal/discussion URLs with source labels.
-- Dependency-free fixture validation after concrete JSON fixtures exist.
+  fixtures from live/testnet records when later allowed.
+- Matching page/API/cache and linked discussion fixtures with source labels.
 - Product-owned mapping that states which Snapshot fields, if any, are
   authoritative for a specific IsoniaOS product field.
 - Tests or reviewed adapter behavior in the owning product repository.

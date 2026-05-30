@@ -17,24 +17,29 @@ freshness, mismatch, and adoption gates.
 
 ## Fixture Inventory
 
-Snapshot fixture coverage is currently a plan only. No live Snapshot fixture
-capture, JSON fixture pack, API client, adapter implementation, or validator is
+Snapshot fixture coverage now has a synthetic lab baseline under
+`fixtures/read-only-offchain-governance-signal.example.json` and a
+dependency-free validator at
+`../scripts/validate-snapshot-read-only-offchain-fixtures.mjs`.
+
+No live Snapshot fixture capture, API client, adapter implementation, product
+workflow, write path, vote-submission path, signing path, or execution path is
 present.
 
 | Fixture | Purpose | Current status |
 | --- | --- | --- |
-| Snapshot proposal response/page fixture | Capture proposal identity, space, URL, title/body hash or content reference, source-reported state, timing, result view, and discussion refs when safe to commit. | planned |
-| Snapshot votes response fixture | Capture vote identity, voter source identity, choice, choice label, choice payload, voting power, strategy refs, and signature refs when safe to commit. | planned |
-| Snapshot space/settings/strategy fixture | Capture space identity, URL, network context, settings, strategy refs, and strategy payload hash where available. | planned |
-| Optional discussion-link fixture | Capture linked forum/comment/thread URL and visibility boundary without treating it as approval. | planned |
-| Expected normalized `ExternalSourceDto` | Define Snapshot source identity, access, visibility, trust boundary, and freshness state. | planned |
-| Expected normalized `SourceRecordDto` for proposal | Define bounded proposal record shape, authority posture, evidence claims, and provenance. | planned |
-| Expected normalized `SourceRecordDto` for vote | Define bounded vote record shape, authority posture, evidence claims, and provenance. | planned |
-| Expected `EvidenceClaimDto` for proposal existence | Define `proposal_existed` evidence only when the fixture supports it. | planned |
-| Expected `EvidenceClaimDto` for vote occurrence | Define `vote_occurred` evidence only when the fixture supports it. | planned |
-| Mismatch case fixture | Preserve disagreement between page/API/cache, expected normalized fields, strategy context, discussion link, or content hash. | planned |
-| Stale/source-unavailable case fixture | Exercise stale, unavailable, rate-limited, auth, permission, schema, parse, partial, and unknown states. | planned |
-| Manual link-only case fixture | Represent URL-only Snapshot space, proposal, or discussion evidence without API import or verification. | planned |
+| Snapshot proposal response/page fixture | Capture proposal identity, space, URL, title/body hash or content reference, source-reported state, timing, result view, and discussion refs when safe to commit. | synthetic baseline exists; live capture planned |
+| Snapshot votes response fixture | Capture vote identity, voter source identity, choice, choice label, choice payload, voting power, strategy refs, and signature refs when safe to commit. | synthetic baseline exists; live capture planned |
+| Snapshot space/settings/strategy fixture | Capture space identity, URL, network context, settings, strategy refs, and strategy payload hash where available. | synthetic baseline exists; live capture planned |
+| Optional discussion-link fixture | Capture linked forum/comment/thread URL and visibility boundary without treating it as approval. | synthetic baseline exists; live capture planned |
+| Expected normalized `ExternalSourceDto` | Define Snapshot source identity, access, visibility, trust boundary, and freshness state. | synthetic baseline exists |
+| Expected normalized `SourceRecordDto` for proposal | Define bounded proposal record shape, authority posture, evidence claims, and provenance. | synthetic baseline exists |
+| Expected normalized `SourceRecordDto` for vote | Define bounded vote record shape, authority posture, evidence claims, and provenance. | synthetic baseline exists |
+| Expected `EvidenceClaimDto` for proposal existence | Define `proposal_existed` evidence only when the fixture supports it. | synthetic baseline exists |
+| Expected `EvidenceClaimDto` for vote occurrence | Define `vote_occurred` evidence only when the fixture supports it. | synthetic baseline exists |
+| Mismatch case fixture | Preserve disagreement between page/API/cache, expected normalized fields, strategy context, discussion link, or content hash. | synthetic baseline exists; expanded live mismatch capture planned |
+| Stale/source-unavailable case fixture | Exercise stale, unavailable, rate-limited, auth, permission, schema, parse, partial, and unknown states. | synthetic baseline exists |
+| Manual link-only case fixture | Represent URL-only Snapshot space, proposal, or discussion evidence without API import or verification. | synthetic baseline exists |
 
 ## Placeholder Fixture Field List
 
@@ -143,7 +148,9 @@ Future fixture validation should check:
 - no committed credentials, wallet secrets, private keys, API tokens, customer
   private data, or private interpretation notes.
 
-Do not add a validator until a concrete Snapshot JSON fixture exists.
+The current validator covers the synthetic baseline. Live/testnet fixture
+capture remains future work and should extend the validator only as concrete
+safe-to-commit cases require it.
 
 ## Negative And Mismatch Fixtures
 
@@ -172,10 +179,12 @@ choosing one as truth.
 
 - Private Snapshot read-only offchain governance-signal adapter spec exists in
   `private-docs/strategy/`.
-- This Integration Lab fixture plan exists.
+- This Integration Lab fixture plan, synthetic fixture pack, and dependency-free
+  validator exist.
 - The provider registry classifies the Snapshot entry as `adapter-spec` evidence
-  when the spec and fixture plan are present, while keeping write, execute, vote
-  submission, signing, proposal creation, and space administration disabled.
+  when the spec, fixture plan, synthetic fixtures, and validator are present,
+  while keeping write, execute, vote submission, signing, proposal creation, and
+  space administration disabled.
 - No Snapshot adapter, API client, UI, Control Plane ingestion, SDK API, App
   Core runtime behavior, write path, vote submission path, signing path,
   proposal creation flow, space administration flow, or execution path exists.
@@ -184,12 +193,11 @@ choosing one as truth.
 
 - Capture safe-to-commit Snapshot proposal/page, vote, and space/settings
   strategy fixtures when later allowed.
-- Define the Snapshot proposal, vote, and space strategy fixture JSON shape.
-- Add dependency-free fixture validation only after concrete JSON fixtures
-  exist.
-- Cover page/API/cache mismatch cases.
+- Capture matching page/API/cache and linked discussion fixtures when later
+  allowed.
 - Review strategy and voting power reproducibility.
 - Review identity mapping for voters and authors.
+- Align future read-only adapter tests with the synthetic fixture pack.
 - Draft source-boundary warning copy for any future read-only UI.
 
 ## No-Support Boundary

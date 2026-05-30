@@ -207,16 +207,17 @@
       "readOnlyWritePosture": "read_only_lab_planning_no_write_or_execute_capability",
       "knownLimits": [
         "No Snapshot adapter is implemented here.",
-        "A private Snapshot read-only offchain governance-signal spec and Integration Lab fixture plan now exist.",
-        "No live Snapshot fixtures, fixture validator, product integration, or Snapshot availability claim is present.",
+        "A private Snapshot read-only offchain governance-signal spec, Integration Lab fixture plan, synthetic fixture pack, and dependency-free validator now exist.",
+        "No live Snapshot fixtures, read-only adapter implementation, product integration, or Snapshot availability claim is present.",
         "Offchain signaling is not approval or execution evidence by default.",
         "Voting power and strategy semantics are source-boundary context and are not normalized by this registry.",
         "Snapshot records are not converted into IsoniaOS protocol authority by this registry."
       ],
       "nextEvidenceNeeded": [
-        "Safe-to-commit Snapshot proposal/page, vote, and space/settings strategy fixture capture when later allowed.",
-        "Dependency-free fixture validator after concrete Snapshot JSON fixtures exist.",
+        "Safe-to-commit live/testnet Snapshot proposal/page, vote, and space/settings strategy fixture capture when later allowed.",
+        "Matching page/API/cache and linked discussion fixtures for the same safe-to-commit Snapshot records when later allowed.",
         "Mismatch fixtures for proposal URL/id, space id/slug, strategy, choice label, result, page/API/cache state, discussion URL, snapshot block/timestamp, voting power, identity mapping, and content hash disagreements.",
+        "Read-only adapter tests aligned with the synthetic fixture pack before any downstream implementation.",
         "Source-boundary copy for stale, partial, unavailable, and strategy-specific fields."
       ],
       "publicClaimStatus": "no_provider_support_claim"

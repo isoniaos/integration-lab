@@ -23,6 +23,12 @@ Current scripts:
   shape, authority/evidence posture, freshness and mismatch declarations,
   address/hash/block-number shapes, no-secret hygiene, no enabled write or
   execution capabilities, and conservative public-claim wording.
+- `validate-snapshot-read-only-offchain-fixtures.mjs` validates the synthetic
+  Snapshot read-only offchain governance-signal fixture pack without npm
+  dependencies. It checks shape, authority/evidence posture, freshness and
+  mismatch declarations, identity/value shapes, no-secret hygiene, no enabled
+  write/vote/signing/administration/execution capabilities, and conservative
+  public-claim wording.
 
 Usage:
 
@@ -36,6 +42,10 @@ node scripts/validate-external-source-provider-registry.mjs provider-registry/ex
 
 ```bash
 node scripts/validate-safe-read-only-execution-fixtures.mjs safe/fixtures/read-only-execution-evidence.example.json
+```
+
+```bash
+node scripts/validate-snapshot-read-only-offchain-fixtures.mjs snapshot/fixtures/read-only-offchain-governance-signal.example.json
 ```
 
 When adding scripts:

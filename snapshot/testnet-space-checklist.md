@@ -7,6 +7,9 @@ For the fixture inventory and future validation expectations, use
 `read-only-offchain-governance-signal-fixture-plan.md`. This checklist remains
 for field-note capture planning only.
 
+Synthetic examples now live under `fixtures/`. Use them to understand the
+expected read-only evidence shape before capturing any live/testnet field notes.
+
 ## Practical Prerequisites
 
 - A wallet controlled by the test operator.
@@ -43,6 +46,7 @@ explicitly models that authority.
 
 - Safe-to-commit Snapshot proposal/page, vote, and space/settings strategy
   fixtures from a current testnet run when later allowed.
+- Matching page/API/cache and linked discussion records when later allowed.
 - Source labels and trust-boundary text preserved in the run evidence.
 - Product-owned adapter or client behavior that consumes Snapshot records.
 - Documentation stating the exact authority scope, exclusions, and residual
